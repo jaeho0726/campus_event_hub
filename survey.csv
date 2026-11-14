@@ -1,0 +1,427 @@
+respondent_id,class_standing,lives_on_campus,primary_interest,main_source,events_attended_last_month,missed_event,reason_missed,discovery_satisfaction,would_use_central_tool
+R161,Sophomore,Yes,Career/Professional,Instagram,4,No,,2.0,Yes
+R087,Sophomore,Yes,Sports/Rec,Campus calendar,4,Yes,Time conflict,2.0,Yes
+R395,Senior,No,Career/Professional,Friends/group chat,0,No,,1.0,Maybe
+R287,Junior,No,Career/Professional,Friends/group chat,5,Yes,Didn't know it was happening,2.0,Maybe
+R365,Junior,No,Career/Professional,Instagram,3,No,,3.0,Yes
+R411,Senior,Yes,Career/Professional,Instagram,3,No,,,No
+R349,Transfer,No,Social,Instagram,0,Yes,Didn't know it was happening,1.0,Maybe
+R173,Transfer,No,Cultural,Instagram,4,Yes,Didn't know it was happening,3.0,Maybe
+R302,Senior,No,Career/Professional,Discord,2,No,,2.0,Maybe
+R002,Junior,No,Tech,Email newsletter,3,Yes,Didn't know it was happening,4.0,Yes
+R072,Junior,No,Social,Friends/group chat,2,Yes,Other,3.0,Yes
+R419,Transfer,No,Sports/Rec,Friends/group chat,0,Yes,Didn't know it was happening,2.0,Maybe
+R337,Freshman,Yes,Social,Friends/group chat,2,Yes,Didn't know it was happening,3.0,Yes
+R385,Junior,No,Career/Professional,Instagram,1,Yes,Found out too late,3.0,Yes
+R057,Transfer,No,Cultural,Instagram,1,Yes,Didn't know it was happening,3.0,Yes
+R301,Senior,No,Career/Professional,Email newsletter,1,No,,4.0,Yes
+R190,Senior,Yes,Career/Professional,Flyers,5,Yes,Didn't know it was happening,5.0,Maybe
+R245,Senior,No,Sports/Rec,Discord,1,Yes,Time conflict,5.0,Yes
+R137,Senior,No,Career/Professional,Discord,3,No,,3.0,Maybe
+R218,Junior,No,Social,Friends/group chat,0,Yes,Found out too late,4.0,Yes
+R415,Senior,No,Cultural,Discord,0,Yes,Found out too late,3.0,Yes
+R386,Sophomore,Yes,Tech,Friends/group chat,4,Yes,Didn't know it was happening,4.0,Yes
+R122,Senior,No,Social,Flyers,2,No,,4.0,No
+R024,Senior,No,Tech,Friends/group chat,3,No,,5.0,No
+R266,Freshman,Yes,Cultural,Instagram,6,No,,2.0,Yes
+R342,Senior,No,Career/Professional,Instagram,0,Yes,Didn't know it was happening,3.0,Maybe
+R176,Transfer,No,Career/Professional,Instagram,2,Yes,Found out too late,3.0,Yes
+R127,Sophomore,Yes,Cultural,Email newsletter,2,Yes,Didn't know it was happening,3.0,Yes
+R038,Junior,No,Tech,Instagram,1,Yes,Didn't know it was happening,3.0,Yes
+R234,Senior,No,Cultural,Discord,1,No,,4.0,Yes
+R345,Senior,No,Career/Professional,Instagram,2,No,,1.0,No
+R085,Sophomore,No,Arts,Campus calendar,2,Yes,Didn't know it was happening,3.0,Maybe
+R343,Senior,No,Career/Professional,Email newsletter,3,No,,2.0,Yes
+R008,Transfer,No,Sports/Rec,Discord,0,Yes,Time conflict,2.0,Yes
+R338,Transfer,No,Tech,Flyers,0,No,,1.0,Maybe
+R159,Transfer,No,Tech,Friends/group chat,0,Yes,Other,3.0,Maybe
+R249,Freshman,Yes,Cultural,Discord,6,Yes,Found out too late,4.0,Yes
+R103,Transfer,No,Arts,Instagram,1,Yes,Didn't know it was happening,1.0,Maybe
+R332,Senior,Yes,Service,Instagram,1,No,,2.0,Yes
+R231,Senior,No,Sports/Rec,Friends/group chat,3,Yes,Didn't know it was happening,2.0,No
+R144,Sophomore,No,Service,Friends/group chat,1,No,,4.0,Yes
+R105,Junior,Yes,Cultural,Friends/group chat,4,No,,3.0,No
+R145,Senior,Yes,Tech,Instagram,3,Yes,Didn't know it was happening,4.0,Yes
+R310,Sophomore,No,Sports/Rec,Flyers,0,Yes,Found out too late,3.0,Yes
+R208,Sophomore,No,Career/Professional,Friends/group chat,4,No,,3.0,Maybe
+R329,Senior,No,Social,Email newsletter,1,No,,4.0,Maybe
+R007,Sophomore,Yes,Social,Instagram,2,No,,4.0,Yes
+R081,Sophomore,No,Tech,Flyers,3,Yes,Found out too late,2.0,Yes
+R042,Sophomore,No,Career/Professional,Friends/group chat,3,No,,3.0,Maybe
+R331,Senior,Yes,Service,Instagram,2,Yes,Found out too late,4.0,Maybe
+R359,Junior,No,Career/Professional,Campus calendar,0,No,,3.0,Yes
+R379,Junior,No,Service,Discord,2,No,,2.0,Yes
+R401,Transfer,Yes,Cultural,Instagram,0,Yes,Wasn't sure it was for me,2.0,Maybe
+R280,Transfer,No,Cultural,Instagram,0,Yes,Didn't know it was happening,2.0,Maybe
+R101,Transfer,No,Career/Professional,Friends/group chat,2,No,,3.0,No
+R340,Freshman,Yes,Social,Instagram,4,No,,3.0,Maybe
+R012,Junior,No,Service,Friends/group chat,1,No,,,Maybe
+R073,Junior,No,Arts,Friends/group chat,1,Yes,Other,2.0,No
+R284,Junior,No,Cultural,Friends/group chat,4,No,,2.0,Yes
+R128,Junior,Yes,Tech,Friends/group chat,4,No,,3.0,Maybe
+R219,Freshman,Yes,Tech,Instagram,6,No,,5.0,Maybe
+R135,Senior,No,Social,Flyers,0,Yes,Found out too late,5.0,Maybe
+R279,Freshman,Yes,Arts,Discord,1,No,,3.0,Maybe
+R263,Sophomore,Yes,Social,Email newsletter,3,No,,3.0,Yes
+R157,Senior,No,Career/Professional,Friends/group chat,1,No,,4.0,No
+R006,Transfer,No,Cultural,Instagram,2,Yes,Found out too late,3.0,Maybe
+R031,Senior,Yes,Social,Friends/group chat,0,No,,3.0,Yes
+R191,Senior,Yes,Cultural,Instagram,4,No,,4.0,Maybe
+R041,Transfer,No,Cultural,Flyers,1,Yes,Found out too late,,Yes
+R019,Senior,No,Social,Instagram,5,No,,4.0,Maybe
+R100,Sophomore,No,Cultural,Discord,2,No,,4.0,Yes
+R363,Freshman,Yes,Social,Instagram,4,Yes,Didn't know it was happening,3.0,No
+R013,Sophomore,Yes,Sports/Rec,Discord,2,No,,2.0,Maybe
+R062,Senior,No,Social,Friends/group chat,2,Yes,Found out too late,3.0,Maybe
+R307,Senior,No,Tech,Instagram,1,No,,4.0,Yes
+R417,Freshman,No,Service,Friends/group chat,3,Yes,Didn't know it was happening,3.0,Maybe
+R198,Sophomore,No,Cultural,Friends/group chat,0,Yes,Found out too late,4.0,Yes
+R408,Sophomore,Yes,Tech,Instagram,3,Yes,Time conflict,2.0,Maybe
+R058,Junior,No,Cultural,Instagram,3,No,,3.0,Yes
+R152,Sophomore,Yes,Tech,Instagram,4,Yes,Didn't know it was happening,1.0,Yes
+R199,Sophomore,Yes,Social,Discord,3,No,,3.0,Yes
+R084,Transfer,No,Tech,Instagram,0,Yes,Found out too late,1.0,Yes
+R353,Junior,Yes,Career/Professional,Instagram,3,No,,2.0,Yes
+R214,Sophomore,Yes,Tech,Instagram,0,Yes,Didn't know it was happening,2.0,Yes
+R134,Senior,No,Sports/Rec,Campus calendar,1,Yes,Time conflict,3.0,Maybe
+R132,Junior,No,Service,Friends/group chat,1,No,,2.0,Yes
+R418,Transfer,No,Social,Discord,2,Yes,Time conflict,1.0,Maybe
+R360,Senior,No,Social,Friends/group chat,0,No,,3.0,Yes
+R390,Senior,No,Cultural,Instagram,1,Yes,Didn't know it was happening,3.0,Yes
+R272,Senior,No,Service,Flyers,0,No,,4.0,Yes
+R355,Junior,No,Arts,Friends/group chat,0,Yes,Didn't know it was happening,4.0,No
+R400,Transfer,No,Service,Instagram,2,Yes,Didn't know it was happening,1.0,Maybe
+R221,Sophomore,Yes,Cultural,Campus calendar,0,No,,,Yes
+R032,Senior,No,Tech,Friends/group chat,0,No,,2.0,Maybe
+R077,Freshman,No,Cultural,Instagram,2,Yes,Time conflict,3.0,Maybe
+R155,Senior,No,Social,Discord,4,No,,2.0,Yes
+R339,Sophomore,No,Arts,Discord,3,No,,3.0,Yes
+R169,Senior,No,Social,Instagram,0,Yes,Didn't know it was happening,3.0,Maybe
+R211,Senior,Yes,Career/Professional,Discord,3,No,,2.0,Maybe
+R158,Junior,No,Cultural,Friends/group chat,1,No,,3.0,Maybe
+R389,Transfer,No,Social,Discord,2,Yes,Didn't know it was happening,2.0,Yes
+R402,Senior,No,Social,Friends/group chat,3,No,,2.0,Maybe
+R314,Senior,No,Sports/Rec,Discord,1,Yes,Time conflict,5.0,No
+R371,Senior,No,Service,Instagram,1,No,,2.0,Yes
+R394,Junior,No,Arts,Instagram,1,Yes,Didn't know it was happening,4.0,Maybe
+R045,Sophomore,Yes,Social,Friends/group chat,3,Yes,Didn't know it was happening,2.0,Yes
+R412,Senior,Yes,Sports/Rec,Flyers,2,Yes,Time conflict,4.0,Maybe
+R207,Senior,No,Sports/Rec,Friends/group chat,0,Yes,Didn't know it was happening,4.0,Yes
+R108,Senior,No,Service,Instagram,1,Yes,Time conflict,3.0,No
+R017,Senior,Yes,Career/Professional,Friends/group chat,4,No,,,Maybe
+R324,Freshman,No,Career/Professional,Friends/group chat,2,Yes,Found out too late,2.0,Yes
+R088,Senior,Yes,Sports/Rec,Discord,3,No,,4.0,Maybe
+R333,Senior,No,Social,Discord,0,No,,2.0,Yes
+R374,Senior,No,Career/Professional,Instagram,0,Yes,Didn't know it was happening,3.0,Maybe
+R364,Junior,Yes,Social,Instagram,2,Yes,Didn't know it was happening,,Yes
+R387,Sophomore,Yes,Social,Flyers,4,No,,4.0,Maybe
+R011,Sophomore,No,Cultural,Instagram,1,No,,3.0,Maybe
+R375,Freshman,Yes,Social,Email newsletter,1,No,,3.0,Maybe
+R262,Transfer,No,Career/Professional,Campus calendar,1,Yes,Time conflict,4.0,Yes
+R178,Senior,No,Career/Professional,Friends/group chat,3,Yes,Found out too late,3.0,Yes
+R259,Junior,No,Tech,Flyers,0,No,,3.0,Maybe
+R197,Freshman,Yes,Arts,Email newsletter,3,Yes,Found out too late,1.0,Maybe
+R182,Sophomore,No,Sports/Rec,Flyers,2,No,,4.0,Yes
+R129,Junior,Yes,Sports/Rec,Friends/group chat,1,No,,2.0,No
+R247,Junior,Yes,Career/Professional,Instagram,3,No,,1.0,Yes
+R192,Sophomore,Yes,Service,Friends/group chat,2,Yes,Found out too late,2.0,Yes
+R384,Senior,No,Service,Instagram,0,Yes,Wasn't sure it was for me,5.0,Yes
+R369,Junior,Yes,Tech,Instagram,0,Yes,Other,4.0,Maybe
+R171,Junior,No,Tech,Friends/group chat,0,Yes,Found out too late,2.0,Maybe
+R240,Senior,No,Cultural,Friends/group chat,1,Yes,Wasn't sure it was for me,3.0,No
+R184,Senior,Yes,Tech,Flyers,2,No,,3.0,Maybe
+R376,Transfer,No,Tech,Friends/group chat,3,Yes,Didn't know it was happening,2.0,Maybe
+R200,Freshman,Yes,Cultural,Instagram,3,Yes,Other,4.0,No
+R304,Senior,No,Tech,Friends/group chat,2,No,,4.0,Maybe
+R025,Sophomore,Yes,Social,Friends/group chat,2,No,,3.0,Yes
+R382,Transfer,No,Career/Professional,Instagram,0,Yes,Didn't know it was happening,2.0,No
+R107,Senior,No,Cultural,Instagram,4,Yes,Didn't know it was happening,3.0,Maybe
+R091,Senior,No,Arts,Discord,1,No,,4.0,Maybe
+R320,Senior,Yes,Social,Email newsletter,3,No,,3.0,Yes
+R209,Senior,No,Cultural,Friends/group chat,3,Yes,Found out too late,3.0,Maybe
+R043,Freshman,Yes,Tech,Instagram,3,Yes,Didn't know it was happening,3.0,Maybe
+R254,Senior,No,Social,Friends/group chat,1,Yes,Didn't know it was happening,,Maybe
+R403,Senior,No,Career/Professional,Instagram,0,No,,4.0,Maybe
+R082,Senior,No,Arts,Instagram,2,Yes,Didn't know it was happening,5.0,Yes
+R174,Sophomore,Yes,Tech,Instagram,3,Yes,Didn't know it was happening,4.0,Maybe
+R269,Junior,Yes,Career/Professional,Instagram,3,No,,3.0,Yes
+R061,Senior,Yes,Social,Discord,4,Yes,Found out too late,3.0,Maybe
+R106,Senior,No,Career/Professional,Instagram,0,Yes,Found out too late,3.0,Yes
+R022,Freshman,Yes,Career/Professional,Discord,3,Yes,Didn't know it was happening,3.0,Maybe
+R065,Transfer,Yes,Arts,Instagram,3,Yes,Found out too late,2.0,Yes
+R330,Junior,Yes,Service,Flyers,2,No,,3.0,Yes
+R396,Freshman,Yes,Cultural,Friends/group chat,3,Yes,Didn't know it was happening,2.0,Maybe
+R346,Junior,Yes,Tech,Instagram,2,No,,2.0,No
+R309,Senior,No,Career/Professional,Friends/group chat,2,Yes,Wasn't sure it was for me,4.0,Yes
+R075,Sophomore,Yes,Arts,Discord,4,No,,3.0,Yes
+R051,Sophomore,Yes,Career/Professional,Flyers,4,No,,2.0,Yes
+R172,Senior,No,Social,Instagram,5,Yes,Didn't know it was happening,4.0,Maybe
+R126,Senior,No,Social,Friends/group chat,0,No,,3.0,Yes
+R185,Transfer,No,Arts,Instagram,1,No,,,Yes
+R146,Sophomore,No,Social,Instagram,2,No,,3.0,Maybe
+R261,Senior,No,Social,Discord,1,Yes,Time conflict,2.0,Yes
+R204,Sophomore,Yes,Arts,Instagram,2,No,,3.0,Yes
+R237,Freshman,Yes,Cultural,Discord,5,Yes,Didn't know it was happening,1.0,Maybe
+R187,Freshman,Yes,Social,Email newsletter,4,Yes,Didn't know it was happening,3.0,Yes
+R274,Senior,Yes,Tech,Instagram,0,No,,5.0,Yes
+R306,Senior,No,Career/Professional,Instagram,3,Yes,Didn't know it was happening,3.0,Maybe
+R336,Senior,No,Social,Flyers,2,Yes,Found out too late,3.0,No
+R194,Freshman,Yes,Tech,Friends/group chat,4,Yes,Time conflict,3.0,Yes
+R163,Junior,No,Tech,Campus calendar,5,No,,2.0,Maybe
+R089,Senior,No,Career/Professional,Email newsletter,2,Yes,Didn't know it was happening,,Maybe
+R226,Sophomore,Yes,Career/Professional,Friends/group chat,1,No,,2.0,Yes
+R383,Senior,No,Tech,Instagram,1,No,,,Yes
+R290,Freshman,Yes,Tech,Instagram,2,Yes,Didn't know it was happening,2.0,Maybe
+R063,Senior,No,Career/Professional,Discord,1,Yes,Wasn't sure it was for me,3.0,Maybe
+R344,Transfer,No,Cultural,Instagram,0,Yes,Time conflict,2.0,Yes
+R116,Freshman,Yes,Career/Professional,Instagram,3,Yes,Didn't know it was happening,3.0,No
+R299,Senior,Yes,Sports/Rec,Email newsletter,2,Yes,Didn't know it was happening,5.0,Yes
+R388,Senior,No,Cultural,Friends/group chat,0,Yes,Didn't know it was happening,3.0,Maybe
+R347,Junior,No,Social,Friends/group chat,0,Yes,Didn't know it was happening,2.0,Yes
+R323,Freshman,Yes,Social,Instagram,4,Yes,Didn't know it was happening,3.0,Maybe
+R047,Senior,No,Career/Professional,Friends/group chat,1,Yes,Found out too late,2.0,Yes
+R095,Senior,No,Sports/Rec,Instagram,4,No,,4.0,Yes
+R123,Freshman,No,Arts,Friends/group chat,3,Yes,Wasn't sure it was for me,3.0,No
+R300,Freshman,Yes,Service,Friends/group chat,4,Yes,Found out too late,1.0,Yes
+R357,Junior,No,Career/Professional,Discord,0,No,,3.0,Yes
+R139,Sophomore,Yes,Career/Professional,Instagram,2,Yes,Didn't know it was happening,,Maybe
+R298,Senior,No,Career/Professional,Instagram,2,Yes,Found out too late,4.0,Yes
+R054,Junior,Yes,Arts,Instagram,0,No,,2.0,Maybe
+R114,Senior,No,Sports/Rec,Discord,2,Yes,Wasn't sure it was for me,4.0,Yes
+R166,Junior,No,Arts,Campus calendar,2,Yes,Didn't know it was happening,2.0,Maybe
+R141,Senior,Yes,Career/Professional,Discord,2,No,,3.0,No
+R236,Junior,No,Arts,Instagram,1,No,,4.0,Maybe
+R181,Sophomore,Yes,Social,Instagram,7,No,,5.0,Yes
+R005,Junior,Yes,Tech,Discord,4,No,,4.0,Maybe
+R358,Senior,No,Arts,Friends/group chat,2,No,,5.0,Maybe
+R066,Senior,Yes,Career/Professional,Instagram,1,Yes,Found out too late,5.0,Maybe
+R056,Senior,No,Tech,Friends/group chat,2,Yes,Wasn't sure it was for me,3.0,Yes
+R288,Sophomore,Yes,Cultural,Discord,0,No,,2.0,Maybe
+R170,Junior,No,Career/Professional,Instagram,3,Yes,Other,1.0,Yes
+R416,Senior,No,Arts,Instagram,3,Yes,Time conflict,4.0,Yes
+R092,Transfer,No,Social,Instagram,1,Yes,Found out too late,4.0,Maybe
+R410,Senior,No,Cultural,Instagram,1,Yes,Didn't know it was happening,3.0,Yes
+R275,Sophomore,No,Career/Professional,Friends/group chat,1,Yes,Didn't know it was happening,3.0,Yes
+R328,Senior,No,Cultural,Friends/group chat,3,Yes,Time conflict,3.0,No
+R115,Transfer,No,Career/Professional,Instagram,0,Yes,Wasn't sure it was for me,2.0,Yes
+R235,Junior,No,Career/Professional,Flyers,6,Yes,Didn't know it was happening,3.0,No
+R255,Senior,No,Service,Instagram,0,Yes,Found out too late,4.0,Yes
+R027,Sophomore,Yes,Cultural,Instagram,4,Yes,Found out too late,3.0,Yes
+R179,Transfer,No,Sports/Rec,Discord,0,Yes,Time conflict,2.0,Yes
+R079,Senior,No,Arts,Email newsletter,1,Yes,Found out too late,3.0,Yes
+R110,Junior,No,Tech,Instagram,3,Yes,Didn't know it was happening,2.0,Yes
+R294,Senior,Yes,Cultural,Instagram,2,Yes,Didn't know it was happening,3.0,Yes
+R164,Transfer,No,Service,Email newsletter,3,Yes,Didn't know it was happening,4.0,Yes
+R337,Freshman,Yes,Social,Friends/group chat,2,Yes,Didn't know it was happening,3.0,Yes
+R380,Sophomore,No,Arts,Instagram,2,No,,3.0,Maybe
+R281,Junior,Yes,Career/Professional,Friends/group chat,1,No,,2.0,Yes
+R350,Junior,No,Service,Flyers,3,No,,4.0,Yes
+R256,Junior,No,Cultural,Discord,0,Yes,Found out too late,2.0,Yes
+R248,Senior,No,Career/Professional,Instagram,4,No,,3.0,Maybe
+R120,Senior,No,Social,Instagram,2,No,,4.0,Yes
+R009,Junior,Yes,Career/Professional,Instagram,4,Yes,Found out too late,4.0,No
+R378,Senior,No,Tech,Campus calendar,2,No,,1.0,Yes
+R150,Senior,Yes,Social,Instagram,1,No,,4.0,Maybe
+R303,Transfer,No,Career/Professional,Campus calendar,1,Yes,Didn't know it was happening,3.0,Maybe
+R205,Freshman,Yes,Sports/Rec,Discord,0,Yes,Didn't know it was happening,2.0,Maybe
+R053,Freshman,Yes,Arts,Friends/group chat,2,No,,2.0,Maybe
+R406,Freshman,Yes,Arts,Email newsletter,3,Yes,Time conflict,2.0,Yes
+R055,Freshman,Yes,Service,Friends/group chat,2,Yes,Found out too late,2.0,No
+R035,Sophomore,Yes,Career/Professional,Email newsletter,4,Yes,Found out too late,3.0,No
+R171,Junior,No,Tech,Friends/group chat,0,Yes,Found out too late,2.0,Maybe
+R316,Sophomore,No,Social,Instagram,1,Yes,Wasn't sure it was for me,3.0,Yes
+R111,Transfer,No,Service,Friends/group chat,0,Yes,Didn't know it was happening,1.0,Yes
+R212,Senior,Yes,Tech,Campus calendar,4,No,,2.0,No
+R228,Senior,No,Arts,Campus calendar,0,Yes,Didn't know it was happening,4.0,Yes
+R285,Transfer,No,Career/Professional,Friends/group chat,1,No,,1.0,Yes
+R356,Senior,No,Sports/Rec,Instagram,2,No,,4.0,Yes
+R243,Senior,No,Sports/Rec,Email newsletter,1,Yes,Didn't know it was happening,5.0,Yes
+R368,Junior,Yes,Arts,Instagram,3,Yes,Didn't know it was happening,4.0,Maybe
+R151,Senior,No,Arts,Friends/group chat,0,No,,4.0,Yes
+R143,Sophomore,No,Career/Professional,Friends/group chat,2,No,,2.0,Maybe
+R370,Transfer,Yes,Career/Professional,Instagram,2,No,,3.0,Yes
+R040,Junior,No,Career/Professional,Instagram,3,No,,2.0,Yes
+R276,Junior,Yes,Career/Professional,Instagram,3,Yes,Didn't know it was happening,4.0,No
+R016,Junior,No,Career/Professional,Friends/group chat,1,Yes,Found out too late,2.0,Maybe
+R104,Junior,Yes,Service,Flyers,2,Yes,Time conflict,3.0,Yes
+R286,Freshman,Yes,Service,Friends/group chat,1,Yes,Wasn't sure it was for me,3.0,Yes
+R001,Sophomore,Yes,Career/Professional,Friends/group chat,3,Yes,Time conflict,1.0,Yes
+R372,Senior,No,Tech,Instagram,2,Yes,Found out too late,2.0,Yes
+R397,Junior,Yes,Cultural,Flyers,0,Yes,Time conflict,4.0,Yes
+R326,Junior,No,Cultural,Friends/group chat,1,No,,3.0,Yes
+R392,Senior,No,Sports/Rec,Instagram,2,Yes,Found out too late,3.0,Yes
+R201,Sophomore,No,Cultural,Discord,1,Yes,Found out too late,4.0,No
+R142,Sophomore,No,Cultural,Instagram,0,Yes,Didn't know it was happening,5.0,Maybe
+R175,Sophomore,No,Career/Professional,Friends/group chat,0,Yes,Time conflict,4.0,Maybe
+R311,Senior,Yes,Tech,Instagram,1,No,,3.0,Yes
+R177,Senior,Yes,Career/Professional,Campus calendar,2,No,,2.0,Yes
+R354,Junior,No,Career/Professional,Friends/group chat,1,Yes,Didn't know it was happening,3.0,Yes
+R223,Senior,No,Tech,Flyers,2,No,,3.0,Yes
+R241,Senior,No,Service,Friends/group chat,1,Yes,Found out too late,3.0,Maybe
+R156,Senior,No,Cultural,Instagram,0,Yes,Found out too late,4.0,No
+R291,Sophomore,No,Tech,Email newsletter,2,Yes,Wasn't sure it was for me,4.0,Yes
+R319,Junior,No,Social,Flyers,2,Yes,Didn't know it was happening,4.0,Yes
+R186,Freshman,Yes,Social,Friends/group chat,5,Yes,Found out too late,2.0,Yes
+R238,Junior,Yes,Cultural,Discord,2,Yes,Time conflict,3.0,No
+R147,Senior,No,Career/Professional,Instagram,2,No,,3.0,No
+R218,Junior,No,Social,Friends/group chat,0,Yes,Found out too late,4.0,Yes
+R105,Junior,Yes,Cultural,Friends/group chat,4,No,,3.0,No
+R010,Senior,No,Social,Friends/group chat,0,Yes,Didn't know it was happening,3.0,Yes
+R409,Junior,No,Social,Instagram,2,No,,4.0,Yes
+R322,Junior,No,Social,Friends/group chat,0,Yes,Found out too late,4.0,Maybe
+R167,Senior,No,Arts,Instagram,2,No,,2.0,Yes
+R148,Senior,No,Career/Professional,Instagram,1,Yes,Didn't know it was happening,4.0,Yes
+R313,Sophomore,Yes,Service,Instagram,6,Yes,Wasn't sure it was for me,4.0,Maybe
+R014,Transfer,Yes,Cultural,Friends/group chat,0,Yes,Found out too late,2.0,Maybe
+R341,Freshman,Yes,Cultural,Flyers,3,Yes,Time conflict,2.0,Maybe
+R121,Senior,No,Social,Instagram,0,No,,2.0,No
+R296,Transfer,No,Tech,Discord,0,Yes,Didn't know it was happening,3.0,No
+R224,Senior,No,Career/Professional,Instagram,1,Yes,Didn't know it was happening,3.0,Maybe
+R239,Junior,No,Service,Friends/group chat,0,Yes,Found out too late,2.0,Maybe
+R244,Senior,Yes,Career/Professional,Instagram,2,Yes,Time conflict,4.0,Yes
+R037,Senior,No,Tech,Discord,1,Yes,Didn't know it was happening,2.0,Maybe
+R229,Senior,No,Arts,Email newsletter,1,Yes,Didn't know it was happening,2.0,Maybe
+R069,Sophomore,No,Service,Instagram,4,No,,2.0,Yes
+R233,Sophomore,No,Social,Instagram,1,No,,4.0,Yes
+R268,Junior,No,Arts,Friends/group chat,1,Yes,Found out too late,2.0,Maybe
+R282,Sophomore,No,Cultural,Campus calendar,5,Yes,Wasn't sure it was for me,4.0,Yes
+R119,Transfer,No,Social,Flyers,0,Yes,Found out too late,,Maybe
+R130,Transfer,No,Tech,Instagram,1,Yes,Didn't know it was happening,2.0,Yes
+R083,Senior,No,Social,Discord,3,Yes,Didn't know it was happening,3.0,No
+R180,Sophomore,No,Tech,Campus calendar,2,Yes,Didn't know it was happening,3.0,Yes
+R361,Sophomore,No,Social,Friends/group chat,3,Yes,Found out too late,3.0,Maybe
+R351,Freshman,Yes,Career/Professional,Friends/group chat,3,Yes,Didn't know it was happening,3.0,Maybe
+R399,Transfer,No,Career/Professional,Friends/group chat,2,No,,2.0,Maybe
+R046,Sophomore,Yes,Social,Friends/group chat,4,No,,3.0,Yes
+R315,Freshman,Yes,Social,Instagram,4,Yes,Found out too late,2.0,Maybe
+R242,Sophomore,No,Career/Professional,Instagram,1,Yes,Didn't know it was happening,2.0,Yes
+R398,Sophomore,No,Tech,Instagram,1,Yes,Didn't know it was happening,2.0,Maybe
+R193,Freshman,Yes,Tech,Instagram,3,Yes,Didn't know it was happening,2.0,Yes
+R225,Sophomore,No,Social,Campus calendar,2,No,,3.0,No
+R154,Freshman,Yes,Career/Professional,Discord,2,Yes,Didn't know it was happening,2.0,Yes
+R153,Transfer,No,Career/Professional,Discord,0,Yes,Didn't know it was happening,3.0,Maybe
+R188,Sophomore,Yes,Social,Email newsletter,3,No,,3.0,No
+R094,Freshman,Yes,Social,Instagram,2,No,,2.0,Maybe
+R124,Transfer,No,Tech,Instagram,3,Yes,Time conflict,3.0,Yes
+R168,Sophomore,No,Tech,Friends/group chat,5,Yes,Wasn't sure it was for me,2.0,Maybe
+R060,Senior,Yes,Sports/Rec,Instagram,1,No,,3.0,Yes
+R049,Senior,Yes,Sports/Rec,Flyers,3,Yes,Didn't know it was happening,2.0,Yes
+R232,Freshman,Yes,Sports/Rec,Instagram,3,Yes,Time conflict,4.0,No
+R203,Freshman,Yes,Service,Instagram,0,Yes,Time conflict,2.0,Maybe
+R220,Sophomore,No,Career/Professional,Instagram,1,No,,2.0,Yes
+R052,Transfer,No,Social,Instagram,3,Yes,Didn't know it was happening,3.0,Yes
+R118,Sophomore,No,Sports/Rec,Friends/group chat,1,Yes,Found out too late,2.0,Yes
+R071,Junior,No,Tech,Instagram,1,Yes,Didn't know it was happening,3.0,Yes
+R021,Freshman,Yes,Arts,Friends/group chat,3,Yes,Didn't know it was happening,3.0,Maybe
+R210,Senior,No,Cultural,Campus calendar,2,No,,4.0,Yes
+R267,Junior,Yes,Social,Instagram,3,Yes,Wasn't sure it was for me,4.0,Yes
+R064,Freshman,Yes,Social,Instagram,4,No,,3.0,Maybe
+R098,Senior,No,Tech,Friends/group chat,0,Yes,Time conflict,4.0,Yes
+R348,Sophomore,Yes,Cultural,Friends/group chat,3,Yes,Time conflict,4.0,Maybe
+R172,Senior,No,Social,Instagram,5,Yes,Didn't know it was happening,4.0,Maybe
+R273,Junior,No,Tech,Discord,1,Yes,Didn't know it was happening,4.0,No
+R109,Senior,No,Sports/Rec,Instagram,1,No,,5.0,Yes
+R033,Junior,No,Sports/Rec,Campus calendar,3,No,,4.0,Yes
+R125,Transfer,No,Career/Professional,Discord,1,Yes,Found out too late,2.0,Yes
+R183,Freshman,Yes,Career/Professional,Campus calendar,7,No,,4.0,Yes
+R257,Junior,No,Cultural,Campus calendar,2,No,,3.0,Yes
+R099,Transfer,No,Social,Instagram,0,Yes,Found out too late,3.0,Yes
+R373,Sophomore,No,Career/Professional,Campus calendar,2,No,,2.0,Yes
+R093,Senior,Yes,Arts,Instagram,4,No,,4.0,Yes
+R039,Sophomore,No,Tech,Instagram,2,Yes,Time conflict,2.0,No
+R133,Senior,No,Career/Professional,Flyers,1,No,,5.0,Maybe
+R096,Transfer,No,Social,Campus calendar,0,Yes,Didn't know it was happening,3.0,Yes
+R036,Junior,Yes,Cultural,Instagram,1,No,,2.0,No
+R265,Junior,No,Career/Professional,Instagram,1,Yes,Didn't know it was happening,4.0,Maybe
+R086,Sophomore,Yes,Career/Professional,Friends/group chat,5,Yes,Found out too late,2.0,Maybe
+R215,Freshman,Yes,Cultural,Instagram,3,Yes,Time conflict,2.0,Maybe
+R270,Junior,No,Tech,Instagram,2,No,,4.0,No
+R222,Transfer,No,Tech,Campus calendar,1,Yes,Wasn't sure it was for me,3.0,Yes
+R230,Junior,No,Service,Flyers,3,Yes,Didn't know it was happening,3.0,Yes
+R034,Junior,No,Social,Instagram,2,Yes,Time conflict,3.0,Maybe
+R278,Transfer,Yes,Service,Friends/group chat,0,No,,1.0,Yes
+R196,Junior,No,Service,Friends/group chat,2,Yes,Didn't know it was happening,3.0,Maybe
+R216,Junior,No,Tech,Instagram,2,Yes,Found out too late,2.0,No
+R393,Sophomore,Yes,Sports/Rec,Instagram,3,No,,3.0,Yes
+R271,Senior,Yes,Sports/Rec,Campus calendar,2,No,,4.0,Maybe
+R381,Junior,No,Career/Professional,Instagram,2,Yes,Didn't know it was happening,1.0,Maybe
+R070,Junior,No,Arts,Friends/group chat,4,Yes,Didn't know it was happening,3.0,Yes
+R090,Freshman,Yes,Cultural,Friends/group chat,3,Yes,Other,2.0,Maybe
+R003,Transfer,No,Sports/Rec,Instagram,2,Yes,Didn't know it was happening,4.0,Yes
+R020,Transfer,No,Career/Professional,Instagram,0,No,,3.0,Yes
+R068,Transfer,No,Social,Campus calendar,1,Yes,Found out too late,,Yes
+R189,Transfer,Yes,Social,Discord,2,Yes,Wasn't sure it was for me,3.0,No
+R404,Transfer,No,Sports/Rec,Discord,0,Yes,Time conflict,2.0,Yes
+R308,Senior,No,Tech,Instagram,1,No,,4.0,No
+R253,Senior,No,Arts,Instagram,0,Yes,Didn't know it was happening,3.0,Yes
+R335,Junior,Yes,Social,Instagram,2,Yes,Found out too late,5.0,No
+R044,Sophomore,Yes,Service,Instagram,1,No,,3.0,Maybe
+R321,Senior,No,Social,Friends/group chat,0,No,,3.0,Maybe
+R067,Sophomore,No,Sports/Rec,Friends/group chat,1,No,,3.0,Yes
+R162,Freshman,Yes,Cultural,Instagram,4,Yes,Found out too late,2.0,Maybe
+R213,Junior,Yes,Cultural,Instagram,0,Yes,Didn't know it was happening,3.0,Yes
+R367,Sophomore,Yes,Cultural,Friends/group chat,6,Yes,Time conflict,2.0,Yes
+R165,Senior,No,Service,Email newsletter,3,Yes,Time conflict,3.0,Maybe
+R318,Sophomore,Yes,Sports/Rec,Instagram,0,Yes,Wasn't sure it was for me,3.0,Yes
+R277,Sophomore,Yes,Cultural,Friends/group chat,2,No,,2.0,Maybe
+R195,Transfer,No,Social,Instagram,0,Yes,Time conflict,3.0,Yes
+R377,Sophomore,No,Service,Instagram,3,No,,2.0,Yes
+R015,Freshman,Yes,Social,Flyers,1,Yes,Time conflict,2.0,Maybe
+R252,Sophomore,Yes,Sports/Rec,Discord,3,No,,2.0,No
+R140,Sophomore,No,Sports/Rec,Instagram,3,No,,5.0,Yes
+R076,Senior,No,Service,Instagram,2,Yes,Wasn't sure it was for me,3.0,Yes
+R080,Senior,No,Social,Friends/group chat,0,Yes,Didn't know it was happening,3.0,No
+R023,Sophomore,No,Arts,Email newsletter,3,Yes,Didn't know it was happening,2.0,Yes
+R059,Junior,No,Cultural,Campus calendar,1,No,,3.0,No
+R102,Sophomore,Yes,Career/Professional,Friends/group chat,6,Yes,Didn't know it was happening,4.0,No
+R366,Junior,Yes,Tech,Discord,2,Yes,Didn't know it was happening,4.0,Yes
+R289,Senior,No,Sports/Rec,Friends/group chat,0,Yes,Found out too late,3.0,Yes
+R407,Sophomore,Yes,Service,Friends/group chat,3,No,,2.0,Yes
+R074,Junior,No,Career/Professional,Friends/group chat,2,Yes,Didn't know it was happening,4.0,Yes
+R260,Senior,No,Social,Friends/group chat,1,No,,3.0,Yes
+R312,Senior,No,Social,Friends/group chat,1,No,,3.0,Yes
+R160,Freshman,Yes,Social,Flyers,4,Yes,Didn't know it was happening,1.0,Maybe
+R217,Junior,No,Arts,Flyers,2,No,,3.0,Yes
+R292,Junior,Yes,Arts,Friends/group chat,2,No,,3.0,Maybe
+R227,Junior,No,Service,Flyers,0,Yes,Didn't know it was happening,3.0,Maybe
+R050,Freshman,Yes,Arts,Friends/group chat,1,Yes,Found out too late,3.0,Yes
+R153,Transfer,No,Career/Professional,Discord,0,Yes,Didn't know it was happening,3.0,Maybe
+R138,Sophomore,Yes,Social,Friends/group chat,0,No,,3.0,Maybe
+R293,Senior,No,Sports/Rec,Instagram,1,Yes,Wasn't sure it was for me,3.0,Yes
+R004,Freshman,No,Social,Friends/group chat,1,Yes,Didn't know it was happening,3.0,Yes
+R246,Junior,Yes,Cultural,Email newsletter,3,No,,5.0,No
+R297,Sophomore,Yes,Social,Instagram,0,Yes,Wasn't sure it was for me,3.0,Yes
+R414,Senior,No,Tech,Email newsletter,1,No,,3.0,Yes
+R327,Senior,Yes,Social,Instagram,1,Yes,Found out too late,4.0,Yes
+R352,Sophomore,No,Arts,Instagram,5,Yes,Didn't know it was happening,2.0,Maybe
+R362,Junior,No,Tech,Friends/group chat,2,No,,3.0,Maybe
+R149,Senior,No,Tech,Email newsletter,2,No,,5.0,Yes
+R048,Senior,No,Career/Professional,Instagram,1,No,,2.0,No
+R420,Freshman,Yes,Social,Friends/group chat,5,Yes,Found out too late,3.0,Yes
+R202,Senior,No,Service,Email newsletter,3,Yes,Didn't know it was happening,5.0,Yes
+R251,Sophomore,No,Social,Discord,4,No,,4.0,Yes
+R018,Junior,No,Career/Professional,Friends/group chat,1,Yes,Wasn't sure it was for me,2.0,No
+R317,Senior,No,Tech,Discord,2,No,,3.0,Yes
+R113,Junior,Yes,Career/Professional,Instagram,2,No,,2.0,No
+R325,Senior,No,Tech,Discord,1,Yes,Didn't know it was happening,5.0,No
+R026,Transfer,Yes,Tech,Friends/group chat,3,Yes,Wasn't sure it was for me,3.0,Maybe
+R295,Junior,No,Arts,Instagram,1,Yes,Didn't know it was happening,3.0,Yes
+R305,Freshman,Yes,Tech,Instagram,3,Yes,Time conflict,4.0,Yes
+R405,Senior,No,Tech,Email newsletter,2,Yes,Time conflict,3.0,Maybe
+R112,Senior,No,Cultural,Instagram,0,Yes,Didn't know it was happening,4.0,Maybe
+R136,Junior,No,Service,Friends/group chat,2,No,,3.0,Yes
+R097,Transfer,Yes,Social,Friends/group chat,2,Yes,Found out too late,3.0,Yes
+R264,Senior,Yes,Arts,Friends/group chat,1,Yes,Time conflict,5.0,Yes
+R250,Transfer,Yes,Arts,Instagram,0,Yes,Wasn't sure it was for me,4.0,Maybe
+R028,Freshman,No,Service,Campus calendar,4,No,,3.0,Maybe
+R206,Transfer,No,Service,Discord,0,Yes,Didn't know it was happening,4.0,Maybe
+R131,Sophomore,Yes,Social,Instagram,5,Yes,Didn't know it was happening,4.0,Yes
+R029,Junior,No,Career/Professional,Friends/group chat,3,Yes,Found out too late,2.0,Yes
+R413,Freshman,Yes,Tech,Instagram,1,Yes,Found out too late,2.0,Yes
+R117,Junior,No,Social,Friends/group chat,1,No,,1.0,Yes
+R030,Senior,No,Cultural,Friends/group chat,1,Yes,Wasn't sure it was for me,4.0,Maybe
+R334,Transfer,No,Social,Campus calendar,1,Yes,Didn't know it was happening,2.0,Yes
+R078,Sophomore,Yes,Cultural,Friends/group chat,4,Yes,Wasn't sure it was for me,,No
+R283,Senior,Yes,Career/Professional,Campus calendar,1,No,,3.0,Yes
+R391,Senior,No,Service,Discord,1,No,,2.0,Maybe
+R258,Senior,No,Tech,Friends/group chat,2,No,,1.0,Yes

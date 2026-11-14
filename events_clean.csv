@@ -1,0 +1,502 @@
+org_name,org_size,category,title,event_date,start_time,location,platforms,n_posts,time_conflict,first_posted,notice_days,rsvp_count,attendance,free_food
+AI Builders,large,Tech,Build Session,2026-09-28,1:00 PM,Geisel Library,"Discord, Flyer, Instagram",3,False,2026-09-22,6,60,55.0,False
+App Makers,medium,General Meeting,Quarter Planning Meeting,2026-09-28,4:00 PM,Geisel Library,Instagram,1,False,2026-09-25,3,54,46.0,True
+Calligraphy Society,small,Cultural,Dance Workshop,2026-09-28,5:30 PM,Student Center,Email newsletter,1,False,2026-09-25,3,12,7.0,False
+Cultural Night Committee,medium,Cultural,Language Exchange,2026-09-28,12:00 PM,Warren Mall,Instagram,1,False,2026-09-22,6,34,27.0,False
+Diaspora Dialogues,small,Cultural,Cooking Showcase,2026-09-28,12:30 PM,Student Center,Discord,1,False,2026-09-26,2,16,14.0,True
+Heritage Cooking Club,large,General Meeting,Officer Q&A,2026-09-28,8:00 PM,Price Center,"Email newsletter, Flyer, Instagram",3,True,2026-09-17,11,59,37.0,False
+Product Management Club,small,Career/Professional,Mock Interviews,2026-09-28,1:00 PM,Student Center,Instagram,1,False,2026-09-27,1,19,11.0,True
+Quantum Computing Club,medium,Tech,Python Workshop,2026-09-28,6:00 PM,Price Center,"Email newsletter, Instagram",2,False,2026-09-22,6,34,23.0,False
+Sunset Socials,small,Social,Movie Night,2026-09-28,2:30 PM,Warren Mall,"Discord, Instagram",2,True,2026-09-26,2,20,,True
+World Music Collective,medium,Cultural,Cooking Showcase,2026-09-28,12:30 PM,RIMAC Field,"Discord, Instagram",2,False,2026-09-25,3,38,,True
+Coastal Cleanup Crew,large,General Meeting,General Body Meeting,2026-09-29,4:00 PM,RIMAC Field,"Discord, Flyer",2,False,2026-09-17,12,75,37.0,False
+Coffee Chats Club,medium,Social,Game Night,2026-09-29,11:00 AM,Geisel Library,Club website,1,False,2026-09-16,13,48,,True
+Heritage Cooking Club,large,Cultural,Culture Night,2026-09-29,4:00 PM,Student Center,"Club website, Email newsletter, Instagram",3,False,2026-09-25,4,71,63.0,False
+Late Night Pancakes Club,small,Social,Potluck,2026-09-29,4:30 PM,Center Hall,"Flyer, Instagram",2,False,2026-09-29,0,22,18.0,True
+Photography Society,medium,General Meeting,Kickoff Meeting,2026-09-29,7:00 PM,Zoom,"Flyer, Instagram",2,False,2026-09-20,9,37,18.0,False
+Pre-Law Circle,medium,General Meeting,General Body Meeting,2026-09-29,5:00 PM,Price Center,Email newsletter,1,False,2026-09-29,0,41,32.0,True
+Trivia Night Club,large,Social,Boba Social,2026-09-29,8:00 PM,Library Walk,"Email newsletter, Flyer, Instagram",3,False,2026-09-20,9,97,62.0,True
+Zine Makers,large,Arts,Showcase,2026-09-29,6:00 PM,Geisel Library,"Campus calendar, Email newsletter",2,False,2026-09-22,7,62,36.0,False
+Coffee Chats Club,medium,Social,Beach Bonfire,2026-09-30,4:30 PM,RIMAC Field,Email newsletter,1,False,2026-09-26,4,30,18.0,False
+Dorm Life Society,small,Social,Potluck,2026-09-30,12:30 PM,Center Hall,Club website,1,False,2026-09-22,8,17,10.0,True
+Marketing Collective,large,Career/Professional,Alumni Q&A,2026-09-30,8:00 PM,Warren Mall,"Club website, Instagram",2,False,2026-09-23,7,67,36.0,False
+Taiko Ensemble,small,Cultural,Culture Night,2026-09-30,6:30 PM,RIMAC Field,Club website,1,False,2026-09-28,2,6,4.0,False
+Women in Engineering Network,large,General Meeting,Kickoff Meeting,2026-09-30,7:00 PM,Zoom,"Discord, Email newsletter",2,False,2026-09-25,5,62,57.0,False
+Board Game Collective,medium,Social,Boba Social,2026-10-01,1:00 PM,Zoom,Discord,1,False,2026-09-29,2,35,,False
+Coastal Cleanup Crew,large,Service,Beach Cleanup,2026-10-01,12:30 PM,RIMAC Field,"Flyer, Instagram",2,False,2026-09-17,14,61,41.0,False
+Improv Troupe,small,Arts,Open Studio,2026-10-01,5:30 PM,RIMAC Field,Discord,1,False,2026-09-26,5,12,8.0,False
+Robotics Garage,small,Tech,Build Session,2026-10-01,6:00 PM,RIMAC Field,"Club website, Instagram",2,False,2026-09-30,1,18,,True
+Trivia Night Club,large,Social,Fall Mixer,2026-10-01,12:00 PM,Geisel Library,"Club website, Instagram",2,False,2026-09-19,12,50,41.0,False
+Women in Engineering Network,large,General Meeting,Kickoff Meeting,2026-10-01,1:00 PM,Student Center,"Discord, Instagram",2,False,2026-09-27,4,90,64.0,True
+Calligraphy Society,small,Cultural,Heritage Month Kickoff,2026-10-02,1:00 PM,Zoom,"Club website, Instagram",2,False,2026-10-01,1,11,7.0,False
+Founders Lab,large,Career/Professional,Mock Interviews,2026-10-02,12:00 PM,RIMAC Field,Discord,1,False,2026-09-27,5,61,,False
+Habitat Builders,small,General Meeting,Quarter Planning Meeting,2026-10-02,7:00 PM,Center Hall,Club website,1,False,2026-10-02,0,8,5.0,False
+Photography Society,medium,Arts,Open Studio,2026-10-02,4:00 PM,Zoom,"Campus calendar, Instagram",2,False,2026-09-20,12,33,,False
+Pre-Med Pathways,large,Career/Professional,Networking Night,2026-10-02,6:30 PM,Center Hall,"Club website, Email newsletter, Instagram",3,False,2026-09-22,10,99,55.0,True
+Quantum Computing Club,medium,Tech,Intro To Git Workshop,2026-10-02,5:30 PM,RIMAC Field,Email newsletter,1,False,2026-09-25,7,43,,True
+Run Club,medium,General Meeting,Weekly Meeting,2026-10-02,4:30 PM,Price Center,"Discord, Instagram",2,False,2026-10-01,1,19,16.0,False
+First-Gen Families Network,small,Cultural,Cooking Showcase,2026-10-03,1:00 PM,Student Center,"Club website, Flyer",2,False,2026-09-28,5,13,10.0,False
+Game Dev Guild,medium,Tech,Python Workshop,2026-10-03,6:30 PM,Zoom,"Discord, Flyer",2,False,2026-10-01,2,36,32.0,False
+Hiking & Hangouts,small,General Meeting,Weekly Meeting,2026-10-03,12:00 PM,Zoom,"Discord, Flyer",2,False,2026-10-01,2,11,,False
+Lantern Festival Crew,large,Cultural,Language Exchange,2026-10-03,6:30 PM,Library Walk,"Campus calendar, Club website, Instagram",3,False,2026-09-25,8,75,50.0,False
+Picnic Society,medium,Social,Fall Mixer,2026-10-03,8:30 PM,Student Center,"Club website, Instagram",2,False,2026-10-01,2,29,16.0,False
+Trivia Night Club,large,Social,Fall Mixer,2026-10-03,12:00 PM,RIMAC Field,"Club website, Email newsletter",2,False,2026-09-30,3,62,57.0,False
+Blood Drive Team,large,Service,Beach Cleanup,2026-10-04,5:00 PM,Student Center,"Club website, Discord",2,False,2026-09-27,7,50,39.0,False
+Coffee Chats Club,medium,General Meeting,Weekly Meeting,2026-10-04,7:30 PM,Library Walk,"Discord, Email newsletter",2,False,2026-09-30,4,31,17.0,False
+Drone Lab,small,General Meeting,General Body Meeting,2026-10-04,8:30 PM,Price Center,"Club website, Discord, Instagram",3,True,2026-09-29,5,9,7.0,True
+Hiking & Hangouts,small,General Meeting,Weekly Meeting,2026-10-04,6:00 PM,Library Walk,Flyer,1,False,2026-09-29,5,17,11.0,True
+Poetry Across Borders,large,Cultural,Culture Night,2026-10-04,6:00 PM,Zoom,"Club website, Instagram",2,False,2026-10-01,3,74,39.0,False
+AI Builders,large,Tech,Intro To Git Workshop,2026-10-05,12:00 PM,Warren Mall,Discord,1,False,2026-09-15,20,62,38.0,False
+Film Lens Club,small,General Meeting,General Body Meeting,2026-10-05,4:30 PM,Library Walk,"Club website, Email newsletter",2,False,2026-10-03,2,11,9.0,False
+Food Pantry Volunteers,small,Service,Volunteer Shift,2026-10-05,7:00 PM,Student Center,"Email newsletter, Instagram",2,True,2026-10-04,1,16,12.0,False
+Lantern Festival Crew,large,Cultural,Language Exchange,2026-10-05,6:30 PM,Library Walk,"Club website, Instagram",2,False,2026-09-20,15,54,32.0,False
+Poetry Across Borders,large,Cultural,Cooking Showcase,2026-10-05,1:00 PM,Student Center,Discord,1,False,2026-09-30,5,78,47.0,False
+Coastal Cleanup Crew,large,General Meeting,General Body Meeting,2026-10-06,4:00 PM,Geisel Library,"Discord, Instagram",2,False,2026-09-19,17,63,53.0,False
+Cybersecurity Circle,large,Tech,Intro To Git Workshop,2026-10-06,7:00 PM,Price Center,"Campus calendar, Instagram",2,False,2026-10-02,4,96,67.0,True
+Late Night Pancakes Club,small,Social,Boba Social,2026-10-06,12:00 PM,Geisel Library,"Club website, Instagram",2,False,2026-10-06,0,6,4.0,False
+Photography Society,medium,Arts,Open Mic,2026-10-06,5:30 PM,Library Walk,Club website,1,False,2026-09-30,6,35,,False
+Pre-Med Pathways,large,General Meeting,Kickoff Meeting,2026-10-06,11:00 AM,Warren Mall,"Campus calendar, Instagram",2,False,2026-09-10,26,100,71.0,True
+Taiko Ensemble,small,General Meeting,Officer Q&A,2026-10-06,11:30 AM,Center Hall,Email newsletter,1,False,2026-10-05,1,11,,False
+Weekend Wanderers,medium,Social,Potluck,2026-10-06,6:30 PM,Geisel Library,"Email newsletter, Flyer",2,False,2026-10-04,2,31,23.0,False
+Women in Engineering Network,large,Career/Professional,Resume Workshop,2026-10-06,1:30 PM,Student Center,"Discord, Flyer",2,False,2026-09-30,6,72,67.0,False
+Climbing Collective,small,Sports/Rec,Group Run,2026-10-07,11:30 AM,RIMAC Field,Flyer,1,False,2026-10-06,1,11,10.0,True
+Lantern Festival Crew,large,Cultural,Heritage Month Kickoff,2026-10-07,7:00 PM,Price Center,"Discord, Flyer, Instagram",3,False,2026-09-23,14,85,69.0,True
+Run Club,medium,Sports/Rec,Intro Session,2026-10-07,1:00 PM,Price Center,"Discord, Flyer, Instagram",3,True,2026-10-02,5,27,23.0,False
+Transfer Connect,large,Social,Game Night,2026-10-07,12:00 PM,Library Walk,"Club website, Instagram",2,False,2026-10-01,6,79,47.0,True
+Trivia Night Club,large,Social,Movie Night,2026-10-07,8:00 PM,Price Center,Email newsletter,1,False,2026-10-05,2,85,64.0,True
+Women in Engineering Network,large,Career/Professional,Networking Night,2026-10-07,5:30 PM,Library Walk,"Campus calendar, Discord, Instagram",3,True,2026-09-29,8,68,35.0,False
+Zine Makers,large,Arts,Film Screening,2026-10-07,6:30 PM,Geisel Library,"Campus calendar, Instagram",2,False,2026-10-03,4,53,42.0,False
+AI Builders,large,General Meeting,Quarter Planning Meeting,2026-10-08,1:00 PM,Geisel Library,"Campus calendar, Club website, Email newsletter",3,False,2026-09-29,9,52,29.0,False
+Acapella Union,small,General Meeting,Quarter Planning Meeting,2026-10-08,5:00 PM,Zoom,Instagram,1,False,2026-10-08,0,9,,False
+Coastal Cleanup Crew,large,Service,Tutoring Night,2026-10-08,11:00 AM,Geisel Library,"Club website, Flyer, Instagram",3,False,2026-09-28,10,101,83.0,True
+Open Source Crew,small,General Meeting,Officer Q&A,2026-10-08,8:00 PM,Zoom,Flyer,1,False,2026-09-28,10,6,3.0,False
+Photography Society,medium,Arts,Open Studio,2026-10-08,4:30 PM,Geisel Library,"Discord, Email newsletter, Flyer",3,False,2026-10-06,2,36,19.0,False
+Robotics Garage,small,General Meeting,Officer Q&A,2026-10-08,6:30 PM,Geisel Library,"Email newsletter, Flyer",2,False,2026-10-07,1,16,,True
+Table Tennis Society,large,General Meeting,General Body Meeting,2026-10-08,6:00 PM,Warren Mall,"Club website, Email newsletter, Instagram",3,True,2026-09-28,10,87,76.0,True
+Ceramics Studio Club,small,Arts,Film Screening,2026-10-09,4:00 PM,RIMAC Field,Club website,1,False,2026-10-09,0,7,,False
+Dorm Life Society,small,Social,Fall Mixer,2026-10-09,1:30 PM,Library Walk,"Flyer, Instagram",2,False,2026-10-07,2,19,15.0,True
+Folk Dance Circle,small,Cultural,Heritage Month Kickoff,2026-10-09,4:30 PM,RIMAC Field,Campus calendar,1,False,2026-10-09,0,13,7.0,False
+Founders Lab,large,Career/Professional,Alumni Q&A,2026-10-09,4:30 PM,Zoom,"Email newsletter, Instagram",2,False,2026-09-30,9,62,47.0,False
+Lantern Festival Crew,large,Cultural,Dance Workshop,2026-10-09,12:00 PM,RIMAC Field,"Discord, Flyer, Instagram",3,False,2026-10-02,7,64,56.0,False
+Poetry Across Borders,large,General Meeting,Officer Q&A,2026-10-09,11:00 AM,Zoom,Campus calendar,1,False,2026-10-01,8,69,44.0,False
+Table Tennis Society,large,Sports/Rec,Beginner Clinic,2026-10-09,8:30 PM,Center Hall,"Discord, Instagram",2,False,2026-10-07,2,66,46.0,False
+Web Dev Workshop,small,Tech,Project Demo Day,2026-10-09,5:30 PM,Price Center,Instagram,1,False,2026-10-05,4,12,7.0,False
+Data Science Collective,medium,Tech,Python Workshop,2026-10-10,7:00 PM,RIMAC Field,"Discord, Instagram",2,False,2026-10-04,6,39,27.0,False
+Diaspora Dialogues,small,Cultural,Cooking Showcase,2026-10-10,4:00 PM,Price Center,Discord,1,False,2026-10-09,1,11,10.0,True
+Global Languages Table,small,General Meeting,Weekly Meeting,2026-10-10,1:30 PM,RIMAC Field,Instagram,1,False,2026-10-08,2,15,13.0,False
+Heritage Cooking Club,large,Cultural,Cooking Showcase,2026-10-10,4:30 PM,Center Hall,"Email newsletter, Flyer, Instagram",3,False,2026-09-26,14,74,60.0,False
+International Student Network,small,Cultural,Language Exchange,2026-10-10,8:00 PM,Center Hall,Instagram,1,False,2026-10-07,3,10,6.0,False
+Marketing Collective,large,Career/Professional,Resume Workshop,2026-10-10,6:00 PM,Price Center,"Discord, Flyer, Instagram",3,False,2026-10-03,7,67,48.0,False
+Picnic Society,medium,General Meeting,Weekly Meeting,2026-10-10,4:30 PM,Library Walk,Instagram,1,False,2026-09-30,10,29,,False
+Pre-Law Circle,medium,General Meeting,Officer Q&A,2026-10-10,8:30 PM,RIMAC Field,Email newsletter,1,False,2026-10-06,4,32,21.0,False
+Run Club,medium,Sports/Rec,Intro Session,2026-10-10,12:00 PM,Student Center,Email newsletter,1,False,2026-10-01,9,39,33.0,True
+Surf Club,small,Sports/Rec,Beginner Clinic,2026-10-10,8:00 PM,Warren Mall,Instagram,1,False,2026-10-07,3,9,8.0,False
+Transfer Connect,large,General Meeting,Weekly Meeting,2026-10-10,5:30 PM,Warren Mall,Email newsletter,1,False,2026-09-30,10,67,62.0,False
+Cybersecurity Circle,large,Tech,Python Workshop,2026-10-11,11:00 AM,Library Walk,Campus calendar,1,False,2026-10-06,5,75,,False
+Founders Lab,large,General Meeting,Weekly Meeting,2026-10-11,11:30 AM,Warren Mall,"Email newsletter, Flyer",2,False,2026-09-29,12,65,33.0,False
+Heritage Cooking Club,large,Cultural,Dance Workshop,2026-10-11,7:00 PM,Student Center,"Club website, Discord, Instagram",3,False,2026-10-01,10,49,,False
+World Music Collective,medium,Cultural,Culture Night,2026-10-11,5:00 PM,Geisel Library,"Club website, Discord, Flyer",3,False,2026-10-01,10,43,25.0,True
+Zine Makers,large,Arts,Film Screening,2026-10-11,5:00 PM,RIMAC Field,"Club website, Instagram",2,False,2026-10-07,4,94,,True
+AI Builders,large,Tech,Python Workshop,2026-10-12,11:30 AM,Zoom,"Club website, Discord",2,False,2026-09-26,16,73,39.0,False
+Coastal Cleanup Crew,large,General Meeting,Officer Q&A,2026-10-12,8:30 PM,Price Center,"Campus calendar, Club website, Instagram",3,False,2026-10-01,11,63,47.0,False
+Cultural Night Committee,medium,Cultural,Heritage Month Kickoff,2026-10-12,11:00 AM,Student Center,"Discord, Flyer",2,False,2026-10-11,1,31,18.0,False
+Folk Dance Circle,small,Cultural,Culture Night,2026-10-12,8:00 PM,Library Walk,Flyer,1,False,2026-10-09,3,14,8.0,False
+Food Pantry Volunteers,small,Service,Beach Cleanup,2026-10-12,12:30 PM,Geisel Library,Email newsletter,1,False,2026-10-12,0,27,16.0,True
+Heritage Cooking Club,large,Cultural,Cooking Showcase,2026-10-12,12:30 PM,RIMAC Field,"Club website, Flyer",2,False,2026-10-08,4,67,45.0,False
+Lantern Festival Crew,large,Cultural,Cooking Showcase,2026-10-12,4:30 PM,Center Hall,"Club website, Discord, Instagram",3,False,2026-10-05,7,83,47.0,True
+Blood Drive Team,large,General Meeting,Quarter Planning Meeting,2026-10-13,5:00 PM,Library Walk,"Flyer, Instagram",2,True,2026-10-01,12,59,37.0,False
+Poetry Across Borders,large,Cultural,Cooking Showcase,2026-10-13,11:00 AM,Library Walk,"Club website, Instagram",2,False,2026-10-02,11,58,47.0,False
+Run Club,medium,Sports/Rec,Beginner Clinic,2026-10-13,12:30 PM,Library Walk,Instagram,1,False,2026-10-09,4,25,,False
+Trivia Night Club,large,Social,Beach Bonfire,2026-10-13,5:30 PM,Geisel Library,"Campus calendar, Club website, Instagram",3,False,2026-09-30,13,61,46.0,False
+Tutoring Corps,medium,Service,Donation Drive,2026-10-13,12:30 PM,Price Center,Instagram,1,False,2026-10-09,4,47,26.0,True
+Zine Makers,large,Arts,Open Mic,2026-10-13,12:00 PM,Student Center,"Club website, Flyer",2,True,2026-10-07,6,76,46.0,True
+Data Science Collective,medium,Tech,Tech Talk,2026-10-14,5:00 PM,Zoom,Instagram,1,False,2026-10-09,5,34,22.0,False
+Finance & Investing Society,small,Career/Professional,Resume Workshop,2026-10-14,4:30 PM,Student Center,Instagram,1,False,2026-10-07,7,16,12.0,True
+Game Dev Guild,medium,General Meeting,Quarter Planning Meeting,2026-10-14,11:00 AM,Price Center,Discord,1,False,2026-10-10,4,33,26.0,False
+Hiking & Hangouts,small,General Meeting,Kickoff Meeting,2026-10-14,1:00 PM,Center Hall,Email newsletter,1,False,2026-10-10,4,6,5.0,False
+Late Night Pancakes Club,small,Social,Game Night,2026-10-14,7:30 PM,RIMAC Field,Instagram,1,False,2026-10-11,3,9,5.0,False
+Picnic Society,medium,Social,Fall Mixer,2026-10-14,5:30 PM,RIMAC Field,Email newsletter,1,False,2026-10-12,2,18,12.0,False
+Poetry Across Borders,large,Cultural,Culture Night,2026-10-14,8:00 PM,Warren Mall,"Club website, Instagram",2,False,2026-09-30,14,91,71.0,True
+Transfer Connect,large,General Meeting,Kickoff Meeting,2026-10-14,7:30 PM,Library Walk,Instagram,1,False,2026-09-28,16,60,,False
+Tutoring Corps,medium,Service,Beach Cleanup,2026-10-14,5:00 PM,Student Center,"Club website, Discord, Email newsletter",3,False,2026-10-12,2,38,22.0,True
+AI Builders,large,Tech,Intro To Git Workshop,2026-10-15,12:00 PM,Student Center,"Club website, Flyer, Instagram",3,False,2026-10-01,14,65,,False
+Habitat Builders,small,Service,Beach Cleanup,2026-10-15,12:30 PM,Warren Mall,"Email newsletter, Instagram",2,False,2026-10-13,2,12,10.0,True
+Heritage Cooking Club,large,Cultural,Language Exchange,2026-10-15,12:00 PM,Geisel Library,"Discord, Email newsletter, Instagram",3,False,2026-10-14,1,95,82.0,True
+International Student Network,small,Cultural,Culture Night,2026-10-15,11:00 AM,Student Center,Instagram,1,False,2026-10-12,3,10,8.0,True
+Photography Society,medium,General Meeting,Quarter Planning Meeting,2026-10-15,5:30 PM,Center Hall,"Discord, Instagram",2,False,2026-10-14,1,27,19.0,False
+Pre-Law Circle,medium,General Meeting,Kickoff Meeting,2026-10-15,9:30 PM,Zoom,"Campus calendar, Flyer, Instagram",3,True,2026-10-12,3,49,29.0,True
+Pre-Med Pathways,large,Career/Professional,Networking Night,2026-10-15,12:00 PM,Zoom,Club website,1,False,2026-10-06,9,68,39.0,False
+Product Management Club,small,General Meeting,Quarter Planning Meeting,2026-10-15,5:00 PM,Center Hall,"Club website, Email newsletter",2,False,2026-10-13,2,15,13.0,False
+Trivia Night Club,large,Social,Potluck,2026-10-15,7:30 PM,Geisel Library,Email newsletter,1,False,2026-10-05,10,50,29.0,False
+Ultimate Frisbee Club,small,Sports/Rec,Beginner Clinic,2026-10-15,5:00 PM,Library Walk,Instagram,1,False,2026-10-14,1,17,15.0,False
+Blood Drive Team,large,Service,Tutoring Night,2026-10-16,5:00 PM,Student Center,"Campus calendar, Flyer, Instagram",3,True,2026-10-10,6,87,,True
+Calligraphy Society,small,Cultural,Dance Workshop,2026-10-16,4:00 PM,Library Walk,"Email newsletter, Flyer",2,False,2026-10-13,3,13,7.0,False
+Commuter Student Lounge,small,Social,Boba Social,2026-10-16,11:00 AM,RIMAC Field,"Club website, Instagram",2,False,2026-10-15,1,16,8.0,False
+Finance & Investing Society,small,Career/Professional,Industry Panel,2026-10-16,8:00 PM,Student Center,"Discord, Flyer, Instagram",3,True,2026-10-14,2,13,,False
+Hack Night Society,medium,Tech,Python Workshop,2026-10-16,5:00 PM,Geisel Library,"Flyer, Instagram",2,False,2026-10-13,3,31,,False
+Poetry Across Borders,large,Cultural,Cooking Showcase,2026-10-16,7:00 PM,Center Hall,Instagram,1,False,2026-10-11,5,63,,False
+Weekend Wanderers,medium,Social,Potluck,2026-10-16,1:00 PM,Warren Mall,Club website,1,False,2026-10-07,9,28,23.0,False
+Blood Drive Team,large,Service,Donation Drive,2026-10-17,7:00 PM,Warren Mall,"Club website, Instagram",2,False,2026-10-08,9,73,44.0,False
+Cybersecurity Circle,large,General Meeting,Quarter Planning Meeting,2026-10-17,12:00 PM,Student Center,"Club website, Discord, Instagram",3,False,2026-10-02,15,68,54.0,False
+Dorm Life Society,small,General Meeting,Quarter Planning Meeting,2026-10-17,6:30 PM,Library Walk,"Discord, Flyer",2,False,2026-10-14,3,18,,True
+Hack Night Society,medium,Tech,Hack Night,2026-10-17,1:00 PM,Zoom,"Club website, Email newsletter",2,False,2026-10-12,5,35,19.0,True
+Karaoke Crew,small,General Meeting,Officer Q&A,2026-10-17,12:00 PM,Warren Mall,"Email newsletter, Instagram",2,False,2026-10-16,1,22,18.0,True
+Open Source Crew,small,Tech,Intro To Git Workshop,2026-10-17,12:00 PM,Price Center,Discord,1,False,2026-10-13,4,10,5.0,False
+Sunset Socials,small,Social,Fall Mixer,2026-10-17,4:30 PM,Center Hall,Club website,1,False,2026-10-08,9,16,,True
+App Makers,medium,Tech,Intro To Git Workshop,2026-10-18,6:00 PM,Geisel Library,"Club website, Instagram",2,False,2026-10-04,14,26,16.0,False
+Cybersecurity Circle,large,Tech,Tech Talk,2026-10-18,12:30 PM,Zoom,"Discord, Instagram",2,False,2026-10-06,12,66,45.0,False
+Hack Night Society,medium,Tech,Project Demo Day,2026-10-18,8:30 PM,Geisel Library,Instagram,1,False,2026-10-16,2,31,22.0,False
+International Student Network,small,Cultural,Language Exchange,2026-10-18,12:00 PM,RIMAC Field,Email newsletter,1,False,2026-10-16,2,12,8.0,True
+Marketing Collective,large,Career/Professional,Mock Interviews,2026-10-18,5:00 PM,Zoom,"Campus calendar, Club website, Instagram",3,False,2026-10-14,4,73,42.0,False
+Zine Makers,large,General Meeting,General Body Meeting,2026-10-18,1:00 PM,Center Hall,"Campus calendar, Email newsletter, Flyer",3,False,2026-10-08,10,86,73.0,True
+Coastal Cleanup Crew,large,General Meeting,General Body Meeting,2026-10-19,12:30 PM,Library Walk,"Club website, Discord, Instagram",3,True,2026-10-08,11,92,87.0,True
+Cybersecurity Circle,large,Tech,Project Demo Day,2026-10-19,8:00 PM,Price Center,Discord,1,False,2026-10-13,6,53,27.0,False
+Improv Troupe,small,General Meeting,Officer Q&A,2026-10-19,1:00 PM,Zoom,Campus calendar,1,False,2026-10-17,2,15,8.0,True
+Photography Society,medium,Arts,Film Screening,2026-10-19,5:00 PM,Library Walk,"Club website, Instagram",2,False,2026-10-15,4,23,17.0,False
+Pre-Law Circle,medium,Career/Professional,Networking Night,2026-10-19,4:30 PM,Student Center,Discord,1,False,2026-10-17,2,25,,False
+Run Club,medium,Sports/Rec,Pickup Game,2026-10-19,1:30 PM,Warren Mall,Instagram,1,False,2026-10-16,3,30,,False
+Trivia Night Club,large,Social,Boba Social,2026-10-19,7:30 PM,Center Hall,Discord,1,False,2026-10-06,13,74,49.0,False
+Ultimate Frisbee Club,small,General Meeting,General Body Meeting,2026-10-19,11:00 AM,Zoom,Club website,1,False,2026-10-15,4,9,,False
+Cultural Night Committee,medium,General Meeting,Kickoff Meeting,2026-10-20,4:00 PM,Zoom,Discord,1,False,2026-10-19,1,26,,False
+First-Gen Families Network,small,Cultural,Cooking Showcase,2026-10-20,5:00 PM,Price Center,"Club website, Instagram",2,False,2026-10-20,0,13,,True
+International Student Network,small,Cultural,Culture Night,2026-10-20,1:30 PM,Zoom,"Club website, Discord, Instagram",3,True,2026-10-20,0,8,6.0,False
+Salsa Union,small,Sports/Rec,Tournament,2026-10-20,6:00 PM,Price Center,Flyer,1,False,2026-10-19,1,15,13.0,True
+Surf Club,small,General Meeting,Quarter Planning Meeting,2026-10-20,11:00 AM,Center Hall,"Discord, Flyer",2,False,2026-10-17,3,10,,False
+Zine Makers,large,Arts,Open Mic,2026-10-20,4:00 PM,Student Center,Campus calendar,1,False,2026-10-09,11,63,33.0,False
+Ceramics Studio Club,small,Arts,Showcase,2026-10-21,12:00 PM,Library Walk,Instagram,1,False,2026-10-10,11,16,10.0,True
+Coastal Cleanup Crew,large,Service,Beach Cleanup,2026-10-21,1:00 PM,Center Hall,"Campus calendar, Flyer",2,False,2026-10-13,8,70,49.0,False
+Cybersecurity Circle,large,Tech,Hack Night,2026-10-21,8:30 PM,RIMAC Field,"Discord, Flyer, Instagram",3,False,2026-10-14,7,99,55.0,True
+Founders Lab,large,Career/Professional,Networking Night,2026-10-21,4:00 PM,Library Walk,Email newsletter,1,False,2026-10-04,17,58,47.0,False
+Pre-Law Circle,medium,Career/Professional,Mock Interviews,2026-10-21,8:00 PM,Student Center,"Club website, Discord",2,False,2026-10-13,8,26,15.0,False
+Quantum Computing Club,medium,Tech,Hack Night,2026-10-21,7:00 PM,Warren Mall,Discord,1,False,2026-10-11,10,19,13.0,False
+Table Tennis Society,large,Sports/Rec,Group Run,2026-10-21,1:00 PM,RIMAC Field,"Club website, Flyer",2,True,2026-10-16,5,67,47.0,False
+Trivia Night Club,large,Social,Boba Social,2026-10-21,6:00 PM,Price Center,"Discord, Email newsletter, Instagram",3,False,2026-10-15,6,82,41.0,True
+Coffee Chats Club,medium,Social,Game Night,2026-10-22,4:30 PM,Student Center,"Club website, Flyer",2,False,2026-10-17,5,37,27.0,True
+Hiking & Hangouts,small,Social,Game Night,2026-10-22,11:00 AM,Geisel Library,Instagram,1,False,2026-10-21,1,10,7.0,False
+Lantern Festival Crew,large,Cultural,Cooking Showcase,2026-10-22,6:30 PM,Zoom,"Discord, Email newsletter, Flyer",3,False,2026-10-11,11,89,65.0,True
+Picnic Society,medium,Social,Potluck,2026-10-22,7:00 PM,Zoom,"Flyer, Instagram",2,False,2026-10-15,7,41,25.0,False
+Poetry Across Borders,large,Cultural,Culture Night,2026-10-22,5:00 PM,Geisel Library,"Club website, Discord, Instagram",3,False,2026-10-21,1,56,52.0,False
+Zine Makers,large,Arts,Open Studio,2026-10-22,7:00 PM,Zoom,"Flyer, Instagram",2,False,2026-10-15,7,74,55.0,False
+Acapella Union,small,Arts,Showcase,2026-10-23,5:30 PM,Geisel Library,Club website,1,False,2026-10-23,0,8,5.0,False
+Blood Drive Team,large,General Meeting,Kickoff Meeting,2026-10-23,5:30 PM,Student Center,"Club website, Instagram",2,True,2026-10-16,7,93,87.0,True
+Data Science Collective,medium,Tech,Python Workshop,2026-10-23,4:30 PM,Price Center,"Discord, Flyer, Instagram",3,False,2026-10-19,4,34,18.0,False
+Food Pantry Volunteers,small,General Meeting,Kickoff Meeting,2026-10-23,8:00 PM,Warren Mall,Club website,1,False,2026-10-16,7,16,,False
+Habitat Builders,small,Service,Volunteer Shift,2026-10-23,5:30 PM,Geisel Library,Club website,1,False,2026-10-22,1,23,17.0,False
+Pixel Art Guild,small,Arts,Open Mic,2026-10-23,5:30 PM,Library Walk,Campus calendar,1,False,2026-10-22,1,12,8.0,False
+Poetry Across Borders,large,Cultural,Language Exchange,2026-10-23,4:30 PM,RIMAC Field,"Club website, Email newsletter, Instagram",3,False,2026-10-16,7,91,54.0,True
+Salsa Union,small,Sports/Rec,Intro Session,2026-10-23,6:30 PM,Zoom,"Campus calendar, Club website",2,False,2026-10-20,3,7,5.0,False
+Table Tennis Society,large,General Meeting,Kickoff Meeting,2026-10-23,5:00 PM,Center Hall,"Flyer, Instagram",2,False,2026-10-10,13,57,47.0,False
+Transfer Connect,large,Social,Movie Night,2026-10-23,7:00 PM,Price Center,Club website,1,False,2026-10-07,16,101,93.0,True
+Ultimate Frisbee Club,small,Sports/Rec,Beginner Clinic,2026-10-23,11:30 AM,Price Center,Club website,1,False,2026-10-22,1,18,11.0,False
+Women in Engineering Network,large,Career/Professional,Networking Night,2026-10-23,12:30 PM,RIMAC Field,"Club website, Flyer, Instagram",3,False,2026-10-15,8,57,46.0,False
+Blood Drive Team,large,General Meeting,Officer Q&A,2026-10-24,4:00 PM,Library Walk,"Campus calendar, Instagram",2,False,2026-10-13,11,63,56.0,False
+Board Game Collective,medium,Social,Movie Night,2026-10-24,7:00 PM,Student Center,Instagram,1,False,2026-10-20,4,37,27.0,True
+Calligraphy Society,small,Cultural,Heritage Month Kickoff,2026-10-24,6:00 PM,RIMAC Field,Campus calendar,1,False,2026-10-22,2,18,12.0,False
+Cultural Night Committee,medium,Cultural,Culture Night,2026-10-24,5:00 PM,RIMAC Field,"Club website, Instagram",2,False,2026-10-20,4,33,,False
+Founders Lab,large,Career/Professional,Mock Interviews,2026-10-24,5:30 PM,Library Walk,"Campus calendar, Club website, Instagram",3,False,2026-10-16,8,61,,False
+Hack Night Society,medium,General Meeting,General Body Meeting,2026-10-24,1:00 PM,Zoom,"Flyer, Instagram",2,False,2026-10-21,3,41,26.0,True
+Late Night Pancakes Club,small,Social,Movie Night,2026-10-24,7:30 PM,Warren Mall,Club website,1,False,2026-10-16,8,12,7.0,False
+Transfer Connect,large,General Meeting,Kickoff Meeting,2026-10-24,1:30 PM,Price Center,"Campus calendar, Instagram",2,False,2026-10-07,17,100,52.0,True
+Weekend Wanderers,medium,General Meeting,Officer Q&A,2026-10-24,1:00 PM,Zoom,"Club website, Instagram",2,True,2026-10-22,2,29,17.0,False
+App Makers,medium,Tech,Tech Talk,2026-10-25,4:30 PM,Library Walk,"Club website, Email newsletter, Flyer",3,False,2026-10-23,2,27,23.0,False
+Coffee Chats Club,medium,Social,Movie Night,2026-10-25,1:30 PM,Center Hall,Email newsletter,1,False,2026-10-20,5,40,32.0,False
+Cybersecurity Circle,large,General Meeting,General Body Meeting,2026-10-25,1:00 PM,Center Hall,Club website,1,False,2026-10-18,7,62,34.0,False
+Data Science Collective,medium,General Meeting,General Body Meeting,2026-10-25,12:00 PM,Student Center,"Discord, Flyer",2,False,2026-10-19,6,24,12.0,False
+Hack Night Society,medium,Tech,Tech Talk,2026-10-25,6:30 PM,Student Center,"Campus calendar, Club website, Discord",3,False,2026-10-22,3,31,25.0,False
+Karaoke Crew,small,Social,Boba Social,2026-10-25,12:00 PM,RIMAC Field,Discord,1,False,2026-10-23,2,12,9.0,False
+Late Night Pancakes Club,small,General Meeting,General Body Meeting,2026-10-25,7:30 PM,Price Center,Flyer,1,False,2026-10-24,1,7,5.0,False
+Pre-Med Pathways,large,Career/Professional,Resume Workshop,2026-10-25,8:00 PM,Geisel Library,"Campus calendar, Instagram",2,False,2026-10-17,8,61,31.0,False
+Salsa Union,small,Sports/Rec,Group Run,2026-10-25,6:00 PM,Zoom,Club website,1,False,2026-10-18,7,17,,True
+Table Tennis Society,large,Sports/Rec,Pickup Game,2026-10-25,6:00 PM,Warren Mall,"Campus calendar, Club website",2,False,2026-10-13,12,69,48.0,False
+Weekend Wanderers,medium,Social,Boba Social,2026-10-25,6:30 PM,RIMAC Field,"Club website, Instagram",2,False,2026-10-21,4,26,13.0,False
+AI Builders,large,General Meeting,Kickoff Meeting,2026-10-26,12:00 PM,Zoom,"Email newsletter, Instagram",2,True,2026-10-17,9,109,76.0,True
+Commuter Student Lounge,small,Social,Beach Bonfire,2026-10-26,4:00 PM,RIMAC Field,Email newsletter,1,False,2026-10-25,1,16,11.0,False
+First-Gen Families Network,small,Cultural,Dance Workshop,2026-10-26,12:30 PM,RIMAC Field,"Discord, Instagram",2,False,2026-10-22,4,16,14.0,False
+Global Languages Table,small,Cultural,Language Exchange,2026-10-26,11:00 AM,Student Center,Flyer,1,False,2026-10-23,3,15,8.0,True
+Heritage Cooking Club,large,General Meeting,Weekly Meeting,2026-10-26,6:00 PM,Warren Mall,"Flyer, Instagram",2,False,2026-10-20,6,59,46.0,False
+International Student Network,small,General Meeting,Kickoff Meeting,2026-10-26,9:30 PM,Geisel Library,"Discord, Flyer",2,True,2026-10-24,2,12,8.0,False
+Marketing Collective,large,General Meeting,Kickoff Meeting,2026-10-26,4:30 PM,RIMAC Field,"Campus calendar, Instagram",2,False,2026-10-16,10,78,65.0,False
+AI Builders,large,General Meeting,Officer Q&A,2026-10-27,5:30 PM,Library Walk,"Club website, Instagram",2,False,2026-10-23,4,96,65.0,True
+App Makers,medium,Tech,Project Demo Day,2026-10-27,8:00 PM,Library Walk,Campus calendar,1,False,2026-10-24,3,30,17.0,False
+Cultural Night Committee,medium,General Meeting,Weekly Meeting,2026-10-27,7:30 PM,Geisel Library,"Club website, Flyer, Instagram",3,False,2026-10-25,2,34,26.0,True
+Lantern Festival Crew,large,Cultural,Culture Night,2026-10-27,5:00 PM,RIMAC Field,Email newsletter,1,False,2026-10-11,16,95,85.0,True
+Product Management Club,small,General Meeting,Officer Q&A,2026-10-27,6:00 PM,Student Center,"Club website, Instagram",2,False,2026-10-26,1,12,10.0,True
+Transfer Connect,large,Social,Potluck,2026-10-27,7:30 PM,Zoom,"Club website, Instagram",2,True,2026-10-13,14,85,68.0,True
+Tutoring Corps,medium,Service,Volunteer Shift,2026-10-27,11:00 AM,Zoom,Discord,1,False,2026-10-24,3,39,35.0,True
+App Makers,medium,Tech,Intro To Git Workshop,2026-10-28,1:00 PM,Geisel Library,"Club website, Instagram",2,True,2026-10-25,3,50,,True
+Calligraphy Society,small,Cultural,Dance Workshop,2026-10-28,1:00 PM,Warren Mall,"Campus calendar, Club website, Instagram",3,False,2026-10-26,2,10,,False
+Cybersecurity Circle,large,General Meeting,Quarter Planning Meeting,2026-10-28,1:30 PM,Center Hall,"Discord, Instagram",2,False,2026-10-21,7,47,42.0,False
+Habitat Builders,small,Service,Beach Cleanup,2026-10-28,4:30 PM,Library Walk,Discord,1,False,2026-10-27,1,14,11.0,True
+Late Night Pancakes Club,small,General Meeting,General Body Meeting,2026-10-28,7:30 PM,Geisel Library,Discord,1,False,2026-10-24,4,15,7.0,False
+Picnic Society,medium,Social,Fall Mixer,2026-10-28,6:00 PM,Center Hall,Instagram,1,False,2026-10-19,9,40,,False
+Transfer Connect,large,Social,Fall Mixer,2026-10-28,1:30 PM,Price Center,"Campus calendar, Club website",2,False,2026-10-16,12,61,43.0,False
+Weekend Wanderers,medium,Social,Game Night,2026-10-28,8:00 PM,Student Center,"Flyer, Instagram",2,False,2026-10-23,5,44,,True
+Women in Engineering Network,large,Career/Professional,Networking Night,2026-10-28,5:30 PM,Price Center,"Club website, Email newsletter",2,False,2026-10-22,6,78,59.0,False
+World Music Collective,medium,General Meeting,General Body Meeting,2026-10-28,6:30 PM,Price Center,"Club website, Email newsletter, Instagram",3,False,2026-10-23,5,25,18.0,False
+App Makers,medium,Tech,Project Demo Day,2026-10-29,12:00 PM,RIMAC Field,Instagram,1,False,2026-10-27,2,39,28.0,True
+Habitat Builders,small,General Meeting,Kickoff Meeting,2026-10-29,4:00 PM,Zoom,Club website,1,False,2026-10-28,1,9,7.0,False
+Quantum Computing Club,medium,Tech,Tech Talk,2026-10-29,1:00 PM,Library Walk,"Email newsletter, Instagram",2,True,2026-10-28,1,27,,False
+Table Tennis Society,large,Sports/Rec,Beginner Clinic,2026-10-29,4:30 PM,Price Center,"Campus calendar, Club website",2,False,2026-10-27,2,72,62.0,False
+AI Builders,large,General Meeting,Quarter Planning Meeting,2026-10-30,1:30 PM,Library Walk,Email newsletter,1,False,2026-10-15,15,67,33.0,False
+Data Science Collective,medium,Tech,Intro To Git Workshop,2026-10-30,8:00 PM,Warren Mall,Discord,1,False,2026-10-25,5,45,27.0,True
+Game Dev Guild,medium,Tech,Tech Talk,2026-10-30,1:00 PM,RIMAC Field,"Discord, Instagram",2,False,2026-10-29,1,23,16.0,False
+Transfer Connect,large,Social,Fall Mixer,2026-10-30,1:30 PM,Zoom,"Discord, Email newsletter",2,False,2026-10-24,6,71,,False
+Women in Engineering Network,large,Career/Professional,Mock Interviews,2026-10-30,1:30 PM,Zoom,"Club website, Flyer, Instagram",3,True,2026-10-25,5,54,35.0,False
+Cultural Night Committee,medium,General Meeting,General Body Meeting,2026-10-31,5:00 PM,Price Center,Discord,1,False,2026-10-30,1,31,28.0,True
+Dorm Life Society,small,General Meeting,Weekly Meeting,2026-10-31,7:00 PM,Geisel Library,Flyer,1,False,2026-10-31,0,15,11.0,True
+Trivia Night Club,large,General Meeting,Weekly Meeting,2026-10-31,1:30 PM,Price Center,"Club website, Email newsletter",2,False,2026-10-25,6,83,60.0,True
+Women in Engineering Network,large,Career/Professional,Resume Workshop,2026-10-31,7:30 PM,Warren Mall,"Club website, Instagram",2,False,2026-10-24,7,58,33.0,False
+Board Game Collective,medium,General Meeting,Weekly Meeting,2026-11-01,6:00 PM,Center Hall,Campus calendar,1,False,2026-10-27,5,16,10.0,False
+Hiking & Hangouts,small,Social,Beach Bonfire,2026-11-01,6:30 PM,Zoom,"Club website, Email newsletter, Instagram",3,False,2026-10-29,3,18,13.0,True
+Marketing Collective,large,Career/Professional,Resume Workshop,2026-11-01,7:00 PM,Student Center,"Club website, Flyer, Instagram",3,False,2026-10-26,6,91,62.0,True
+Poetry Across Borders,large,Cultural,Language Exchange,2026-11-01,7:00 PM,Student Center,"Club website, Discord, Instagram",3,False,2026-10-20,12,71,55.0,True
+Pre-Med Pathways,large,Career/Professional,Mock Interviews,2026-11-01,1:30 PM,Zoom,"Discord, Instagram",2,False,2026-10-28,4,84,56.0,True
+Run Club,medium,Sports/Rec,Pickup Game,2026-11-01,1:00 PM,Zoom,Instagram,1,False,2026-10-29,3,46,24.0,True
+Table Tennis Society,large,General Meeting,Weekly Meeting,2026-11-01,7:00 PM,Price Center,Instagram,1,False,2026-10-25,7,58,37.0,False
+Weekend Wanderers,medium,General Meeting,Weekly Meeting,2026-11-01,7:30 PM,Zoom,"Club website, Instagram",2,False,2026-10-25,7,27,22.0,False
+Women in Engineering Network,large,Career/Professional,Alumni Q&A,2026-11-01,8:00 PM,Warren Mall,"Club website, Discord",2,True,2026-10-25,7,68,,False
+Drone Lab,small,General Meeting,Kickoff Meeting,2026-11-02,6:00 PM,Warren Mall,Instagram,1,False,2026-10-31,2,15,10.0,False
+Finance & Investing Society,small,Career/Professional,Industry Panel,2026-11-02,11:30 AM,Student Center,Instagram,1,False,2026-10-31,2,7,,False
+Heritage Cooking Club,large,Cultural,Heritage Month Kickoff,2026-11-02,4:30 PM,Geisel Library,"Discord, Email newsletter",2,False,2026-10-17,16,109,82.0,True
+Table Tennis Society,large,Sports/Rec,Beginner Clinic,2026-11-02,11:30 AM,Warren Mall,"Club website, Email newsletter, Flyer",3,True,2026-10-25,8,74,42.0,True
+Blood Drive Team,large,Service,Donation Drive,2026-11-03,4:00 PM,Geisel Library,"Campus calendar, Flyer, Instagram",3,False,2026-10-28,6,85,48.0,True
+Folk Dance Circle,small,Cultural,Cooking Showcase,2026-11-03,6:00 PM,Warren Mall,"Discord, Instagram",2,False,2026-11-01,2,20,14.0,True
+Founders Lab,large,Career/Professional,Resume Workshop,2026-11-03,6:30 PM,Zoom,Email newsletter,1,False,2026-10-30,4,86,49.0,True
+Game Dev Guild,medium,Tech,Project Demo Day,2026-11-03,2:00 PM,Price Center,"Club website, Instagram",2,True,2026-10-29,5,31,28.0,False
+Heritage Cooking Club,large,Cultural,Dance Workshop,2026-11-03,4:30 PM,Center Hall,"Email newsletter, Instagram",2,False,2026-10-27,7,58,29.0,False
+Improv Troupe,small,Arts,Showcase,2026-11-03,7:30 PM,Price Center,"Campus calendar, Club website, Email newsletter",3,False,2026-11-02,1,10,,False
+Pre-Med Pathways,large,Career/Professional,Networking Night,2026-11-03,1:00 PM,Warren Mall,"Discord, Flyer, Instagram",3,False,2026-10-24,10,108,80.0,True
+Web Dev Workshop,small,General Meeting,General Body Meeting,2026-11-03,8:30 PM,Center Hall,Club website,1,False,2026-10-31,3,22,15.0,False
+Women in Engineering Network,large,Career/Professional,Industry Panel,2026-11-03,7:00 PM,Zoom,"Discord, Flyer, Instagram",3,True,2026-10-23,11,67,60.0,False
+Zine Makers,large,Arts,Open Mic,2026-11-03,1:30 PM,Zoom,"Club website, Discord, Instagram",3,True,2026-10-29,5,79,,False
+AI Builders,large,Tech,Project Demo Day,2026-11-04,4:00 PM,RIMAC Field,"Email newsletter, Instagram",2,False,2026-10-12,23,104,56.0,True
+Commuter Student Lounge,small,Social,Fall Mixer,2026-11-04,1:30 PM,Library Walk,Club website,1,False,2026-11-03,1,12,6.0,True
+Folk Dance Circle,small,Cultural,Cooking Showcase,2026-11-04,5:00 PM,RIMAC Field,"Flyer, Instagram",2,False,2026-11-02,2,17,9.0,False
+Lantern Festival Crew,large,Cultural,Heritage Month Kickoff,2026-11-04,1:30 PM,Center Hall,"Club website, Email newsletter, Flyer",3,True,2026-10-31,4,79,,False
+Run Club,medium,Sports/Rec,Group Run,2026-11-04,12:30 PM,Center Hall,Club website,1,False,2026-10-30,5,36,34.0,True
+Taiko Ensemble,small,Cultural,Dance Workshop,2026-11-04,7:30 PM,Center Hall,Campus calendar,1,False,2026-11-02,2,13,,False
+Trivia Night Club,large,Social,Movie Night,2026-11-04,4:30 PM,Zoom,Instagram,1,False,2026-10-25,10,54,,False
+World Music Collective,medium,Cultural,Language Exchange,2026-11-04,6:30 PM,Student Center,"Campus calendar, Instagram",2,False,2026-10-27,8,37,27.0,False
+Acapella Union,small,Arts,Open Mic,2026-11-05,5:30 PM,RIMAC Field,"Club website, Instagram",2,False,2026-11-05,0,13,,False
+Coastal Cleanup Crew,large,Service,Beach Cleanup,2026-11-05,8:30 PM,Center Hall,"Club website, Flyer, Instagram",3,False,2026-10-29,7,102,68.0,True
+Folk Dance Circle,small,Cultural,Dance Workshop,2026-11-05,5:00 PM,RIMAC Field,Discord,1,False,2026-11-01,4,16,10.0,False
+Founders Lab,large,Career/Professional,Networking Night,2026-11-05,4:00 PM,Geisel Library,"Email newsletter, Instagram",2,False,2026-11-01,4,68,49.0,False
+Open Source Crew,small,General Meeting,Weekly Meeting,2026-11-05,11:00 AM,Zoom,Discord,1,False,2026-11-02,3,17,,False
+Pixel Art Guild,small,Arts,Film Screening,2026-11-05,4:30 PM,Geisel Library,Club website,1,False,2026-11-02,3,11,,True
+Salsa Union,small,Sports/Rec,Pickup Game,2026-11-05,11:00 AM,Warren Mall,Campus calendar,1,False,2026-10-28,8,14,,False
+Sunset Socials,small,General Meeting,Kickoff Meeting,2026-11-05,6:30 PM,Library Walk,"Flyer, Instagram",2,False,2026-10-31,5,12,9.0,False
+Surf Club,small,Sports/Rec,Tournament,2026-11-05,4:30 PM,Geisel Library,Discord,1,False,2026-11-05,0,16,,False
+Table Tennis Society,large,Sports/Rec,Group Run,2026-11-05,5:00 PM,Library Walk,"Discord, Instagram",2,False,2026-10-26,10,73,42.0,False
+Women in Engineering Network,large,Career/Professional,Networking Night,2026-11-05,6:30 PM,Library Walk,"Club website, Discord",2,False,2026-11-03,2,72,45.0,False
+World Music Collective,medium,General Meeting,Kickoff Meeting,2026-11-05,4:30 PM,Warren Mall,"Discord, Email newsletter, Instagram",3,False,2026-11-02,3,30,21.0,False
+Zine Makers,large,Arts,Showcase,2026-11-05,4:30 PM,Warren Mall,"Discord, Instagram",2,True,2026-11-04,1,53,47.0,False
+Climbing Collective,small,Sports/Rec,Intro Session,2026-11-06,8:30 PM,Center Hall,"Email newsletter, Flyer",2,False,2026-11-03,3,12,9.0,False
+Coffee Chats Club,medium,General Meeting,Quarter Planning Meeting,2026-11-06,7:30 PM,Library Walk,"Discord, Instagram",2,False,2026-11-06,0,34,17.0,False
+Founders Lab,large,Career/Professional,Resume Workshop,2026-11-06,1:30 PM,Student Center,"Club website, Instagram",2,False,2026-11-04,2,86,63.0,True
+Heritage Cooking Club,large,Cultural,Culture Night,2026-11-06,12:00 PM,Zoom,"Club website, Email newsletter, Instagram",3,False,2026-11-01,5,59,30.0,False
+Pre-Med Pathways,large,Career/Professional,Resume Workshop,2026-11-06,5:30 PM,Price Center,Campus calendar,1,False,2026-10-23,14,74,50.0,False
+Table Tennis Society,large,Sports/Rec,Tournament,2026-11-06,4:30 PM,Price Center,"Club website, Instagram",2,False,2026-10-28,9,70,51.0,False
+Calligraphy Society,small,General Meeting,Kickoff Meeting,2026-11-07,11:00 AM,Price Center,Flyer,1,False,2026-11-04,3,14,,False
+Coffee Chats Club,medium,Social,Fall Mixer,2026-11-07,1:00 PM,Geisel Library,"Campus calendar, Club website, Instagram",3,False,2026-11-02,5,42,21.0,False
+Heritage Cooking Club,large,General Meeting,Officer Q&A,2026-11-07,4:30 PM,Zoom,"Discord, Instagram",2,False,2026-10-28,10,95,73.0,True
+Pre-Med Pathways,large,Career/Professional,Alumni Q&A,2026-11-07,10:30 AM,Geisel Library,"Campus calendar, Club website, Instagram",3,True,2026-10-21,17,57,48.0,False
+Quantum Computing Club,medium,Tech,Python Workshop,2026-11-07,8:30 PM,Warren Mall,Campus calendar,1,False,2026-11-03,4,56,44.0,True
+Sunset Socials,small,Social,Beach Bonfire,2026-11-07,7:00 PM,Student Center,Instagram,1,False,2026-11-05,2,11,10.0,False
+Table Tennis Society,large,Sports/Rec,Beginner Clinic,2026-11-07,5:30 PM,Student Center,"Club website, Flyer, Instagram",3,False,2026-10-31,7,93,61.0,True
+Trivia Night Club,large,General Meeting,Weekly Meeting,2026-11-07,1:30 PM,Warren Mall,Instagram,1,False,2026-10-29,9,57,34.0,False
+AI Builders,large,General Meeting,Weekly Meeting,2026-11-08,7:30 PM,Library Walk,"Discord, Flyer, Instagram",3,False,2026-11-06,2,71,63.0,False
+Blood Drive Team,large,General Meeting,Officer Q&A,2026-11-08,4:30 PM,RIMAC Field,"Email newsletter, Instagram",2,False,2026-10-30,9,74,48.0,False
+Cybersecurity Circle,large,Tech,Tech Talk,2026-11-08,4:00 PM,Geisel Library,Discord,1,False,2026-10-30,9,50,33.0,False
+Drone Lab,small,General Meeting,Weekly Meeting,2026-11-08,8:30 PM,Library Walk,Flyer,1,False,2026-11-08,0,8,6.0,False
+Picnic Society,medium,Social,Movie Night,2026-11-08,5:00 PM,Student Center,Instagram,1,False,2026-11-05,3,32,,False
+Pre-Law Circle,medium,Career/Professional,Industry Panel,2026-11-08,12:00 PM,Zoom,"Club website, Instagram",2,False,2026-11-04,4,29,14.0,False
+Run Club,medium,General Meeting,Kickoff Meeting,2026-11-08,1:00 PM,Warren Mall,Instagram,1,False,2026-10-18,21,32,28.0,False
+Table Tennis Society,large,Sports/Rec,Intro Session,2026-11-08,12:00 PM,Price Center,Flyer,1,False,2026-11-02,6,93,81.0,True
+Taiko Ensemble,small,General Meeting,General Body Meeting,2026-11-08,1:00 PM,Library Walk,Instagram,1,False,2026-11-08,0,13,,False
+Transfer Connect,large,Social,Fall Mixer,2026-11-08,1:30 PM,Geisel Library,Campus calendar,1,False,2026-10-26,13,69,62.0,False
+Acapella Union,small,Arts,Showcase,2026-11-09,12:30 PM,Center Hall,Club website,1,False,2026-11-07,2,8,,True
+Blood Drive Team,large,General Meeting,Officer Q&A,2026-11-09,4:00 PM,Student Center,"Club website, Email newsletter, Flyer",3,False,2026-10-30,10,58,37.0,False
+Ceramics Studio Club,small,Arts,Open Studio,2026-11-09,5:30 PM,Library Walk,Club website,1,False,2026-11-09,0,11,,False
+Coastal Cleanup Crew,large,General Meeting,Weekly Meeting,2026-11-09,4:30 PM,Warren Mall,"Flyer, Instagram",2,False,2026-10-20,20,74,53.0,False
+Cybersecurity Circle,large,Tech,Python Workshop,2026-11-09,12:30 PM,Price Center,Discord,1,False,2026-10-26,14,87,53.0,True
+Founders Lab,large,Career/Professional,Resume Workshop,2026-11-09,8:30 PM,Center Hall,"Campus calendar, Discord, Instagram",3,False,2026-10-20,20,60,32.0,False
+Game Dev Guild,medium,General Meeting,General Body Meeting,2026-11-09,4:30 PM,Price Center,Campus calendar,1,False,2026-11-08,1,50,42.0,True
+Heritage Cooking Club,large,Cultural,Dance Workshop,2026-11-09,12:00 PM,Zoom,Club website,1,False,2026-11-01,8,87,52.0,True
+Open Source Crew,small,Tech,Build Session,2026-11-09,12:00 PM,Library Walk,Instagram,1,False,2026-11-06,3,19,,False
+Picnic Society,medium,Social,Beach Bonfire,2026-11-09,5:30 PM,Center Hall,"Discord, Instagram",2,True,2026-10-31,9,34,27.0,False
+Run Club,medium,General Meeting,Kickoff Meeting,2026-11-09,7:30 PM,Center Hall,"Campus calendar, Email newsletter, Instagram",3,False,2026-11-04,5,24,,False
+Zine Makers,large,General Meeting,Officer Q&A,2026-11-09,12:00 PM,RIMAC Field,"Club website, Flyer",2,False,2026-11-04,5,69,,False
+Board Game Collective,medium,Social,Fall Mixer,2026-11-10,1:30 PM,RIMAC Field,"Club website, Discord, Instagram",3,False,2026-10-31,10,40,23.0,False
+Food Pantry Volunteers,small,General Meeting,Quarter Planning Meeting,2026-11-10,5:30 PM,Library Walk,Instagram,1,False,2026-11-08,2,15,12.0,False
+Game Dev Guild,medium,General Meeting,General Body Meeting,2026-11-10,5:00 PM,Geisel Library,"Club website, Instagram",2,False,2026-11-06,4,39,21.0,True
+Global Languages Table,small,Cultural,Heritage Month Kickoff,2026-11-10,5:30 PM,Warren Mall,"Flyer, Instagram",2,False,2026-11-07,3,8,6.0,False
+Transfer Connect,large,General Meeting,Officer Q&A,2026-11-10,11:00 AM,Price Center,"Club website, Email newsletter, Instagram",3,True,2026-11-05,5,72,62.0,False
+Women in Engineering Network,large,General Meeting,Weekly Meeting,2026-11-10,5:30 PM,Geisel Library,Club website,1,False,2026-11-01,9,70,64.0,False
+Zine Makers,large,Arts,Sketch Night,2026-11-10,7:00 PM,RIMAC Field,"Club website, Instagram",2,True,2026-10-31,10,103,94.0,True
+Acapella Union,small,General Meeting,Kickoff Meeting,2026-11-11,5:00 PM,Zoom,"Flyer, Instagram",2,False,2026-11-10,1,11,7.0,False
+Coffee Chats Club,medium,General Meeting,Quarter Planning Meeting,2026-11-11,11:00 AM,Zoom,Email newsletter,1,False,2026-11-06,5,43,,True
+Dorm Life Society,small,Social,Boba Social,2026-11-11,6:00 PM,RIMAC Field,Club website,1,False,2026-11-06,5,13,,False
+Film Lens Club,small,Arts,Open Studio,2026-11-11,8:00 PM,RIMAC Field,Flyer,1,False,2026-11-08,3,13,,False
+Founders Lab,large,General Meeting,Officer Q&A,2026-11-11,7:30 PM,Student Center,"Club website, Instagram",2,False,2026-11-03,8,79,63.0,True
+Lantern Festival Crew,large,General Meeting,Kickoff Meeting,2026-11-11,8:00 PM,Price Center,"Discord, Flyer",2,False,2026-11-09,2,75,63.0,False
+Trivia Night Club,large,General Meeting,Officer Q&A,2026-11-11,11:00 AM,Student Center,Instagram,1,False,2026-10-31,11,93,,True
+Coastal Cleanup Crew,large,Service,Beach Cleanup,2026-11-12,7:00 PM,Library Walk,"Campus calendar, Flyer",2,False,2026-11-06,6,62,42.0,False
+Commuter Student Lounge,small,General Meeting,Officer Q&A,2026-11-12,6:00 PM,Student Center,Instagram,1,False,2026-11-10,2,18,12.0,False
+Pre-Law Circle,medium,Career/Professional,Mock Interviews,2026-11-12,6:00 PM,Price Center,"Campus calendar, Club website",2,False,2026-11-08,4,25,,False
+Product Management Club,small,Career/Professional,Networking Night,2026-11-12,11:30 AM,Student Center,Club website,1,False,2026-11-10,2,15,14.0,False
+Trivia Night Club,large,Social,Fall Mixer,2026-11-12,8:30 PM,Geisel Library,"Campus calendar, Discord, Instagram",3,False,2026-11-08,4,92,85.0,True
+Web Dev Workshop,small,Tech,Project Demo Day,2026-11-12,1:30 PM,Center Hall,"Discord, Flyer",2,False,2026-11-11,1,7,,False
+World Music Collective,medium,General Meeting,Weekly Meeting,2026-11-12,1:00 PM,Zoom,"Flyer, Instagram",2,True,2026-11-08,4,45,33.0,True
+AI Builders,large,Tech,Build Session,2026-11-13,4:30 PM,Geisel Library,"Club website, Instagram",2,False,2026-11-08,5,71,39.0,False
+Global Languages Table,small,Cultural,Cooking Showcase,2026-11-13,11:00 AM,Library Walk,"Flyer, Instagram",2,False,2026-11-11,2,11,,False
+Hack Night Society,medium,Tech,Build Session,2026-11-13,4:30 PM,RIMAC Field,"Club website, Email newsletter, Flyer",3,False,2026-11-04,9,41,,True
+Trivia Night Club,large,Social,Potluck,2026-11-13,7:30 PM,Student Center,Campus calendar,1,False,2026-10-31,13,99,55.0,True
+Zine Makers,large,General Meeting,Weekly Meeting,2026-11-13,5:30 PM,Student Center,"Campus calendar, Discord",2,False,2026-11-01,12,76,60.0,True
+Cybersecurity Circle,large,Tech,Build Session,2026-11-14,1:00 PM,Library Walk,"Club website, Discord",2,False,2026-11-06,8,75,50.0,True
+Hack Night Society,medium,Tech,Hack Night,2026-11-14,12:30 PM,Zoom,Instagram,1,False,2026-11-02,12,37,30.0,False
+Lantern Festival Crew,large,Cultural,Dance Workshop,2026-11-14,11:30 AM,Price Center,"Campus calendar, Email newsletter",2,False,2026-10-23,22,68,55.0,False
+Marketing Collective,large,General Meeting,General Body Meeting,2026-11-14,4:30 PM,Price Center,Club website,1,False,2026-11-08,6,85,55.0,True
+Picnic Society,medium,Social,Beach Bonfire,2026-11-14,12:00 PM,Geisel Library,Instagram,1,False,2026-10-22,23,46,,True
+Pre-Law Circle,medium,Career/Professional,Alumni Q&A,2026-11-14,7:00 PM,RIMAC Field,Club website,1,False,2026-11-09,5,37,20.0,True
+Trivia Night Club,large,Social,Fall Mixer,2026-11-14,4:00 PM,RIMAC Field,"Club website, Discord, Email newsletter",3,False,2026-11-01,13,51,47.0,False
+Zine Makers,large,Arts,Open Studio,2026-11-14,8:30 PM,Geisel Library,"Club website, Discord, Email newsletter",3,True,2026-11-08,6,73,47.0,False
+Blood Drive Team,large,General Meeting,Officer Q&A,2026-11-15,11:30 AM,RIMAC Field,"Campus calendar, Flyer",2,False,2026-11-01,14,88,79.0,True
+Coastal Cleanup Crew,large,Service,Donation Drive,2026-11-15,11:00 AM,Zoom,"Campus calendar, Discord",2,False,2026-11-02,13,55,41.0,False
+Cybersecurity Circle,large,Tech,Project Demo Day,2026-11-15,11:30 AM,Center Hall,"Campus calendar, Discord, Instagram",3,False,2026-11-10,5,70,60.0,False
+Heritage Cooking Club,large,Cultural,Heritage Month Kickoff,2026-11-15,4:00 PM,Center Hall,Instagram,1,False,2026-11-13,2,57,31.0,False
+Marketing Collective,large,Career/Professional,Industry Panel,2026-11-15,11:00 AM,Warren Mall,"Club website, Discord, Instagram",3,False,2026-10-20,26,71,44.0,False
+Photography Society,medium,Arts,Open Mic,2026-11-15,1:00 PM,Center Hall,"Discord, Instagram",2,False,2026-11-10,5,38,21.0,False
+Ultimate Frisbee Club,small,Sports/Rec,Pickup Game,2026-11-15,7:00 PM,Geisel Library,Flyer,1,False,2026-11-11,4,16,,True
+AI Builders,large,Tech,Python Workshop,2026-11-16,12:30 PM,Warren Mall,"Discord, Flyer, Instagram",3,False,2026-11-08,8,72,47.0,False
+Ceramics Studio Club,small,Arts,Showcase,2026-11-16,6:30 PM,RIMAC Field,Email newsletter,1,False,2026-11-14,2,7,4.0,False
+Climbing Collective,small,Sports/Rec,Intro Session,2026-11-16,8:30 PM,RIMAC Field,"Club website, Instagram",2,True,2026-11-08,8,21,,True
+Commuter Student Lounge,small,Social,Beach Bonfire,2026-11-16,1:30 PM,Price Center,Flyer,1,False,2026-11-16,0,7,5.0,False
+Pre-Med Pathways,large,Career/Professional,Networking Night,2026-11-16,5:30 PM,Student Center,"Campus calendar, Instagram",2,False,2026-11-12,4,72,39.0,False
+Quantum Computing Club,medium,Tech,Hack Night,2026-11-16,12:00 PM,Library Walk,Instagram,1,False,2026-11-11,5,21,17.0,False
+Table Tennis Society,large,Sports/Rec,Beginner Clinic,2026-11-16,12:30 PM,Price Center,"Club website, Discord, Flyer",3,False,2026-11-01,15,52,30.0,False
+Tutoring Corps,medium,Service,Volunteer Shift,2026-11-16,5:00 PM,Library Walk,"Club website, Flyer, Instagram",3,False,2026-11-10,6,40,37.0,True
+Ultimate Frisbee Club,small,Sports/Rec,Beginner Clinic,2026-11-16,5:00 PM,Geisel Library,"Campus calendar, Instagram",2,False,2026-11-15,1,10,6.0,False
+Climbing Collective,small,Sports/Rec,Tournament,2026-11-17,12:00 PM,Price Center,Club website,1,False,2026-11-16,1,17,,True
+Founders Lab,large,Career/Professional,Resume Workshop,2026-11-17,6:00 PM,Center Hall,Flyer,1,False,2026-11-14,3,63,36.0,False
+Blood Drive Team,large,General Meeting,Quarter Planning Meeting,2026-11-18,7:30 PM,Geisel Library,"Discord, Email newsletter",2,False,2026-11-05,13,71,39.0,False
+Game Dev Guild,medium,Tech,Tech Talk,2026-11-18,8:00 PM,Zoom,"Club website, Instagram",2,False,2026-11-14,4,24,18.0,True
+Lantern Festival Crew,large,Cultural,Language Exchange,2026-11-18,8:30 PM,Library Walk,Instagram,1,False,2026-11-08,10,89,44.0,True
+Product Management Club,small,Career/Professional,Networking Night,2026-11-18,5:30 PM,RIMAC Field,"Email newsletter, Flyer",2,False,2026-11-16,2,12,11.0,False
+Quantum Computing Club,medium,General Meeting,Officer Q&A,2026-11-18,4:00 PM,Center Hall,"Discord, Instagram",2,False,2026-11-12,6,38,30.0,True
+Surf Club,small,Sports/Rec,Pickup Game,2026-11-18,8:30 PM,Warren Mall,Campus calendar,1,False,2026-11-14,4,12,10.0,False
+Weekend Wanderers,medium,General Meeting,General Body Meeting,2026-11-18,12:00 PM,Student Center,"Email newsletter, Flyer, Instagram",3,False,2026-11-14,4,40,29.0,False
+Data Science Collective,medium,Tech,Python Workshop,2026-11-19,4:30 PM,Student Center,Discord,1,False,2026-11-08,11,29,,False
+Dorm Life Society,small,Social,Fall Mixer,2026-11-19,5:00 PM,Geisel Library,Club website,1,False,2026-11-18,1,11,6.0,False
+Film Lens Club,small,General Meeting,Quarter Planning Meeting,2026-11-19,12:30 PM,Geisel Library,Instagram,1,False,2026-11-17,2,17,8.0,False
+Game Dev Guild,medium,Tech,Project Demo Day,2026-11-19,7:30 PM,RIMAC Field,Club website,1,False,2026-11-12,7,42,37.0,True
+Improv Troupe,small,Arts,Film Screening,2026-11-19,8:00 PM,Student Center,Club website,1,False,2026-11-13,6,18,12.0,True
+Late Night Pancakes Club,small,Social,Fall Mixer,2026-11-19,5:30 PM,RIMAC Field,"Discord, Instagram",2,True,2026-11-18,1,13,,False
+Marketing Collective,large,Career/Professional,Networking Night,2026-11-19,1:00 PM,Geisel Library,"Discord, Instagram",2,False,2026-11-15,4,104,80.0,True
+Salsa Union,small,Sports/Rec,Pickup Game,2026-11-19,11:30 AM,Price Center,"Discord, Flyer",2,False,2026-11-19,0,10,5.0,False
+Surf Club,small,General Meeting,Kickoff Meeting,2026-11-19,5:30 PM,RIMAC Field,Instagram,1,False,2026-11-15,4,10,,False
+Game Dev Guild,medium,Tech,Hack Night,2026-11-20,11:30 AM,Center Hall,"Club website, Discord",2,False,2026-11-13,7,31,27.0,False
+Pre-Med Pathways,large,General Meeting,Kickoff Meeting,2026-11-20,6:00 PM,RIMAC Field,"Club website, Discord",2,True,2026-11-16,4,56,45.0,False
+Salsa Union,small,General Meeting,Kickoff Meeting,2026-11-20,6:30 PM,Student Center,"Flyer, Instagram",2,False,2026-11-17,3,16,,False
+Sunset Socials,small,General Meeting,Officer Q&A,2026-11-20,11:30 AM,Warren Mall,Club website,1,False,2026-11-17,3,10,7.0,False
+Trivia Night Club,large,Social,Boba Social,2026-11-20,11:30 AM,Student Center,"Club website, Discord",2,False,2026-11-16,4,61,40.0,False
+World Music Collective,medium,Cultural,Language Exchange,2026-11-20,4:30 PM,Geisel Library,"Campus calendar, Instagram",2,False,2026-11-08,12,30,18.0,False
+Coastal Cleanup Crew,large,General Meeting,Weekly Meeting,2026-11-21,7:30 PM,Library Walk,Club website,1,False,2026-11-13,8,62,39.0,False
+Dorm Life Society,small,Social,Game Night,2026-11-21,12:00 PM,Student Center,Flyer,1,False,2026-11-20,1,11,,False
+Hack Night Society,medium,Tech,Project Demo Day,2026-11-21,1:30 PM,Warren Mall,"Email newsletter, Flyer, Instagram",3,False,2026-11-15,6,35,28.0,True
+Surf Club,small,Sports/Rec,Intro Session,2026-11-21,1:30 PM,Warren Mall,Flyer,1,False,2026-11-20,1,11,,False
+Women in Engineering Network,large,Career/Professional,Resume Workshop,2026-11-21,11:00 AM,RIMAC Field,Flyer,1,False,2026-11-07,14,96,,True
+AI Builders,large,General Meeting,Quarter Planning Meeting,2026-11-22,6:00 PM,Center Hall,"Email newsletter, Instagram",2,False,2026-11-18,4,60,54.0,False
+Cultural Night Committee,medium,Cultural,Cooking Showcase,2026-11-22,12:00 PM,Geisel Library,"Club website, Instagram",2,False,2026-11-18,4,39,32.0,False
+Game Dev Guild,medium,Tech,Python Workshop,2026-11-22,6:00 PM,Center Hall,Discord,1,False,2026-11-21,1,23,17.0,False
+Heritage Cooking Club,large,General Meeting,Weekly Meeting,2026-11-22,5:00 PM,Warren Mall,"Discord, Flyer",2,False,2026-11-17,5,53,35.0,False
+Poetry Across Borders,large,Cultural,Cooking Showcase,2026-11-22,6:30 PM,Library Walk,"Club website, Flyer, Instagram",3,False,2026-11-11,11,61,55.0,False
+Pre-Law Circle,medium,Career/Professional,Resume Workshop,2026-11-22,7:30 PM,RIMAC Field,"Campus calendar, Club website, Discord",3,False,2026-11-13,9,30,,False
+Ultimate Frisbee Club,small,General Meeting,General Body Meeting,2026-11-22,1:00 PM,RIMAC Field,"Discord, Instagram",2,True,2026-11-19,3,20,17.0,True
+Board Game Collective,medium,General Meeting,Weekly Meeting,2026-11-23,8:30 PM,Geisel Library,Instagram,1,False,2026-11-19,4,39,,False
+Habitat Builders,small,General Meeting,Officer Q&A,2026-11-23,12:00 PM,Warren Mall,"Campus calendar, Instagram",2,False,2026-11-21,2,21,11.0,True
+Karaoke Crew,small,Social,Fall Mixer,2026-11-23,1:30 PM,Warren Mall,Instagram,1,False,2026-11-23,0,20,,True
+Picnic Society,medium,Social,Potluck,2026-11-23,8:00 PM,Center Hall,"Campus calendar, Email newsletter",2,False,2026-11-18,5,23,20.0,False
+Tutoring Corps,medium,Service,Donation Drive,2026-11-23,12:30 PM,RIMAC Field,"Email newsletter, Instagram",2,False,2026-11-15,8,33,22.0,False
+Karaoke Crew,small,Social,Fall Mixer,2026-11-24,6:30 PM,Student Center,"Club website, Email newsletter, Flyer",3,True,2026-11-21,3,12,,False
+Poetry Across Borders,large,Cultural,Language Exchange,2026-11-24,1:00 PM,Geisel Library,"Campus calendar, Email newsletter",2,False,2026-11-19,5,92,80.0,True
+Sunset Socials,small,Social,Movie Night,2026-11-24,8:30 PM,Price Center,Instagram,1,False,2026-11-20,4,10,7.0,False
+Surf Club,small,Sports/Rec,Pickup Game,2026-11-24,12:00 PM,Student Center,Flyer,1,False,2026-11-24,0,12,,False
+Trivia Night Club,large,General Meeting,Kickoff Meeting,2026-11-24,12:30 PM,Center Hall,"Flyer, Instagram",2,False,2026-11-19,5,103,90.0,True
+Coastal Cleanup Crew,large,General Meeting,General Body Meeting,2026-11-25,6:30 PM,Student Center,"Club website, Flyer, Instagram",3,False,2026-11-22,3,51,32.0,False
+Finance & Investing Society,small,Career/Professional,Mock Interviews,2026-11-25,4:00 PM,Center Hall,Discord,1,False,2026-11-22,3,15,,False
+Heritage Cooking Club,large,General Meeting,Officer Q&A,2026-11-25,6:30 PM,Geisel Library,"Club website, Discord, Flyer",3,True,2026-11-13,12,68,41.0,False
+Pre-Med Pathways,large,Career/Professional,Alumni Q&A,2026-11-25,1:00 PM,Library Walk,"Club website, Flyer, Instagram",3,False,2026-11-01,24,67,62.0,False
+World Music Collective,medium,General Meeting,General Body Meeting,2026-11-25,12:00 PM,Center Hall,Instagram,1,False,2026-11-21,4,31,16.0,False
+Board Game Collective,medium,General Meeting,Quarter Planning Meeting,2026-11-26,1:30 PM,Center Hall,"Club website, Instagram",2,False,2026-11-22,4,42,,True
+Cybersecurity Circle,large,General Meeting,Weekly Meeting,2026-11-26,11:30 AM,Center Hall,"Club website, Flyer",2,False,2026-11-24,2,64,48.0,False
+Finance & Investing Society,small,General Meeting,Officer Q&A,2026-11-26,4:00 PM,Warren Mall,Campus calendar,1,False,2026-11-22,4,15,12.0,False
+Pre-Med Pathways,large,General Meeting,Kickoff Meeting,2026-11-26,1:00 PM,Library Walk,Club website,1,False,2026-11-15,11,92,53.0,True
+Transfer Connect,large,Social,Beach Bonfire,2026-11-26,12:30 PM,Library Walk,"Email newsletter, Instagram",2,False,2026-11-21,5,84,47.0,True
+Tutoring Corps,medium,Service,Beach Cleanup,2026-11-26,5:00 PM,Warren Mall,"Club website, Flyer, Instagram",3,False,2026-11-20,6,23,15.0,False
+AI Builders,large,General Meeting,Quarter Planning Meeting,2026-11-27,1:30 PM,Warren Mall,"Club website, Email newsletter, Instagram",3,False,2026-11-21,6,75,,True
+Cultural Night Committee,medium,Cultural,Language Exchange,2026-11-27,4:30 PM,Price Center,Instagram,1,False,2026-11-25,2,24,12.0,False
+Global Languages Table,small,Cultural,Culture Night,2026-11-27,12:00 PM,RIMAC Field,Flyer,1,False,2026-11-25,2,10,7.0,False
+Karaoke Crew,small,Social,Potluck,2026-11-27,6:00 PM,Geisel Library,Flyer,1,False,2026-11-27,0,14,,False
+Lantern Festival Crew,large,General Meeting,General Body Meeting,2026-11-27,5:30 PM,Center Hall,"Campus calendar, Instagram",2,False,2026-11-16,11,66,41.0,False
+Marketing Collective,large,Career/Professional,Mock Interviews,2026-11-27,5:30 PM,Student Center,"Flyer, Instagram",2,False,2026-11-21,6,78,65.0,False
+Sunset Socials,small,Social,Game Night,2026-11-27,4:00 PM,Student Center,Email newsletter,1,False,2026-11-25,2,23,16.0,True
+Taiko Ensemble,small,General Meeting,General Body Meeting,2026-11-27,8:00 PM,Price Center,Discord,1,False,2026-11-25,2,18,,True
+Transfer Connect,large,Social,Potluck,2026-11-27,6:00 PM,Price Center,"Club website, Flyer",2,False,2026-11-13,14,54,44.0,False
+Women in Engineering Network,large,Career/Professional,Networking Night,2026-11-27,4:30 PM,Warren Mall,"Campus calendar, Flyer, Instagram",3,False,2026-11-22,5,63,34.0,False
+Zine Makers,large,Arts,Film Screening,2026-11-27,1:00 PM,Geisel Library,Discord,1,False,2026-11-17,10,69,43.0,False
+Coastal Cleanup Crew,large,Service,Donation Drive,2026-11-28,4:30 PM,Price Center,"Club website, Instagram",2,False,2026-11-14,14,86,,True
+Commuter Student Lounge,small,Social,Boba Social,2026-11-28,5:00 PM,Geisel Library,Club website,1,False,2026-11-28,0,13,10.0,False
+Drone Lab,small,Tech,Hack Night,2026-11-28,12:30 PM,Student Center,Campus calendar,1,False,2026-11-25,3,16,9.0,True
+Hack Night Society,medium,Tech,Intro To Git Workshop,2026-11-28,7:30 PM,Warren Mall,"Campus calendar, Instagram",2,False,2026-11-24,4,38,35.0,True
+Poetry Across Borders,large,Cultural,Cooking Showcase,2026-11-28,11:30 AM,Library Walk,Campus calendar,1,False,2026-11-22,6,60,52.0,False
+Pre-Law Circle,medium,Career/Professional,Mock Interviews,2026-11-28,8:30 PM,Library Walk,Flyer,1,False,2026-11-25,3,21,13.0,False
+Table Tennis Society,large,Sports/Rec,Tournament,2026-11-28,12:00 PM,Student Center,"Discord, Email newsletter, Instagram",3,True,2026-11-17,11,63,37.0,False
+Weekend Wanderers,medium,Social,Boba Social,2026-11-28,5:00 PM,Library Walk,"Campus calendar, Instagram",2,False,2026-11-22,6,48,44.0,True
+Women in Engineering Network,large,General Meeting,Kickoff Meeting,2026-11-28,12:00 PM,Geisel Library,Instagram,1,False,2026-11-23,5,53,,False
+Board Game Collective,medium,Social,Movie Night,2026-11-29,8:00 PM,Zoom,"Club website, Discord",2,True,2026-11-24,5,34,,False
+Cybersecurity Circle,large,Tech,Project Demo Day,2026-11-29,8:30 PM,RIMAC Field,"Club website, Flyer, Instagram",3,False,2026-11-25,4,105,77.0,True
+Improv Troupe,small,General Meeting,Kickoff Meeting,2026-11-29,4:00 PM,Warren Mall,"Campus calendar, Discord",2,False,2026-11-28,1,19,11.0,False
+Marketing Collective,large,Career/Professional,Mock Interviews,2026-11-29,4:00 PM,RIMAC Field,"Club website, Discord, Instagram",3,False,2026-11-12,17,66,49.0,False
+Picnic Society,medium,Social,Boba Social,2026-11-29,5:30 PM,Center Hall,"Email newsletter, Flyer",2,False,2026-11-26,3,26,20.0,False
+Tutoring Corps,medium,Service,Tutoring Night,2026-11-29,6:00 PM,Warren Mall,"Club website, Discord, Email newsletter",3,False,2026-11-24,5,36,21.0,True
+Weekend Wanderers,medium,Social,Boba Social,2026-11-29,1:00 PM,Warren Mall,Instagram,1,False,2026-11-22,7,38,26.0,True
+AI Builders,large,Tech,Project Demo Day,2026-11-30,8:00 PM,Center Hall,"Campus calendar, Instagram",2,False,2026-11-27,3,79,44.0,True
+App Makers,medium,Tech,Tech Talk,2026-11-30,1:00 PM,Zoom,Flyer,1,False,2026-11-22,8,25,,False
+Commuter Student Lounge,small,Social,Movie Night,2026-11-30,5:30 PM,Zoom,"Discord, Email newsletter",2,False,2026-11-22,8,11,,False
+Diaspora Dialogues,small,Cultural,Cooking Showcase,2026-11-30,11:00 AM,Price Center,"Discord, Flyer, Instagram",3,False,2026-11-26,4,17,10.0,False
+Founders Lab,large,Career/Professional,Industry Panel,2026-11-30,1:30 PM,Library Walk,"Campus calendar, Club website",2,True,2026-11-21,9,97,85.0,True
+Marketing Collective,large,Career/Professional,Industry Panel,2026-11-30,6:00 PM,RIMAC Field,"Discord, Flyer, Instagram",3,True,2026-11-24,6,49,41.0,False
+Pre-Law Circle,medium,General Meeting,General Body Meeting,2026-11-30,8:30 PM,Library Walk,Instagram,1,False,2026-11-29,1,30,22.0,False
+Ceramics Studio Club,small,Arts,Showcase,2026-12-01,11:00 AM,Price Center,"Discord, Flyer",2,False,2026-11-30,1,11,,False
+Film Lens Club,small,Arts,Film Screening,2026-12-01,1:30 PM,Library Walk,Email newsletter,1,False,2026-12-01,0,10,9.0,False
+Acapella Union,small,Arts,Sketch Night,2026-12-02,7:30 PM,Zoom,Campus calendar,1,False,2026-11-29,3,13,,False
+Blood Drive Team,large,Service,Volunteer Shift,2026-12-02,4:30 PM,Library Walk,"Discord, Instagram",2,True,2026-11-25,7,61,44.0,False
+Coastal Cleanup Crew,large,Service,Volunteer Shift,2026-12-02,6:00 PM,Center Hall,"Campus calendar, Club website, Instagram",3,True,2026-11-18,14,84,55.0,True
+Drone Lab,small,Tech,Python Workshop,2026-12-02,6:00 PM,Student Center,"Campus calendar, Email newsletter",2,False,2026-12-01,1,15,14.0,True
+Karaoke Crew,small,General Meeting,Weekly Meeting,2026-12-02,8:00 PM,Price Center,Campus calendar,1,False,2026-11-30,2,19,,True
+Marketing Collective,large,Career/Professional,Industry Panel,2026-12-02,4:30 PM,RIMAC Field,"Campus calendar, Email newsletter, Instagram",3,False,2026-11-24,8,71,41.0,False
+Poetry Across Borders,large,General Meeting,Weekly Meeting,2026-12-02,6:30 PM,RIMAC Field,"Club website, Instagram",2,False,2026-11-26,6,68,,True
+Salsa Union,small,Sports/Rec,Beginner Clinic,2026-12-02,12:00 PM,RIMAC Field,Discord,1,False,2026-12-02,0,10,,False
+Table Tennis Society,large,Sports/Rec,Pickup Game,2026-12-02,11:30 AM,Zoom,Flyer,1,False,2026-11-21,11,61,35.0,False
+Transfer Connect,large,Social,Fall Mixer,2026-12-02,7:30 PM,Geisel Library,Email newsletter,1,False,2026-11-16,16,72,55.0,False
+Zine Makers,large,Arts,Showcase,2026-12-02,4:30 PM,Center Hall,"Campus calendar, Instagram",2,False,2026-11-16,16,54,35.0,False
+App Makers,medium,Tech,Hack Night,2026-12-03,1:00 PM,Geisel Library,"Email newsletter, Instagram",2,False,2026-11-29,4,36,21.0,False
+Calligraphy Society,small,Cultural,Language Exchange,2026-12-03,11:00 AM,RIMAC Field,Instagram,1,False,2026-11-30,3,20,15.0,True
+Ceramics Studio Club,small,Arts,Showcase,2026-12-03,12:30 PM,Warren Mall,Campus calendar,1,False,2026-12-01,2,13,10.0,False
+Data Science Collective,medium,General Meeting,General Body Meeting,2026-12-03,6:30 PM,Price Center,"Discord, Instagram",2,False,2026-11-26,7,24,,False
+International Student Network,small,Cultural,Dance Workshop,2026-12-03,8:00 PM,Center Hall,Instagram,1,False,2026-12-01,2,22,20.0,False
+Lantern Festival Crew,large,Cultural,Dance Workshop,2026-12-03,4:00 PM,RIMAC Field,"Campus calendar, Email newsletter",2,False,2026-11-07,26,62,37.0,False
+Marketing Collective,large,Career/Professional,Mock Interviews,2026-12-03,11:00 AM,Zoom,"Discord, Instagram",2,False,2026-11-20,13,102,55.0,True
+Open Source Crew,small,Tech,Hack Night,2026-12-03,5:00 PM,RIMAC Field,Club website,1,False,2026-12-03,0,12,,False
+Quantum Computing Club,medium,Tech,Intro To Git Workshop,2026-12-03,7:30 PM,Student Center,Instagram,1,False,2026-11-22,11,32,22.0,False
+Robotics Garage,small,General Meeting,General Body Meeting,2026-12-03,7:00 PM,Library Walk,Instagram,1,False,2026-12-03,0,8,5.0,False
+Taiko Ensemble,small,Cultural,Language Exchange,2026-12-03,5:00 PM,Price Center,"Club website, Flyer",2,False,2026-11-30,3,17,11.0,False
+App Makers,medium,Tech,Intro To Git Workshop,2026-12-04,4:00 PM,Library Walk,Club website,1,False,2026-12-02,2,38,21.0,True
+Drone Lab,small,Tech,Intro To Git Workshop,2026-12-04,6:30 PM,Price Center,Club website,1,False,2026-12-03,1,17,,False
+Habitat Builders,small,Service,Donation Drive,2026-12-04,6:30 PM,Library Walk,"Discord, Instagram",2,False,2026-12-02,2,9,7.0,False
+Heritage Cooking Club,large,Cultural,Cooking Showcase,2026-12-04,7:30 PM,Center Hall,"Club website, Flyer",2,False,2026-11-25,9,52,39.0,False
+Pixel Art Guild,small,General Meeting,Weekly Meeting,2026-12-04,7:00 PM,Student Center,Email newsletter,1,False,2026-12-02,2,8,5.0,False
+Pre-Med Pathways,large,General Meeting,General Body Meeting,2026-12-04,5:00 PM,Price Center,"Club website, Instagram",2,False,2026-11-24,10,91,61.0,True
+Table Tennis Society,large,Sports/Rec,Tournament,2026-12-04,1:00 PM,Price Center,Flyer,1,False,2026-11-27,7,69,64.0,False
+Weekend Wanderers,medium,General Meeting,Weekly Meeting,2026-12-04,4:30 PM,Center Hall,Club website,1,False,2026-11-28,6,47,35.0,True
+Women in Engineering Network,large,General Meeting,Kickoff Meeting,2026-12-04,11:00 AM,Library Walk,Flyer,1,False,2026-11-27,7,88,67.0,True
