@@ -17,8 +17,13 @@ st.markdown('''
 .block-container {max-width: 1160px; padding-top: 1.4rem; padding-bottom: 2.5rem;}
 .hero {background: linear-gradient(110deg,#112d4e,#225b82); padding: 1.9rem 2rem;
        border-radius: 18px; color: white; margin-bottom: 1.2rem;}
-.hero h1 {color:white; font-size:2.1rem; line-height:1.25; margin:0 0 .45rem;}
-.hero p {color:#e3eef9; font-size:1.01rem; margin:0;}
+.hero h1 {color:white; font-size:2.45rem; font-weight:800; line-height:1.2; margin:0 0 .8rem;}
+.hero h2 {color:#e3eef9; font-size:1.25rem; font-weight:500; line-height:1.55; margin:0; max-width:880px;}
+@media (max-width: 640px) {
+    .hero {padding:1.5rem 1.3rem;}
+    .hero h1 {font-size:2rem;}
+    .hero h2 {font-size:1.08rem;}
+}
 div[data-testid='stVerticalBlockBorderWrapper'] {border-radius:14px;}
 .club-highlight {background: rgba(51,77,117,.22); border: 1px solid rgba(122,152,201,.25);
                  padding: 1rem 1.1rem; border-radius: 16px; margin: .4rem 0 1rem;}
@@ -152,11 +157,11 @@ if 'saved_events' not in st.session_state:
     st.session_state.saved_events = set()
 
 st.markdown('''<div class="hero">
-<h1>Discover what’s happening on campus.</h1>
-<p>One place to explore student organizations, browse events, and find your community at UC San Diego.</p>
+<h1>Campus Event Hub</h1>
+<h2>Discover what’s happening on campus, explore student organizations, and find your community at UC San Diego!</h2>
 </div>''', unsafe_allow_html=True)
 
-browse, clubs, saved = st.tabs(['🔎 Explore events', '🏛️ Explore clubs', '☆ Saved events'])
+browse, clubs, saved = st.tabs(['Explore events', 'Explore clubs', 'Saved events'])
 
 with browse:
     st.subheader('Find your next event')

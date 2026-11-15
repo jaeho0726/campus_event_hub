@@ -1,4 +1,4 @@
-# Campus Event Hub — DataWorks v3.1
+# Campus Event Hub — DataWorks v3.3
 
 Student-facing Streamlit prototype centered on **event discovery**.
 
@@ -45,3 +45,9 @@ Consider allowing public browsing and requiring sign-in for cross-session saved 
 ## v3.1 card change
 
 The source link control is now a **🔗 icon in the top-right of every event card**, next to its category. Verified `http://` or `https://` URLs open the external announcement; missing or invalid URLs show a disabled icon with a “Link not provided” tooltip and a note in Event details. Only **Save event** and **Event details** remain in the bottom action row.
+
+## v3.2 update
+The homepage hero now displays **Campus Event Hub** as the main H1 title and the campus discovery tagline as a secondary H2 heading, with responsive typography for smaller screens.
+
+## v3.3 update
+Removed icons from the three top navigation tabs. The tabs now read **Explore events**, **Explore clubs**, and **Saved events**, with no other UI or feature changes.
