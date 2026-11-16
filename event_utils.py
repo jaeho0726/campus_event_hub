@@ -40,7 +40,11 @@ def load_events(csv_path: str | Path) -> pd.DataFrame:
                         row['title'].strip().casefold()))
         return sha1(key.encode('utf-8')).hexdigest()[:16]
 
-    df['event_id'] = df.apply(make_id, axis=1)
+    if 'event_id' not in df.columns:
+        df['event_id'] = df.apply(make_id, axis=1)
+    df['event_id'] = df['event_id'].fillna('').astype(str).str.strip()
+    if (df['event_id'] == '').any():
+        raise ValueError('All events need a nonempty event_id.')
     if df['event_id'].duplicated().any():
         raise ValueError('The cleaned CSV contains duplicated event identities.')
     return df.sort_values(['event_date', 'start_time', 'title']).reset_index(drop=True)
