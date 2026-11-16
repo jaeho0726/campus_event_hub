@@ -10,6 +10,7 @@ from urllib.parse import urlsplit
 
 import pandas as pd
 import streamlit as st
+from streamlit_calendar import calendar
 
 from account_store import (
     CLASS_OPTIONS, REMINDER_OPTIONS, add_saved, format_reminder,
@@ -363,7 +364,7 @@ def page_my_hub():
     user = current_user()
     if user is None:
         st.write('Welcome to your personal space. Browse as a guest, or verify a UCSD email '
-                 'to keep saved events and preferences across sessions.')
+                 'to keep events and preferences saved across sessions.')
         login_panel()
         st.divider()
         saved_events_panel(None, get_saved_map(None))
@@ -444,6 +445,24 @@ def page_clubs():
     st.markdown(f'#### Events from {selected}')
     show_cards(filter_events(events, club=selected), 'clubs', user, get_saved_map(user))
 
+def page_calendar():
+    st.subheader('Calendar view of your saved events')
+    st.write('See your saved events in a calendar format. This view is for planning and visualization.')
+
+    saved = events[events['event_id'].isin(get_saved_map(None))]
+
+    calendar_options = {
+    "editable": True,
+    "selectable": True,
+    "initialView": "dayGridMonth",
+    "headerToolbar": {
+        "left": "today prev,next",
+        "center": "title",
+        "right": "dayGridMonth,timeGridWeek,listWeek",
+    },
+}
+    state = calendar(events = saved, options = calendar_options, key = "my_calendar")
+
 
 events = get_events()
 club_summary = get_clubs(events)
@@ -460,6 +479,7 @@ pages = [
     st.Page(page_my_hub, title='My Hub', default=True),
     st.Page(page_events, title='Explore Events'),
     st.Page(page_clubs, title='Explore Clubs'),
+    st.Page(page_calendar, title='Calendar'),
 ]
 selected_page = st.navigation(pages, position='top')
 selected_page.run()
