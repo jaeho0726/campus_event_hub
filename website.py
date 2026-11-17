@@ -449,19 +449,31 @@ def page_calendar():
     st.subheader('Calendar view of your saved events')
     st.write('See your saved events in a calendar format. This view is for planning and visualization.')
 
-    saved = events[events['event_id'].isin(get_saved_map(None))]
+    events = get_events()
+    saved = events[events['event_id'].isin(get_saved_map(current_user()))]
+
+    saved_dict = []
+
+    for i in range(len(saved)):
+        saved_dict.append({
+            'title': saved.iloc[i]['start_time'] + ': ' + saved.iloc[i]['title'],
+            'start': str(saved.iloc[i]['event_date']),
+            'end': str(saved.iloc[i]['event_date']),
+            'allDay': True,
+        })
 
     calendar_options = {
-    "editable": True,
-    "selectable": True,
-    "initialView": "dayGridMonth",
-    "headerToolbar": {
-        "left": "today prev,next",
-        "center": "title",
-        "right": "dayGridMonth,timeGridWeek,listWeek",
-    },
-}
-    state = calendar(events = saved, options = calendar_options, key = "my_calendar")
+        "editable": False,
+        "selectable": True,
+        "initialView": "dayGridMonth",
+        "headerToolbar": {
+            "left": "today prev,next",
+            "center": "title",
+            "right": "dayGridMonth,timeGridWeek,listWeek",
+        },
+    }
+
+    state = calendar(events = saved_dict, options = calendar_options, key = "my_calendar")
 
 
 events = get_events()
