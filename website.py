@@ -4,6 +4,7 @@ Public event browsing works without external services. Signed-in features requir
 Supabase project configured as described in README.md.
 """
 from datetime import date
+from html import escape as esc
 import os
 from pathlib import Path
 from urllib.parse import urlsplit
@@ -21,10 +22,24 @@ from account_store import (
 from event_utils import build_club_summary, filter_clubs, filter_events, load_events
 
 BASE = Path(__file__).resolve().parent
+
+# Force the light theme from code, so the site looks right even when the viewer's browser/OS is in
+# dark mode and no .streamlit/config.toml is present. Streamlit sends theme settings with every
+# script run, so a single rerun at the start of a session lets the very first page load pick it up.
+_LIGHT_THEME = {
+    'base': 'light', 'primaryColor': '#00629B', 'backgroundColor': '#F7F4EF',
+    'secondaryBackgroundColor': '#FFFFFF', 'textColor': '#1F1D1B',
+}
+for _key, _value in _LIGHT_THEME.items():
+    st._config.set_option(f'theme.{_key}', _value)
 st.set_page_config(page_title='Campus Event Hub', page_icon='📅', layout='wide')
+if not st.session_state.get('_theme_applied'):
+    st.session_state['_theme_applied'] = True
+    st.rerun()
 
 st.markdown('''
 <style>
+@import url('https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400;6..72,500&display=swap');
 /* UC San Diego palette supplied in the project brand reference. */
 :root {
     --ucsd-navy: #182B49;
@@ -33,22 +48,85 @@ st.markdown('''
     --ucsd-gold: #C69214;
 }
 .block-container {max-width: 1160px; padding-top: 1.4rem; padding-bottom: 2.7rem;}
-.hero {
-    background: linear-gradient(108deg, var(--ucsd-navy), var(--ucsd-blue));
-    padding: 1.9rem 2rem;
-    border-radius: 18px;
-    border-bottom: 5px solid var(--ucsd-yellow);
-    color: white;
-    margin-bottom: 1.15rem;
+/* ---------- Warm, simple look ---------- */
+:root {
+    --cream: #F7F4EF; --ink: #1F1D1B; --muted: #6F6A63; --line: #E6E0D6;
+    --serif: 'Newsreader', Georgia, 'Times New Roman', serif;
 }
-.hero h1 {color:white; font-size:2.45rem; font-weight:800; line-height:1.2; margin:0 0 .8rem;}
-.hero h2 {color:#F3F8FF; font-size:1.25rem; font-weight:500; line-height:1.55; margin:0; max-width:880px;}
-@media (max-width: 640px) {
-    .hero {padding:1.5rem 1.3rem;}
-    .hero h1 {font-size:2rem;}
-    .hero h2 {font-size:1.08rem;}
+.stApp, [data-testid='stAppViewContainer'] {background: var(--cream); color: var(--ink);}
+[data-testid='stHeader'] {background: transparent;}
+h1, h2, h3, h4 {font-family: var(--serif) !important; font-weight: 500 !important; letter-spacing: -.01em; color: var(--ink);}
+
+@keyframes fadeIn {from {opacity: 0; transform: translateY(8px);} to {opacity: 1; transform: none;}}
+@keyframes heart {0% {transform: scale(1);} 40% {transform: scale(1.12);} 100% {transform: scale(1);}}
+
+/* Hero: just type on the page */
+.hero {padding: 2rem 0 1.5rem; margin-bottom: .8rem; border-bottom: 1px solid var(--line); animation: fadeIn .6s ease-out backwards;}
+.hero h1 {font-family: var(--serif) !important; font-weight: 500 !important; font-size: 3rem; line-height: 1.1;
+          letter-spacing: -.02em; color: var(--ink); margin: 0 0 .9rem; padding: 0;}
+.hero h1::after {content: ''; display: block; width: 44px; height: 4px; border-radius: 2px;
+                 background: var(--ucsd-yellow); margin-top: .9rem;}
+.hero h2 {font-family: inherit !important; font-weight: 400 !important; font-size: 1.15rem; line-height: 1.55;
+          color: var(--muted); max-width: 640px; margin: 0; padding: 0;}
+@media (max-width: 640px) {.hero h1 {font-size: 2.3rem;} .hero h2 {font-size: 1.05rem;}}
+
+/* Cards: white, quiet, lift a little on hover */
+div[class*='st-key-card_'] {
+    background: #fff; border: 1px solid var(--line); border-radius: 20px;
+    box-shadow: 0 1px 2px rgba(31, 29, 27, .04);
+    transition: transform .2s ease, box-shadow .2s ease;
+    animation: fadeIn .35s ease-out backwards;
 }
-div[data-testid='stVerticalBlockBorderWrapper'] {border-radius:14px;}
+div[class*='st-key-card_']:hover {
+    transform: translateY(-2px); box-shadow: 0 8px 20px rgba(31, 29, 27, .08);
+}
+div[class*='st-key-card_']:has(.saved-marker) {background: #FFFBE8; border-color: var(--ucsd-yellow);}
+div[data-testid='stElementContainer']:has(.saved-marker), .element-container:has(.saved-marker) {display: none;}
+
+div[class*='st-key-card_'] {padding: 1.15rem 1.3rem 1.2rem; gap: .35rem;}
+div[class*='st-key-card_'] h4 {font-size: 1.5rem; line-height: 1.2; padding: 0; margin: 0;}
+div[class*='st-key-card_'] div[data-testid='stMarkdownContainer'] {margin-bottom: 0;}   /* undo Streamlit's built-in -1rem */
+div[class*='st-key-card_'] div[data-testid='stHeadingWithActionElements'] {margin-bottom: 0;}
+div[class*='st-key-card_'] > :last-child {margin-top: auto;}      /* buttons sit at the bottom */
+div[class*='st-key-card_'] > :last-child {padding-top: .9rem;}
+/* smaller link icon so the top row stays compact */
+div[class*='st-key-card_'] div[data-testid='stColumn']:nth-child(2) div[data-testid='stButton'] button {min-height: 2rem; height: 2rem; padding: 0 .55rem;}
+/* cards in the same row stretch to equal height */
+div[data-testid='stHorizontalBlock']:has(div[class*='st-key-card_']) {align-items: stretch;}
+div[data-testid='stColumn']:has(div[class*='st-key-card_']) > div[data-testid='stVerticalBlock'] {height: 100%;}
+div[data-testid='stLayoutWrapper']:has(> div[class*='st-key-card_']) {flex: 1 1 auto;}
+div[data-testid='stColumn'] div[class*='st-key-card_'] {flex: 1 1 auto;}
+.kicker {font-size: .88rem; color: var(--muted); margin: 0;}
+.host {font-weight: 600; font-size: .98rem; padding-top: .2rem; margin: 0 0 .35rem;}
+.meta {color: var(--muted); font-size: .95rem; margin: .12rem 0;}
+.food {font-size: .88rem; margin-top: .3rem;}
+
+/* Buttons: black outline pills, fill in on hover; saved = filled */
+div[data-testid='stButton'] button, div[data-testid='stPopover'] button,
+a[data-testid='stBaseLinkButton-secondary'] {
+    border-radius: 999px; border: 1px solid var(--ink); background: transparent; color: var(--ink);
+    transition: background-color .2s ease, color .2s ease, transform .15s ease;
+}
+div[data-testid='stButton'] button p, div[data-testid='stPopover'] button p {color: inherit;}
+div[data-testid='stButton'] button:not([kind='primary']):hover:not(:disabled),
+div[data-testid='stPopover'] button:hover,
+a[data-testid='stBaseLinkButton-secondary']:hover {background: var(--ink); color: #fff; border-color: var(--ink);}
+div[data-testid='stButton'] button:not([kind='primary']):hover:not(:disabled) p,
+div[data-testid='stPopover'] button:hover p {color: #fff;}
+div[data-testid='stButton'] button:active:not(:disabled) {transform: scale(.97);}
+div[class*='st-key-card_']:has(.saved-marker) > :last-child div[data-testid='stButton'] button {
+    background: var(--ink); color: #fff; border-color: var(--ink); animation: heart .35s ease-out;
+}
+div[class*='st-key-card_']:has(.saved-marker) > :last-child div[data-testid='stButton'] button p {color: #fff;}
+
+/* The rest */
+div[data-testid='stMetric'] {background: #fff; border: 1px solid var(--line); border-radius: 16px;
+                             padding: .8rem 1.1rem; width: fit-content; min-width: 9rem;}
+div[data-testid='stExpander'] {background: #fff; border-radius: 16px;}
+
+@media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {animation: none !important; transition: none !important;}
+}
 
 /* The selected 'Clubs I'm interested in' button is the only primary st.button.
    Streamlit otherwise puts white labels on primary colors; use navy on yellow. */
@@ -70,8 +148,6 @@ button[data-testid='stBaseButton-primary']:focus-visible {
 }
 </style>
 ''', unsafe_allow_html=True)
-
-
 @st.cache_data(show_spinner=False)
 def get_events():
     return load_events(BASE / 'data' / 'events_clean.csv')
@@ -192,6 +268,8 @@ def toggle_club(club_id, user, saved_ids):
         st.session_state.pop('selected_saved_club', None)
     elif not saved:
         st.session_state.selected_saved_club = club_id
+    st.toast('Club removed from your list' if saved else 'Club saved! Find it in My Hub',
+             icon='💔' if saved else '♥')
     st.rerun()
 
 
@@ -199,11 +277,13 @@ def club_card(club, namespace, user, saved_ids):
     """Club directory card: identity, inferred categories, size, and Save club."""
     club_id = str(club['club_id'])
     saved = saved_ids is not None and club_id in saved_ids
-    with st.container(border=True):
-        st.caption(str(club['org_size']).title() + ' club')
+    with st.container(border=True, key=f'card_club_{namespace}_{club_id}'):
+        if saved:
+            st.markdown('<span class="saved-marker"></span>', unsafe_allow_html=True)
+        st.markdown(f'<div class="kicker">{esc(str(club["org_size"]).title())} club</div>', unsafe_allow_html=True)
         st.markdown(f"#### {club['org_name']}")
-        st.write(f"**Categories:** {club['categories']}")
-        if st.button('✓ Saved club' if saved else '☆ Save club',
+        st.markdown(f'<div class="meta">{esc(str(club["categories"]))}</div>', unsafe_allow_html=True)
+        if st.button('♥ Saved club' if saved else '♡ Save club',
                      key=f'club_save_{namespace}_{club_id}',
                      use_container_width=True, disabled=saved_ids is None):
             toggle_club(club_id, user, saved_ids)
@@ -235,7 +315,7 @@ def interested_clubs_panel(user, saved_ids, saved_events):
         return
     saved_clubs = club_summary[club_summary['club_id'].isin(saved_ids)]
     if saved_clubs.empty:
-        st.info('No saved clubs yet. Go to Explore Clubs and select ☆ Save club.')
+        st.info('No saved clubs yet. Go to Explore Clubs and select ♡ Save club.')
         return
     missing = len(saved_ids) - len(saved_clubs)
     if missing:
@@ -291,25 +371,34 @@ def toggle_save(event_id, user, saved_map):
         except Exception:
             st.error('Could not update saved events. Check your Supabase connection and RLS policies.')
             return
+    st.toast('Removed from your saved events' if is_saved else 'Event saved! Find it in My Hub',
+             icon='💔' if is_saved else '♥')
     st.rerun()
 
 
 def event_card(event, namespace, user, saved_map):
     event_id = str(event['event_id'])
     is_saved = saved_map is not None and event_id in saved_map
-    with st.container(border=True):
+    with st.container(border=True, key=f'card_ev_{namespace}_{event_id}'):
+        if is_saved:
+            st.markdown('<span class="saved-marker"></span>', unsafe_allow_html=True)
         size = str(event.get('org_size', '')).title()
         top_left, top_right = st.columns([8, 1], vertical_alignment='center')
         with top_left:
-            st.caption(f"{event['category']}" + (f' · {size} club' if size else ''))
+            kicker = esc(str(event['category'])) + (f' · {esc(size)} club' if size else '')
+            st.markdown(f'<div class="kicker">{kicker}</div>', unsafe_allow_html=True)
         with top_right:
             source_icon(event, namespace)
         st.markdown(f"#### {event['title']}")
-        st.write(f"**{event['org_name']}**")
-        st.write(f"📅 {event['event_date'].strftime('%a, %b %d, %Y')} · 🕒 {event['start_time']}")
-        st.write(f"📍 {event['location']}")
+        food = '<div class="food">🍕 Food mentioned</div>' if event.get('free_food', False) else ''
+        st.markdown(
+            f'<div class="host">{esc(str(event["org_name"]))}</div>'
+            f'<div class="meta">{event["event_date"].strftime("%a, %b %d, %Y")} · {esc(str(event["start_time"]))}</div>'
+            f'<div class="meta">{esc(str(event["location"]))}</div>{food}',
+            unsafe_allow_html=True,
+        )
         save_col, details_col = st.columns(2)
-        if save_col.button('✓ Saved' if is_saved else '☆ Save event',
+        if save_col.button('♥ Saved' if is_saved else '♡ Save event',
                            key=f'save_{namespace}_{event_id}',
                            use_container_width=True, disabled=saved_map is None):
             toggle_save(event_id, user, saved_map)
@@ -415,7 +504,7 @@ def saved_events_panel(user, saved_map):
     saved_count = len(saved_map)
     st.metric('Saved events', saved_count)
     if not saved_count:
-        st.info('Nothing saved yet. Visit Explore Events and select ☆ Save event.')
+        st.info('Nothing saved yet. Visit Explore Events and select ♡ Save event.')
         return
     matching = events[events['event_id'].isin(saved_map)]
     missing_count = saved_count - len(matching)
@@ -629,7 +718,30 @@ def page_calendar():
         },
     }
 
-    state = calendar(events = saved_dict, options = calendar_options, key = "my_calendar")
+    # Match the calendar to the rest of the site: ink pill buttons, white day cells, yellow event chips.
+    calendar_css = """
+        .fc {font-family: 'Source Sans Pro', sans-serif; color: #1F1D1B;}
+        .fc .fc-toolbar-title {font-family: 'Newsreader', Georgia, serif; font-weight: 500; font-size: 1.8rem;}
+        .fc .fc-button {background: transparent; color: #1F1D1B; border: 1px solid #1F1D1B; border-radius: 999px;
+                        box-shadow: none; text-transform: capitalize; transition: background .2s, color .2s;}
+        .fc .fc-button:hover {background: #1F1D1B; color: #fff; border-color: #1F1D1B;}
+        .fc .fc-button-primary:not(:disabled).fc-button-active,
+        .fc .fc-button-primary:not(:disabled):active {background: #1F1D1B; color: #fff; border-color: #1F1D1B;}
+        .fc .fc-button:disabled {opacity: .4;}
+        .fc .fc-button-group > .fc-button {border-radius: 0;}
+        .fc .fc-button-group > .fc-button:first-child {border-radius: 999px 0 0 999px;}
+        .fc .fc-button-group > .fc-button:last-child {border-radius: 0 999px 999px 0;}
+        .fc-theme-standard td, .fc-theme-standard th, .fc-theme-standard .fc-scrollgrid {border-color: #E6E0D6;}
+        .fc .fc-scrollgrid {border-radius: 16px; overflow: hidden;}
+        .fc .fc-daygrid-day {background: #fff;}
+        .fc .fc-day-today {background: #FFFBE8 !important;}
+        .fc .fc-col-header-cell {background: #F7F4EF;}
+        .fc .fc-event {background: #FFCD00; border-color: #C69214; color: #182B49; border-radius: 8px; padding: 1px 4px;}
+        .fc .fc-event, .fc .fc-event .fc-event-main, .fc .fc-event-title, .fc .fc-event-time {color: #182B49 !important; font-weight: 600;}
+        .fc .fc-event:hover {background: #C69214;}
+        .fc .fc-list-event:hover td {background: #FFFBE8;}
+    """
+    state = calendar(events = saved_dict, options = calendar_options, custom_css = calendar_css, key = "my_calendar")
 
 
 events = get_events()
