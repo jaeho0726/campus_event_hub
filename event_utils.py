@@ -73,15 +73,41 @@ def filter_events(events: pd.DataFrame, query: str = '', categories=None,
 
 
 def build_club_summary(events: pd.DataFrame) -> pd.DataFrame:
-    """Create one summary row per club for the Explore Clubs view."""
-    if events.empty:
-        return pd.DataFrame(columns=['org_name', 'org_size', 'event_count', 'categories', 'next_event'])
+    """One row per club; categories are inferred from its listed event types.
 
-    summary = (events.groupby('org_name', as_index=False)
-               .agg(
-                   org_size=('org_size', 'first'),
-                   event_count=('event_id', 'count'),
-                   categories=('category', lambda s: ', '.join(sorted(s.dropna().astype(str).unique()))),
-                   next_event=('event_date', 'min')
-               ))
-    return summary.sort_values(['org_name']).reset_index(drop=True)
+    These are not verified club descriptions or UCSD official classifications.
+    'General Meeting' is omitted when a club has other, more informative tags.
+    """
+    import hashlib
+
+    rows = []
+    for name, group in events.groupby('org_name', sort=True):
+        raw_tags = sorted(set(group['category'].dropna().astype(str)))
+        specific_tags = [tag for tag in raw_tags if tag != 'General Meeting']
+        tags = specific_tags or raw_tags
+        sizes = group['org_size'].dropna().astype(str).str.strip().str.lower()
+        size = sizes.mode().iloc[0] if not sizes.empty else 'unspecified'
+        club_id = hashlib.sha1(name.strip().casefold().encode('utf-8')).hexdigest()[:16]
+        rows.append({
+            'club_id': club_id,
+            'org_name': name,
+            'org_size': size,
+            'categories': ', '.join(tags),
+            'category_tags': tuple(tags),
+        })
+    columns = ['club_id', 'org_name', 'org_size', 'categories', 'category_tags']
+    return pd.DataFrame(rows, columns=columns).sort_values('org_name').reset_index(drop=True)
+
+
+def filter_clubs(clubs: pd.DataFrame, search: str = '', categories=None, sizes=None) -> pd.DataFrame:
+    """Filter the club directory by name, inferred event tags, and club size."""
+    result = clubs
+    if search.strip():
+        result = result[result['org_name'].str.contains(search.strip(), case=False, regex=False)]
+    if categories:
+        chosen = set(categories)
+        result = result[result['category_tags'].map(lambda tags: bool(chosen.intersection(tags)))]
+    if sizes:
+        chosen_sizes = {size.casefold() for size in sizes}
+        result = result[result['org_size'].str.casefold().isin(chosen_sizes)]
+    return result.sort_values('org_name').copy()

@@ -113,3 +113,24 @@ def update_reminder(client: Any, user_id: str, event_id: str, hours: int | None)
         raise ValueError('Unsupported reminder preference')
     (client.table('saved_events').update({'reminder_hours': hours})
      .eq('user_id', user_id).eq('event_id', event_id).execute())
+
+
+def list_saved_clubs(client: Any, user_id: str) -> set[str]:
+    """Return club IDs saved by this authenticated user (RLS protects the rows)."""
+    rows = (client.table('saved_clubs').select('club_id')
+            .eq('user_id', user_id).execute().data or [])
+    return {str(row['club_id']) for row in rows}
+
+
+def add_saved_club(client: Any, user_id: str, club_id: str) -> None:
+    """Persist a club follow/save; one record per user and club."""
+    if not club_id or len(club_id) > 120:
+        raise ValueError('Invalid club ID')
+    client.table('saved_clubs').upsert(
+        {'user_id': user_id, 'club_id': club_id}, on_conflict='user_id,club_id'
+    ).execute()
+
+
+def remove_saved_club(client: Any, user_id: str, club_id: str) -> None:
+    (client.table('saved_clubs').delete()
+     .eq('user_id', user_id).eq('club_id', club_id).execute())

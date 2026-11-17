@@ -1,4 +1,4 @@
-# Campus Event Hub — v4
+# Campus Event Hub — v4.1
 
 A student-facing Streamlit prototype built from the DataWorks workshop's synthetic event dataset. **My Hub is the default/first page**. Anyone can browse event listings and save events temporarily. With a configured Supabase project, a verified `@ucsd.edu` email account can sign in, save events persistently, and edit an optional profile.
 
@@ -7,10 +7,13 @@ A student-facing Streamlit prototype built from the DataWorks workshop's synthet
 | Function | Status |
 |---|---|
 | Homepage / My Hub first | Implemented |
-| Public Explore Events and Explore Clubs | Implemented |
+| Public Explore Events and Explore Clubs directory | Implemented |
 | Search, filters, event details, pagination | Implemented |
 | Source link icon if a valid HTTP(S) URL exists | Implemented (sample CSV has no URLs) |
-| Guest saved events | Implemented (temporary Streamlit session state) |
+| Guest saved events **and clubs** | Implemented (temporary Streamlit session state) |
+| Club search, inferred category tags, size filters, Save Club | Implemented |
+| My Hub saved club buttons → upcoming club events | Implemented (based on upcoming dates in CSV) |
+| Persistent, per-account saved clubs | Code + new SQL migration; requires configured Supabase |
 | Passwordless @ucsd.edu email OTP | Code implemented; requires Supabase + real email delivery setup |
 | Persistent, per-account saved events | Code + SQL/RLS implemented; requires configured Supabase |
 | Optional display name, class standing, major | Code + SQL/RLS implemented; requires configured Supabase |
@@ -28,10 +31,21 @@ From the extracted `campus_event_hub_v4` directory:
 
 ```bash
 python -m pip install -r requirements.txt
-streamlit run app.py
+python -m streamlit run website.py
 ```
 
 Before configuring Supabase, the public pages and temporary guest saves still work. My Hub shows an honest configuration notice; it does not simulate authentication.
+
+## Important upgrade instructions from v4 (for your existing project)
+
+1. Back up your current `website.py`, `account_store.py`, and `event_utils.py`.
+2. Copy the new `website.py`, `account_store.py`, `event_utils.py`, and updated tests into your existing project.
+3. **Do not overwrite or commit your existing `.streamlit/secrets.toml`.** Your local Supabase credentials remain in that file.
+4. In the Supabase dashboard, open **SQL Editor → New query**, paste **only** `database/saved_clubs_migration.sql`, and run it. It adds the new `saved_clubs` table and user-owned RLS policies without resetting your `profiles` or `saved_events` data. The original v4 schema must already be installed. For a completely new Supabase project, use the complete `database/schema.sql` instead.
+5. Restart using `python -m streamlit run website.py` and test saving a club, selecting it in My Hub, and saving an event.
+6. If GitHub previously received a `secrets.toml` commit, address the exposed credential and repository history before sharing the repository. The `.gitignore` here excludes that file, but does not erase an earlier tracked commit.
+
+**Guest mode:** No database migration is needed to try the page as a guest; only signed-in, persistent saved clubs require the new table.
 
 ## 2. Configure real UCSD email authentication + database
 
@@ -50,10 +64,11 @@ SUPABASE_ANON_KEY = "YOUR-PUBLISHABLE-OR-ANON-KEY"
 
 ### 2.2 Create and secure the tables
 
-Run the entire contents of [`supabase/schema.sql`](supabase/schema.sql) in the Supabase **SQL Editor**. This creates:
+For a **new Supabase project**, run the entire contents of [`database/schema.sql`](database/schema.sql) in the Supabase **SQL Editor**. This creates:
 
 - `profiles`: user ID, optional name/class/major, default reminder preference
 - `saved_events`: one record per user and event, with per-event reminder preference
+- `saved_clubs`: one record per user and followed club
 - RLS policies: users can read/write only their own records, and only with a UCSD-domain email claim
 - A **Before User Created hook** function that can reject non-UCSD signups server-side
 
@@ -85,40 +100,51 @@ For an initial test, use a couple of your own/team-controlled `@ucsd.edu` email 
 3. Enter a valid `@ucsd.edu` address; request a code. Retrieve it from that account's inbox.
 4. Enter the code to sign in. My Hub should show the verified email.
 5. Choose **Import guest saves** if applicable, or save a new event through Explore Events.
-6. Open **My Hub → My Events** and verify that the event is listed.
-7. Save a per-event reminder choice (including **I don't want a reminder**).
-8. Open **My Profile**; optionally enter your name, class standing, or major. Save.
-9. Open **Notification Settings** and choose a default reminder for **new** saves.
-10. Sign out, sign back in from a new session, and confirm saved events, profile, and settings remain.
-11. With a second account, verify that the first account's records are **not visible or editable**. Test RLS directly before any public deployment.
-12. Try a non-UCSD address in the app; it must be rejected before an OTP request. Test the **server-side Before User Created hook** independently too.
+6. Go to **Explore Clubs**, choose a category or size, and save a club. On **My Hub → My Events & Clubs**, select its name to display upcoming events. Verify a saved club remains after re-login.
+7. Open **My Hub → My Events & Clubs** and verify that your saved event is listed.
+8. Save a per-event reminder choice (including **I don't want a reminder**).
+9. Open **My Profile**; optionally enter your name, class standing, or major. Save.
+10. Open **Notification Settings** and choose a default reminder for **new** saves.
+11. Sign out, sign back in from a new session, and confirm saved events, profile, and settings remain.
+12. With a second account, verify that the first account's records are **not visible or editable**. Test RLS directly before any public deployment.
+13. Try a non-UCSD address in the app; it must be rejected before an OTP request. Test the **server-side Before User Created hook** independently too.
 
 For both login and RLS, a live Supabase project is needed for end-to-end verification; the included local tests mock network/database operations.
 
 ## 3. How preferences work
 
 - **My Hub opens first.** Public browsing is available at all times; login is optional.
-- When logged out, saved events are only in `st.session_state`. They disappear when that browser session ends.
-- When signed in, saved events are stored in the `saved_events` database table under the authenticated user's ID, protected by RLS.
+- When logged out, saved events and clubs are only in `st.session_state`. They disappear when that browser session ends.
+- When signed in, saved clubs are stored in `saved_clubs`; saved events are stored in the `saved_events` database table under the authenticated user's ID, protected by RLS.
 - Optional **My Profile** fields are not needed at registration and may be left empty.
 - **Notification Settings** defines the default reminder preference for **newly saved events**.
-- **My Events** lets a signed-in user override the preference for any saved event.
+- **My Events & Clubs** lets a signed-in user override the preference for any saved event.
 - **No reminder** is the default. Selecting 24/3/1 hours is a stored future delivery preference, not proof an email is scheduled.
 - Auth tokens live in the current **Streamlit server session**. A browser refresh/reconnect or app restart may require signing in again. The database records themselves survive re-login; this prototype does not implement durable browser cookies.
 
 ## 4. Architecture
 
 ```text
-app.py                   Streamlit interface + My Hub first navigation
-account_store.py         Supabase OTP + profile + saved events CRUD
- event_utils.py           Load, search, filter, summarize events
- data/events_clean.csv    501 synthetic events; stable event IDs persisted to CSV
- supabase/schema.sql      Database definitions + RLS + optional signup hook
- .streamlit/secrets.toml.example  Template for local credentials
- tests/                   Unit/data-processing tests (not a live service test)
+website.py                      Streamlit UI; My Hub opens first
+account_store.py                Supabase auth, saved events & saved clubs CRUD
+ event_utils.py                 Data loading; event/club filters and club summary
+ data/events_clean.csv          501 synthetic events; 60 derived club records
+ database/schema.sql            Fresh install: all tables + RLS + signup hook
+ database/saved_clubs_migration.sql Existing v4 install: add club saves only
+ .streamlit/secrets.toml.example Template for credentials (not real secrets)
+ tests/                        Unit/data-processing tests
 ```
 
 `event_id` values are now explicitly included in `events_clean.csv`, rather than recalculated every time a date/title changes. Preserve IDs for existing events when introducing real data. The CSV doesn't have real original announcement URLs, so link icons for those examples are disabled.
+
+## How the new Explore Clubs / My Hub flow works
+
+- **Explore Clubs** displays one card per club (60 in the sample data), not one card per past event. The search uses club names, and filters use **categories** and **club sizes**.
+- Since the sample CSV has event types rather than official club classifications, club category tags are **inferred** from that club's event categories. Generic `General Meeting` is omitted when more specific tags exist. This is an intentional prototype approximation.
+- Selecting **☆ Save club** adds the club to guest session state or to your authenticated account's `saved_clubs` table.
+- **My Hub → My Events & Clubs** shows clickable buttons for saved clubs. Selecting one changes the **upcoming event cards underneath**. It filters to events dated today or later; if none match it displays a clear empty state.
+- **My saved events** stays below the interested-club section, independent of club saves; the existing per-event reminder preference functionality remains there.
+- The web app does not register genuine UCSD clubs or fetch live data. The linked sample dataset only illustrates the flow.
 
 ## 5. Future: actual email reminders
 
@@ -141,3 +167,16 @@ The included tests validate deterministic data processing and account/database-c
 - Supabase Before User Created hook: https://supabase.com/docs/guides/auth/auth-hooks/before-user-created-hook
 - Supabase Email Templates: https://supabase.com/docs/guides/auth/auth-email-templates
 - Supabase Auth SMTP: https://supabase.com/docs/guides/auth/auth-smtp
+
+
+## v4.2 UCSD color palette update
+
+Visual-only update: UCSD Navy `#182B49` for text and the hero, UCSD Blue
+`#00629B` for interactive accents, UCSD Yellow `#FFCD00` for the **selected**
+club button with **navy text**, and UCSD Gold `#C69214` on hover. Event
+search, saved clubs, authentication and Supabase code are unchanged.
+
+The color theme lives in `.streamlit/config.toml`. The hero and active club
+button styles live near the top of `website.py` inside the `<style>` block.
+You may need to restart Streamlit after adding or editing `config.toml`.
+Never overwrite or commit your real `.streamlit/secrets.toml`.

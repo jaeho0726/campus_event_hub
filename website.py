@@ -1,4 +1,4 @@
-"""Campus Event Hub v4 — UCSD email OTP + My Hub + persistent saved events.
+"""Campus Event Hub v4.1 — UCSD email OTP + My Hub + persistent saved events.
 
 Public event browsing works without external services. Signed-in features require a
 Supabase project configured as described in README.md.
@@ -13,26 +13,61 @@ import streamlit as st
 from streamlit_calendar import calendar
 
 from account_store import (
-    CLASS_OPTIONS, REMINDER_OPTIONS, add_saved, format_reminder,
-    get_profile, get_verified_user, is_ucsd_email, list_saved, new_client,
-    remove_saved, save_profile, send_login_code, update_reminder,
+    CLASS_OPTIONS, REMINDER_OPTIONS, add_saved, add_saved_club, format_reminder,
+    get_profile, get_verified_user, is_ucsd_email, list_saved, list_saved_clubs, new_client,
+    remove_saved, remove_saved_club, save_profile, send_login_code, update_reminder,
     verify_login_code,
 )
-from event_utils import build_club_summary, filter_events, load_events
+from event_utils import build_club_summary, filter_clubs, filter_events, load_events
 
 BASE = Path(__file__).resolve().parent
 st.set_page_config(page_title='Campus Event Hub', page_icon='📅', layout='wide')
 
 st.markdown('''
 <style>
+/* UC San Diego palette supplied in the project brand reference. */
+:root {
+    --ucsd-navy: #182B49;
+    --ucsd-blue: #00629B;
+    --ucsd-yellow: #FFCD00;
+    --ucsd-gold: #C69214;
+}
 .block-container {max-width: 1160px; padding-top: 1.4rem; padding-bottom: 2.7rem;}
-.hero {background: linear-gradient(110deg,#112d4e,#225b82); padding: 1.9rem 2rem;
-       border-radius: 18px; color: white; margin-bottom: 1.15rem;}
+.hero {
+    background: linear-gradient(108deg, var(--ucsd-navy), var(--ucsd-blue));
+    padding: 1.9rem 2rem;
+    border-radius: 18px;
+    border-bottom: 5px solid var(--ucsd-yellow);
+    color: white;
+    margin-bottom: 1.15rem;
+}
 .hero h1 {color:white; font-size:2.45rem; font-weight:800; line-height:1.2; margin:0 0 .8rem;}
-.hero h2 {color:#e3eef9; font-size:1.25rem; font-weight:500; line-height:1.55; margin:0; max-width:880px;}
-@media (max-width: 640px) { .hero {padding:1.5rem 1.3rem;}
- .hero h1 {font-size:2rem;} .hero h2 {font-size:1.08rem;} }
+.hero h2 {color:#F3F8FF; font-size:1.25rem; font-weight:500; line-height:1.55; margin:0; max-width:880px;}
+@media (max-width: 640px) {
+    .hero {padding:1.5rem 1.3rem;}
+    .hero h1 {font-size:2rem;}
+    .hero h2 {font-size:1.08rem;}
+}
 div[data-testid='stVerticalBlockBorderWrapper'] {border-radius:14px;}
+
+/* The selected 'Clubs I'm interested in' button is the only primary st.button.
+   Streamlit otherwise puts white labels on primary colors; use navy on yellow. */
+button[kind='primary'], button[data-testid='stBaseButton-primary'] {
+    background-color: var(--ucsd-yellow) !important;
+    border-color: var(--ucsd-yellow) !important;
+    color: var(--ucsd-navy) !important;
+    font-weight: 700 !important;
+}
+button[kind='primary']:hover, button[data-testid='stBaseButton-primary']:hover {
+    background-color: var(--ucsd-gold) !important;
+    border-color: var(--ucsd-gold) !important;
+    color: var(--ucsd-navy) !important;
+}
+button[kind='primary']:focus-visible,
+button[data-testid='stBaseButton-primary']:focus-visible {
+    outline: 3px solid var(--ucsd-blue) !important;
+    outline-offset: 2px;
+}
 </style>
 ''', unsafe_allow_html=True)
 
@@ -122,6 +157,118 @@ def get_saved_map(user):
     except Exception:
         st.error('Unable to load your saved events. Check your Supabase tables and connection.')
         return None
+
+
+def get_saved_club_ids(user):
+    """Guest: temporary session set. Signed in: account-owned Supabase records."""
+    if user is None:
+        return set(st.session_state.guest_saved_clubs)
+    try:
+        return list_saved_clubs(session_client(), user['id'])
+    except Exception:
+        st.error('Unable to load saved clubs. Run database/saved_clubs_migration.sql in Supabase SQL Editor and check your connection.')
+        return None
+
+
+def toggle_club(club_id, user, saved_ids):
+    if saved_ids is None:
+        return
+    saved = club_id in saved_ids
+    if user is None:
+        if saved:
+            st.session_state.guest_saved_clubs.discard(club_id)
+        else:
+            st.session_state.guest_saved_clubs.add(club_id)
+    else:
+        try:
+            if saved:
+                remove_saved_club(session_client(), user['id'], club_id)
+            else:
+                add_saved_club(session_client(), user['id'], club_id)
+        except Exception:
+            st.error('Could not update saved clubs. Check Supabase and the saved_clubs table.')
+            return
+    if saved and st.session_state.get('selected_saved_club') == club_id:
+        st.session_state.pop('selected_saved_club', None)
+    elif not saved:
+        st.session_state.selected_saved_club = club_id
+    st.rerun()
+
+
+def club_card(club, namespace, user, saved_ids):
+    """Club directory card: identity, inferred categories, size, and Save club."""
+    club_id = str(club['club_id'])
+    saved = saved_ids is not None and club_id in saved_ids
+    with st.container(border=True):
+        st.caption(str(club['org_size']).title() + ' club')
+        st.markdown(f"#### {club['org_name']}")
+        st.write(f"**Categories:** {club['categories']}")
+        if st.button('✓ Saved club' if saved else '☆ Save club',
+                     key=f'club_save_{namespace}_{club_id}',
+                     use_container_width=True, disabled=saved_ids is None):
+            toggle_club(club_id, user, saved_ids)
+
+
+def show_club_cards(df, namespace, user, saved_ids, page_size=12):
+    """Show only club cards (no event listings) and bottom pagination."""
+    if df.empty:
+        st.info('No clubs match. Try changing the search or filters.')
+        return
+    pages = (len(df) + page_size - 1) // page_size
+    key = f'{namespace}_page'
+    page = min(max(st.session_state.get(key, 1), 1), pages)
+    visible = df.iloc[(page - 1) * page_size:page * page_size]
+    for start in range(0, len(visible), 2):
+        cols = st.columns(2)
+        for col, (_, club) in zip(cols, visible.iloc[start:start + 2].iterrows()):
+            with col:
+                club_card(club, namespace, user, saved_ids)
+    st.markdown('')
+    show_pagination(pages, namespace)
+
+
+def interested_clubs_panel(user, saved_ids, saved_events):
+    """Saved club buttons switch the event feed below them; then My saved events follows."""
+    st.markdown('### Clubs I’m interested in')
+    st.caption('Choose a saved club to see its upcoming events. Save more clubs in Explore Clubs.')
+    if saved_ids is None:
+        return
+    saved_clubs = club_summary[club_summary['club_id'].isin(saved_ids)]
+    if saved_clubs.empty:
+        st.info('No saved clubs yet. Go to Explore Clubs and select ☆ Save club.')
+        return
+    missing = len(saved_ids) - len(saved_clubs)
+    if missing:
+        st.warning(f'{missing} saved club(s) are no longer in the available club data.')
+    options = saved_clubs.to_dict('records')
+    valid_ids = set(saved_clubs['club_id'])
+    active = st.session_state.get('selected_saved_club')
+    if active not in valid_ids:
+        active = options[0]['club_id']
+        st.session_state.selected_saved_club = active
+
+    # Clickable club buttons, arranged in rows of up to three.
+    for start in range(0, len(options), 3):
+        cols = st.columns(3)
+        for col, club in zip(cols, options[start:start + 3]):
+            club_id = club['club_id']
+            with col:
+                if st.button(club['org_name'], key=f'select_club_{club_id}',
+                             type='primary' if active == club_id else 'secondary',
+                             use_container_width=True):
+                    st.session_state.selected_saved_club = club_id
+                    st.rerun()
+
+    selected = saved_clubs[saved_clubs['club_id'] == active].iloc[0]
+    st.markdown(f"#### Upcoming events — {selected['org_name']}")
+    upcoming = filter_events(events, club=selected['org_name'], start_date=date.today())
+    if upcoming.empty:
+        st.info('This club has no upcoming events in the current dataset.')
+    else:
+        st.caption(f'{len(upcoming)} upcoming event(s)')
+        show_cards(upcoming, f'club_upcoming_{active}', user, saved_events, page_size=4)
+
+    st.caption('To stop following a club, use the Saved club button on its Explore Clubs card.')
 
 
 def toggle_save(event_id, user, saved_map):
@@ -367,6 +514,8 @@ def page_my_hub():
                  'to keep events and preferences saved across sessions.')
         login_panel()
         st.divider()
+        interested_clubs_panel(None, get_saved_club_ids(None), get_saved_map(None))
+        st.divider()
         saved_events_panel(None, get_saved_map(None))
         return
 
@@ -375,23 +524,33 @@ def page_my_hub():
         st.success(f"Signed in: {user['email']}")
     with right:
         st.button('Sign out', on_click=sign_out, use_container_width=True)
-    if st.session_state.guest_saved_events:
-        st.info(f"You have {len(st.session_state.guest_saved_events)} temporary guest save(s). "
-                'Import them into your account to keep them.')
+    guest_event_count = len(st.session_state.guest_saved_events)
+    guest_club_count = len(st.session_state.guest_saved_clubs)
+    if guest_event_count or guest_club_count:
+        st.info(f'You have {guest_club_count} guest club save(s) and '
+                f'{guest_event_count} guest event save(s). Import them into your account.')
         if st.button('Import guest saves'):
             try:
-                default_hours = get_profile(session_client(), user['id']).get('default_reminder_hours')
+                client = session_client()
+                default_hours = get_profile(client, user['id']).get('default_reminder_hours')
+                for club_id in list(st.session_state.guest_saved_clubs):
+                    add_saved_club(client, user['id'], club_id)
+                    st.session_state.guest_saved_clubs.discard(club_id)
                 for event_id in list(st.session_state.guest_saved_events):
-                    add_saved(session_client(), user['id'], event_id, default_hours)
+                    # Don't overwrite an existing event's reminder preference.
+                    if event_id not in list_saved(client, user['id']):
+                        add_saved(client, user['id'], event_id, default_hours)
                     st.session_state.guest_saved_events.discard(event_id)
                 st.rerun()
             except Exception:
-                st.error('Could not import all saved events. Try again.')
+                st.error('Could not import all guest saves. Check the saved_clubs migration and retry.')
 
-    my_events_tab, profile_tab, settings_tab = st.tabs([
-        '☆ My Events', '👤 My Profile', '🔔 Notification Settings'
+    overview_tab, profile_tab, settings_tab = st.tabs([
+        'My Events & Clubs', 'My Profile', 'Notification Settings'
     ])
-    with my_events_tab:
+    with overview_tab:
+        interested_clubs_panel(user, get_saved_club_ids(user), get_saved_map(user))
+        st.divider()
         saved_events_panel(user, get_saved_map(user))
     with profile_tab:
         profile_panel(user)
@@ -423,27 +582,24 @@ def page_events():
 
 def page_clubs():
     st.subheader('Explore student organizations')
-    st.write('Find organizations and explore the events they host.')
+    st.write('Discover clubs by name, category, and size. Save the ones you’re interested in.')
     user = current_user()
-    search = st.text_input('Search for a club', placeholder='Try App Makers, Picnic Society, Chess Club')
-    candidates = club_summary
-    if search.strip():
-        candidates = candidates[candidates['org_name'].str.contains(search.strip(), case=False, regex=False)]
+
+    search_col, category_col, size_col = st.columns([2, 1.3, 1])
+    with search_col:
+        search = st.text_input('Search clubs', placeholder='Try AI Builders or Picnic Society')
+    all_categories = sorted({tag for tags in club_summary['category_tags'] for tag in tags})
+    with category_col:
+        selected_categories = st.multiselect('Club categories', all_categories,
+                                             placeholder='All categories')
+    with size_col:
+        selected_sizes = st.multiselect('Club size', ['Small', 'Medium', 'Large'],
+                                        placeholder='All sizes')
+
+    candidates = filter_clubs(club_summary, search, selected_categories, selected_sizes)
     st.write(f'**{len(candidates)} clubs found**')
-    if candidates.empty:
-        st.info('No matching clubs.')
-        return
-    selected = st.selectbox('Choose a club', candidates['org_name'].tolist())
-    info = candidates[candidates['org_name'] == selected].iloc[0]
-    with st.container(border=True):
-        st.markdown(f'### {selected}')
-        st.caption(info['categories'])
-        a, b, c = st.columns(3)
-        a.metric('Events listed', int(info['event_count']))
-        b.metric('First listed event', info['next_event'].strftime('%b %d, %Y'))
-        c.metric('Club size', str(info['org_size']).title() or 'N/A')
-    st.markdown(f'#### Events from {selected}')
-    show_cards(filter_events(events, club=selected), 'clubs', user, get_saved_map(user))
+    st.caption('Club categories are inferred from their event listings, not an official university directory.')
+    show_club_cards(candidates, 'clubs', user, get_saved_club_ids(user))
 
 def page_calendar():
     st.subheader('Calendar view of your saved events')
@@ -480,6 +636,8 @@ events = get_events()
 club_summary = get_clubs(events)
 if 'guest_saved_events' not in st.session_state:
     st.session_state.guest_saved_events = set()
+if 'guest_saved_clubs' not in st.session_state:
+    st.session_state.guest_saved_clubs = set()
 
 st.markdown('''<div class="hero">
 <h1>Campus Event Hub</h1>

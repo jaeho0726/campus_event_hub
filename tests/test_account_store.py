@@ -6,9 +6,9 @@ from types import SimpleNamespace
 import pytest
 
 from account_store import (
-    REMINDER_OPTIONS, add_saved, format_reminder, get_profile,
-    get_verified_user, is_ucsd_email, list_saved,
-    remove_saved, save_profile, send_login_code, update_reminder,
+    REMINDER_OPTIONS, add_saved, add_saved_club, format_reminder, get_profile,
+    get_verified_user, is_ucsd_email, list_saved, list_saved_clubs,
+    remove_saved, remove_saved_club, save_profile, send_login_code, update_reminder,
 )
 
 
@@ -76,7 +76,7 @@ class Query:
 
 class FakeClient:
     def __init__(self):
-        self.db = {'profiles': [], 'saved_events': []}
+        self.db = {'profiles': [], 'saved_events': [], 'saved_clubs': []}
 
     def table(self, name):
         return Query(self.db, name)
@@ -153,3 +153,23 @@ def test_server_fetched_user_is_verified_for_domain():
     assert get_verified_user(SimpleNamespace(auth=FakeAuth('student@ucsd.edu'))) == {
         'id': 'abc', 'email': 'student@ucsd.edu'}
     assert get_verified_user(SimpleNamespace(auth=FakeAuth('nonucsd@gmail.com'))) is None
+
+
+def test_clubs_persist_per_user_and_can_be_removed():
+    c = FakeClient()
+    add_saved_club(c, 'user-a', 'club-tech')
+    add_saved_club(c, 'user-a', 'club-tech')  # Duplicate save remains one row
+    add_saved_club(c, 'user-b', 'club-arts')
+    assert list_saved_clubs(c, 'user-a') == {'club-tech'}
+    assert list_saved_clubs(c, 'user-b') == {'club-arts'}
+    remove_saved_club(c, 'user-a', 'club-tech')
+    assert list_saved_clubs(c, 'user-a') == set()
+    assert list_saved_clubs(c, 'user-b') == {'club-arts'}
+
+
+def test_invalid_club_id_rejected():
+    c = FakeClient()
+    with pytest.raises(ValueError):
+        add_saved_club(c, 'abc', '')
+    with pytest.raises(ValueError):
+        add_saved_club(c, 'abc', 'X'*121)

@@ -3,7 +3,7 @@ from pathlib import Path
 from datetime import date
 import sys
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
-from event_utils import load_events, filter_events
+from event_utils import load_events, filter_events, build_club_summary, filter_clubs
 
 ROOT = Path(__file__).resolve().parents[1]
 
@@ -36,3 +36,20 @@ class TestEventUtils(unittest.TestCase):
         self.assertTrue((results.org_name == 'AI Builders').all())
 
 if __name__ == '__main__': unittest.main()
+
+
+def test_club_directory_filter_and_stable_ids():
+    clubs = build_club_summary(load_events(ROOT / 'data' / 'events_clean.csv'))
+    assert len(clubs) == 60
+    assert clubs.club_id.is_unique
+    assert set(clubs.org_size) <= {'small', 'medium', 'large'}
+    assert filter_clubs(clubs, search='ai builder').org_name.tolist() == ['AI Builders']
+    tech = filter_clubs(clubs, categories=['Tech'])
+    assert not tech.empty
+    assert all('Tech' in tags for tags in tech.category_tags)
+    small = filter_clubs(clubs, sizes=['Small'])
+    assert not small.empty
+    assert all(size == 'small' for size in small.org_size)
+    combined = filter_clubs(clubs, categories=['Tech'], sizes=['Small'])
+    assert all('Tech' in tags and size == 'small'
+               for tags, size in zip(combined.category_tags, combined.org_size))
