@@ -4,22 +4,22 @@ A student-facing Streamlit prototype built from the DataWorks workshop's synthet
 
 ## What's working / what's planned
 
-| Function | Status |
-|---|---|
-| Homepage / My Hub first | Implemented |
-| Public Explore Events and Explore Clubs directory | Implemented |
-| Search, filters, event details, pagination | Implemented |
-| Source link icon if a valid HTTP(S) URL exists | Implemented (sample CSV has no URLs) |
-| Guest saved events **and clubs** | Implemented (temporary Streamlit session state) |
-| Club search, inferred category tags, size filters, Save Club | Implemented |
-| My Hub saved club buttons → upcoming club events | Implemented (based on upcoming dates in CSV) |
-| Persistent, per-account saved clubs | Code + new SQL migration; requires configured Supabase |
-| Passwordless @ucsd.edu email OTP | Code implemented; requires Supabase + real email delivery setup |
-| Persistent, per-account saved events | Code + SQL/RLS implemented; requires configured Supabase |
-| Optional display name, class standing, major | Code + SQL/RLS implemented; requires configured Supabase |
-| Default and per-event reminder choice | Preference storage implemented; requires configured Supabase |
-| Automatic email reminder delivery | **Not implemented; no emails are sent on event dates** |
-| Current student enrollment verification | **Not implemented** (email ownership ≠ current enrollment) |
+| Function                                                     | Status                                                          |
+| ------------------------------------------------------------ | --------------------------------------------------------------- |
+| Homepage / My Hub first                                      | Implemented                                                     |
+| Public Explore Events and Explore Clubs directory            | Implemented                                                     |
+| Search, filters, event details, pagination                   | Implemented                                                     |
+| Source link icon if a valid HTTP(S) URL exists               | Implemented (sample CSV has no URLs)                            |
+| Guest saved events **and clubs**                             | Implemented (temporary Streamlit session state)                 |
+| Club search, inferred category tags, size filters, Save Club | Implemented                                                     |
+| My Hub saved club buttons → upcoming club events             | Implemented (based on upcoming dates in CSV)                    |
+| Persistent, per-account saved clubs                          | Code + new SQL migration; requires configured Supabase          |
+| Passwordless @ucsd.edu email OTP                             | Code implemented; requires Supabase + real email delivery setup |
+| Persistent, per-account saved events                         | Code + SQL/RLS implemented; requires configured Supabase        |
+| Optional display name, class standing, major                 | Code + SQL/RLS implemented; requires configured Supabase        |
+| Default and per-event reminder choice                        | Preference storage implemented; requires configured Supabase    |
+| Automatic email reminder delivery                            | **Not implemented; no emails are sent on event dates**          |
+| Current student enrollment verification                      | **Not implemented** (email ownership ≠ current enrollment)      |
 
 **Reminder choices:** I don't want a reminder (the default); 24 hours before; 3 hours before; 1 hour before. These are **stored settings only**, not an active email notification service.
 
@@ -30,8 +30,8 @@ The dataset is synthetic workshop data, not verified UCSD announcements. Do not 
 From the extracted `campus_event_hub_v4` directory:
 
 ```bash
-python -m pip install -r requirements.txt
-python -m streamlit run website.py
+python3 -m pip install -r requirements.txt
+python3 -m streamlit run website.py
 ```
 
 Before configuring Supabase, the public pages and temporary guest saves still work. My Hub shows an honest configuration notice; it does not simulate authentication.
@@ -167,7 +167,6 @@ The included tests validate deterministic data processing and account/database-c
 - Supabase Before User Created hook: https://supabase.com/docs/guides/auth/auth-hooks/before-user-created-hook
 - Supabase Email Templates: https://supabase.com/docs/guides/auth/auth-email-templates
 - Supabase Auth SMTP: https://supabase.com/docs/guides/auth/auth-smtp
-
 
 ## v4.2 UCSD color palette update
 
