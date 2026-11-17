@@ -115,7 +115,7 @@ div[data-testid='stButton'] button:not([kind='primary']):hover:not(:disabled) p,
 div[data-testid='stPopover'] button:hover p {color: #fff;}
 div[data-testid='stButton'] button:active:not(:disabled) {transform: scale(.97);}
 div[class*='st-key-card_']:has(.saved-marker) > :last-child div[data-testid='stButton'] button {
-    background: var(--ink); color: #fff; border-color: var(--ink); animation: heart .35s ease-out;
+    background: var(--ucsd-navy); color: #fff; border-color: var(--ucsd-navy); animation: heart .35s ease-out;
 }
 div[class*='st-key-card_']:has(.saved-marker) > :last-child div[data-testid='stButton'] button p {color: #fff;}
 
