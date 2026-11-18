@@ -698,8 +698,21 @@ def page_calendar():
     saved = events[events['event_id'].isin(get_saved_map(current_user()))]
 
     saved_dict = []
+    times = []
 
     for i in range(len(saved)):
+        if i == 0:
+            times.append(str(saved.iloc[i]['event_date']) + saved.iloc[i]['start_time'])
+        else:
+            if (str(saved.iloc[i]['event_date']) + saved.iloc[i]['start_time']) in times:
+                @st.dialog(title = "Time conflict detected", width = "small", icon = "⚠️", dismissible = True)
+                def time_conflict_dialog():
+                    st.write(f"There is a time conflict with the event '{saved.iloc[i]['title']}' on {saved.iloc[i]['event_date'].strftime('%B %d, %Y')} at {saved.iloc[i]['start_time']}.")
+                    st.write("Please check your saved events and resolve the conflict.")
+                time_conflict_dialog()
+            else:
+                times.append(str(saved.iloc[i]['event_date']) + saved.iloc[i]['start_time'])
+
         saved_dict.append({
             'title': saved.iloc[i]['start_time'] + ': ' + saved.iloc[i]['title'],
             'start': str(saved.iloc[i]['event_date']),
