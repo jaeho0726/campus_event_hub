@@ -385,7 +385,10 @@ def event_card(event, namespace, user, saved_map):
         size = str(event.get('org_size', '')).title()
         top_left, top_right = st.columns([8, 1], vertical_alignment='center')
         with top_left:
-            kicker = esc(str(event['category'])) + (f' · {esc(size)} club' if size else '')
+            if st.session_state["my_key"]:
+                kicker = esc(str(event['category'])) + (f' · {esc(size)} club' if size else '')
+            else:
+                kicker = esc(str(event['category']))
             st.markdown(f'<div class="kicker">{kicker}</div>', unsafe_allow_html=True)
         with top_right:
             source_icon(event, namespace)
@@ -649,6 +652,7 @@ def page_my_hub():
 
 def page_events():
     st.subheader('Find your next event')
+    show_club_size = toggle_club_size()
     user = current_user()
     keyword_col, category_col = st.columns([2, 1])
     query = keyword_col.text_input('Search events, clubs, or locations',
@@ -756,6 +760,10 @@ def page_calendar():
     """
     state = calendar(events = saved_dict, options = calendar_options, custom_css = calendar_css, key = "my_calendar")
 
+def toggle_club_size():
+     is_enabled = st.toggle("Show club size", value = False, key = "my_key", persist_state = "session", help = "Toggle to show the size of the club hosting the event.")
+     return is_enabled
+       
 
 events = get_events()
 club_summary = get_clubs(events)
