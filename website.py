@@ -724,18 +724,33 @@ def page_calendar():
         return          # get_saved_map() already showed st.error()
     saved = events[events['event_id'].isin(saved_map)]
 
+    if saved.empty:
+        st.info('No saved events yet. Visit Explore Events and select ♡ Save event.')
+        return
+
     saved_dict = []
     slots = {}
 
     for _, row in saved.iterrows():
         day = row['event_date'].strftime('%Y-%m-%d')
-        slot = (day, str(row['start_time']).strip())
+        clock = str(row['start_time']).strip()
+        slot = (day, clock)
         slots.setdefault(slot, []).append(row)
-        saved_dict.append({
-            'title': f"{row['start_time']}: {row['title']}",
-            'start': day,
-            'allDay': True,
-        })
+        # Timed events so Week/List views show real start times. Fall back to an
+        # all-day event if a listing has an unparseable time.
+        parsed = pd.to_datetime(clock, format='%I:%M %p', errors='coerce')
+        if pd.isna(parsed):
+            saved_dict.append({
+                'title': f"{clock}: {row['title']}" if clock else row['title'],
+                'start': day,
+                'allDay': True,
+            })
+        else:
+            saved_dict.append({
+                'title': row['title'],
+                'start': f"{day}T{parsed.strftime('%H:%M:%S')}",
+                'allDay': False,
+            })
 
     conflicts = [rows for rows in slots.values() if len(rows) > 1]
     # Keep the dialog open across reruns until the user dismisses it. Changing
@@ -747,6 +762,17 @@ def page_calendar():
         "editable": False,
         "selectable": True,
         "initialView": "dayGridMonth",
+        # Force full AM/PM labels instead of FullCalendar's default "1p"/"1a".
+        "eventTimeFormat": {
+            "hour": "numeric",
+            "minute": "2-digit",
+            "meridiem": "short",
+        },
+        "slotLabelFormat": {
+            "hour": "numeric",
+            "minute": "2-digit",
+            "meridiem": "short",
+        },
         "headerToolbar": {
             "left": "today prev,next",
             "center": "title",
