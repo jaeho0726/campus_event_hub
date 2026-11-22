@@ -694,35 +694,54 @@ def page_clubs():
     st.caption('Club categories are inferred from their event listings, not an official university directory.')
     show_club_cards(candidates, 'clubs', user, get_saved_club_ids(user))
 
+def dismiss_time_conflicts():
+    """Mark the summary as dismissed for this visit to the Calendar page."""
+    st.session_state['_calendar_conflict_dismissed'] = True
+
+
+@st.dialog(title='Time conflicts detected', width='small', icon='⚠️',
+           dismissible=True, on_dismiss=dismiss_time_conflicts)
+def show_time_conflicts(conflicts):
+    """One summary dialog for every time slot with more than one saved event."""
+    count = len(conflicts)
+    st.write(f"You have **{count} time conflict{'s' if count != 1 else ''}** "
+             'among your saved events.')
+    for rows in conflicts:
+        first = rows[0]
+        names = ', '.join(f"*{row['title']}*" for row in rows)
+        st.write(f"- {first['event_date'].strftime('%B %d, %Y')} at "
+                 f"{first['start_time']}: {names}")
+    st.write('Please check your saved events and resolve the conflicts.')
+
+
 def page_calendar():
     st.subheader('Calendar view of your saved events')
     st.write('See your saved events in a calendar format. This view is for planning and visualization.')
 
     events = get_events()
-    saved = events[events['event_id'].isin(get_saved_map(current_user()))]
+    saved_map = get_saved_map(current_user())
+    if saved_map is None:
+        return          # get_saved_map() already showed st.error()
+    saved = events[events['event_id'].isin(saved_map)]
 
     saved_dict = []
-    times = []
+    slots = {}
 
-    for i in range(len(saved)):
-        if i == 0:
-            times.append(str(saved.iloc[i]['event_date']) + saved.iloc[i]['start_time'])
-        else:
-            if (str(saved.iloc[i]['event_date']) + saved.iloc[i]['start_time']) in times:
-                @st.dialog(title = "Time conflict detected", width = "small", icon = "⚠️", dismissible = True)
-                def time_conflict_dialog():
-                    st.write(f"There is a time conflict with the event '{saved.iloc[i]['title']}' on {saved.iloc[i]['event_date'].strftime('%B %d, %Y')} at {saved.iloc[i]['start_time']}.")
-                    st.write("Please check your saved events and resolve the conflict.")
-                time_conflict_dialog()
-            else:
-                times.append(str(saved.iloc[i]['event_date']) + saved.iloc[i]['start_time'])
-
+    for _, row in saved.iterrows():
+        day = row['event_date'].strftime('%Y-%m-%d')
+        slot = (day, str(row['start_time']).strip())
+        slots.setdefault(slot, []).append(row)
         saved_dict.append({
-            'title': saved.iloc[i]['start_time'] + ': ' + saved.iloc[i]['title'],
-            'start': str(saved.iloc[i]['event_date']),
-            'end': str(saved.iloc[i]['event_date']),
+            'title': f"{row['start_time']}: {row['title']}",
+            'start': day,
             'allDay': True,
         })
+
+    conflicts = [rows for rows in slots.values() if len(rows) > 1]
+    # Keep the dialog open across reruns until the user dismisses it. Changing
+    # pages clears the flag, so revisiting Calendar shows it again if conflicts remain.
+    if conflicts and not st.session_state.get('_calendar_conflict_dismissed'):
+        show_time_conflicts(conflicts)
 
     calendar_options = {
         "editable": False,
@@ -785,4 +804,10 @@ pages = [
     st.Page(page_calendar, title='Calendar'),
 ]
 selected_page = st.navigation(pages, position='top')
+# Reset per-page dialog state only when the active page changes. Reruns caused by
+# buttons on the same page keep the flag, so a dismissed dialog stays dismissed;
+# leaving and returning to Calendar shows it again if the conflict still exists.
+if st.session_state.get('_active_page') != selected_page.title:
+    st.session_state['_active_page'] = selected_page.title
+    st.session_state.pop('_calendar_conflict_dismissed', None)
 selected_page.run()
