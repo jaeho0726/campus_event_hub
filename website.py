@@ -385,7 +385,7 @@ def event_card(event, namespace, user, saved_map):
         size = str(event.get('org_size', '')).title()
         top_left, top_right = st.columns([8, 1], vertical_alignment='center')
         with top_left:
-            if st.session_state["my_key"]:
+            if st.session_state.get('my_key', False):
                 kicker = esc(str(event['category'])) + (f' · {esc(size)} club' if size else '')
             else:
                 kicker = esc(str(event['category']))
@@ -760,7 +760,6 @@ def page_calendar():
 
     calendar_options = {
         "editable": False,
-        "selectable": True,
         "initialView": "dayGridMonth",
         # Force full AM/PM labels instead of FullCalendar's default "1p"/"1a".
         "eventTimeFormat": {
@@ -803,7 +802,7 @@ def page_calendar():
         .fc .fc-event:hover {background: #C69214;}
         .fc .fc-list-event:hover td {background: #FFFBE8;}
     """
-    state = calendar(events = saved_dict, options = calendar_options, custom_css = calendar_css, key = "my_calendar")
+    calendar(events = saved_dict, options = calendar_options, custom_css = calendar_css, key = "my_calendar")
 
 def toggle_club_size():
      is_enabled = st.toggle("Show club size", value = False, key = "my_key", persist_state = "session", help = "Toggle to show the size of the club hosting the event.")
