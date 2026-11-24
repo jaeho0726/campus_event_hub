@@ -12,6 +12,7 @@ from urllib.parse import urlsplit
 import pandas as pd
 import streamlit as st
 from streamlit_calendar import calendar
+from calendar_theme import UCSD_CALENDAR_CSS
 
 from account_store import (
     CLASS_OPTIONS, REMINDER_OPTIONS, add_saved, add_saved_club, format_reminder,
@@ -20,6 +21,9 @@ from account_store import (
     verify_login_code,
 )
 from event_utils import build_club_summary, filter_clubs, filter_events, load_events
+from conflicts import normalize_name
+from mvp_store import get_store, is_demo
+from portal_ui import submit_ticket_form
 
 BASE = Path(__file__).resolve().parent
 
@@ -27,8 +31,8 @@ BASE = Path(__file__).resolve().parent
 # dark mode and no .streamlit/config.toml is present. Streamlit sends theme settings with every
 # script run, so a single rerun at the start of a session lets the very first page load pick it up.
 _LIGHT_THEME = {
-    'base': 'light', 'primaryColor': '#00629B', 'backgroundColor': '#F7F4EF',
-    'secondaryBackgroundColor': '#FFFFFF', 'textColor': '#1F1D1B',
+    'base': 'light', 'primaryColor': '#00629B', 'backgroundColor': '#F7FAFD',
+    'secondaryBackgroundColor': '#FFFFFF', 'textColor': '#182B49',
 }
 for _key, _value in _LIGHT_THEME.items():
     st._config.set_option(f'theme.{_key}', _value)
@@ -50,7 +54,7 @@ st.markdown('''
 .block-container {max-width: 1160px; padding-top: 1.4rem; padding-bottom: 2.7rem;}
 /* ---------- Warm, simple look ---------- */
 :root {
-    --cream: #F7F4EF; --ink: #1F1D1B; --muted: #6F6A63; --line: #E6E0D6;
+    --cream: #F7FAFD; --ink: #182B49; --muted: #46617A; --line: #D7E4EF;
     --serif: 'Newsreader', Georgia, 'Times New Roman', serif;
 }
 .stApp, [data-testid='stAppViewContainer'] {background: var(--cream); color: var(--ink);}
@@ -80,7 +84,7 @@ div[class*='st-key-card_'] {
 div[class*='st-key-card_']:hover {
     transform: translateY(-2px); box-shadow: 0 8px 20px rgba(31, 29, 27, .08);
 }
-div[class*='st-key-card_']:has(.saved-marker) {background: #FFFBE8; border-color: var(--ucsd-yellow);}
+div[class*='st-key-card_']:has(.saved-marker) {background: #FFF9DF; border-color: var(--ucsd-yellow);}
 div[data-testid='stElementContainer']:has(.saved-marker), .element-container:has(.saved-marker) {display: none;}
 
 div[class*='st-key-card_'] {padding: 1.15rem 1.3rem 1.2rem; gap: .35rem;}
@@ -137,8 +141,8 @@ button[kind='primary'], button[data-testid='stBaseButton-primary'] {
     font-weight: 700 !important;
 }
 button[kind='primary']:hover, button[data-testid='stBaseButton-primary']:hover {
-    background-color: var(--ucsd-gold) !important;
-    border-color: var(--ucsd-gold) !important;
+    background-color: #FFE066 !important;
+    border-color: #FFE066 !important;
     color: var(--ucsd-navy) !important;
 }
 button[kind='primary']:focus-visible,
@@ -149,13 +153,71 @@ button[data-testid='stBaseButton-primary']:focus-visible {
 </style>
 ''', unsafe_allow_html=True)
 @st.cache_data(show_spinner=False)
-def get_events():
+def get_legacy_events():
+    """Workshop dataset is synthetic and read-only."""
     return load_events(BASE / 'data' / 'events_clean.csv')
 
 
-@st.cache_data(show_spinner=False)
+def get_events():
+    """Show baseline CSV events plus new club-admin publications from shared storage."""
+    baseline = get_legacy_events()
+    store = get_store()
+    if store is None:
+        return baseline
+    try:
+        live = store.events()
+    except Exception as exc:
+        st.warning(f'Live club submissions could not load. Run the MVP database migration. Details: {exc}')
+        return baseline
+    if not live:
+        return baseline
+    rows=[]
+    for e in live:
+        location = str(e.get('building') or '')
+        if e.get('room'):
+            location += ' · ' + str(e['room'])
+        rows.append({
+            'event_id':'hub-'+str(e['id']),
+            'org_name':e.get('org_name') or '',
+            'org_size':str(e.get('org_size') or '').lower(),
+            'category':e['category'],
+            'title':e['title'],
+            'event_date':pd.to_datetime(e['event_date']),
+            'start_time':pd.to_datetime(str(e['start_time'])[:5],format='%H:%M').strftime('%I:%M %p').lstrip('0'),
+            'end_time':str(e['end_time'])[:5],
+            'location':location,
+            'platforms':'Campus Event Hub · club-submitted',
+            'external_url':e.get('external_url') or '',
+            'free_food':bool(e.get('free_food')),
+            'time_conflict':False,
+        })
+    return (pd.concat([baseline,pd.DataFrame(rows)],ignore_index=True)
+            .sort_values(['event_date','start_time','title']).reset_index(drop=True))
+
+
 def get_clubs(event_df):
-    return build_club_summary(event_df)
+    """Include registered clubs even if they have not published an event yet."""
+    import hashlib
+    summary=build_club_summary(event_df)
+    store=get_store()
+    if store is None:
+        return summary
+    try:
+        registered=store.clubs()
+    except Exception:
+        return summary
+    existing=set(summary['club_id'])
+    rows=[]
+    for club in registered:
+        club_id=hashlib.sha1(normalize_name(club['org_name']).encode('utf-8')).hexdigest()[:16]
+        if club_id not in existing:
+            rows.append({'club_id':club_id,'org_name':club['org_name'],
+                         'org_size':str(club['org_size']).lower(),
+                         'categories':club['category'],
+                         'category_tags':(club['category'],)})
+    if rows:
+        summary=pd.concat([summary,pd.DataFrame(rows)],ignore_index=True)
+    return summary.sort_values('org_name').reset_index(drop=True)
 
 
 def get_auth_config() -> tuple[str, str]:
@@ -417,6 +479,18 @@ def event_card(event, namespace, user, saved_map):
                 st.warning('Listings disagreed on this event’s time. Verify with the organizer.')
             if not readable_url(event.get('external_url', '')):
                 st.caption('Link not provided for this event.')
+            st.divider()
+            st.markdown('**Report an issue with this event**')
+            portal_store=get_store()
+            ticket_user=('demo-student' if is_demo() else (user or {}).get('id'))
+            if portal_store is None or not ticket_user:
+                st.caption('Sign in through My Hub to submit a ticket.')
+            else:
+                related=next((c['id'] for c in portal_store.clubs()
+                              if normalize_name(c['org_name']) == normalize_name(str(event['org_name']))), None)
+                submit_ticket_form(portal_store,ticket_user,
+                    prefix='event_'+str(namespace)+'_'+str(event_id),
+                    event_ref=str(event_id),club_id=related)
 
 
 def show_pagination(total_pages, key):
@@ -694,6 +768,7 @@ def page_clubs():
     st.caption('Club categories are inferred from their event listings, not an official university directory.')
     show_club_cards(candidates, 'clubs', user, get_saved_club_ids(user))
 
+<<<<<<< HEAD:website.py
 def dismiss_time_conflicts():
     """Mark the summary as dismissed for this visit to the Calendar page."""
     st.session_state['_calendar_conflict_dismissed'] = True
@@ -712,6 +787,33 @@ def show_time_conflicts(conflicts):
         st.write(f"- {first['event_date'].strftime('%B %d, %Y')} at "
                  f"{first['start_time']}: {names}")
     st.write('Please check your saved events and resolve the conflicts.')
+=======
+def page_support():
+    st.subheader('Help and support')
+    st.write('Report website bugs, account problems, or inaccurate event information.')
+    st.caption('Content reports linked to a registered club are routed to that club. Technical reports are tracked for developer follow-up.')
+    store=get_store()
+    user=current_user()
+    ticket_user='demo-student' if is_demo() else (user or {}).get('id')
+    if store is None:
+        st.error('Supabase MVP database not configured.')
+    elif ticket_user is None:
+        st.info('Sign in using My Hub to submit and track a ticket.')
+    else:
+        submit_ticket_form(store,ticket_user,prefix='student_general')
+        st.markdown('#### Your submitted tickets')
+        try:
+            rows=[t for t in store.tickets(user_id=ticket_user)
+                  if t['reporter_id']==ticket_user]
+            if not rows:
+                st.info('No tickets submitted yet.')
+            for ticket in rows:
+                with st.expander(f"{ticket['category'].replace('_',' ').title()} · {ticket['status']} · {str(ticket['id'])[:8]}"):
+                    st.write(ticket['description'])
+                    st.caption('Routed to '+ticket['route'])
+        except Exception as exc:
+            st.error(f'Could not load tickets: {exc}')
+>>>>>>> 197405a (updated portals for different type of users):student_portal.py
 
 
 def page_calendar():
@@ -731,6 +833,7 @@ def page_calendar():
     saved_dict = []
     slots = {}
 
+<<<<<<< HEAD:website.py
     for _, row in saved.iterrows():
         day = row['event_date'].strftime('%Y-%m-%d')
         clock = str(row['start_time']).strip()
@@ -757,10 +860,24 @@ def page_calendar():
     # pages clears the flag, so revisiting Calendar shows it again if conflicts remain.
     if conflicts and not st.session_state.get('_calendar_conflict_dismissed'):
         show_time_conflicts(conflicts)
+=======
+    for i in range(len(saved)):
+        saved_dict.append({
+            'title': saved.iloc[i]['start_time'] + ': ' + saved.iloc[i]['title'],
+            'start': str(saved.iloc[i]['event_date']),
+            'end': str(saved.iloc[i]['event_date']),
+            'allDay': True,
+            'backgroundColor': '#EAF3FA',
+            'borderColor': '#00629B',
+            'textColor': '#182B49',
+            'classNames': ['hub-event--saved'],
+        })
+>>>>>>> 197405a (updated portals for different type of users):student_portal.py
 
     calendar_options = {
         "editable": False,
         "initialView": "dayGridMonth",
+<<<<<<< HEAD:website.py
         # Force full AM/PM labels instead of FullCalendar's default "1p"/"1a".
         "eventTimeFormat": {
             "hour": "numeric",
@@ -772,6 +889,10 @@ def page_calendar():
             "minute": "2-digit",
             "meridiem": "short",
         },
+=======
+        "dayMaxEvents": 4,
+        "themeSystem": "standard",
+>>>>>>> 197405a (updated portals for different type of users):student_portal.py
         "headerToolbar": {
             "left": "today prev,next",
             "center": "title",
@@ -779,6 +900,7 @@ def page_calendar():
         },
     }
 
+<<<<<<< HEAD:website.py
     # Match the calendar to the rest of the site: ink pill buttons, white day cells, yellow event chips.
     calendar_css = """
         .fc {font-family: 'Source Sans Pro', sans-serif; color: #1F1D1B;}
@@ -803,6 +925,11 @@ def page_calendar():
         .fc .fc-list-event:hover td {background: #FFFBE8;}
     """
     calendar(events = saved_dict, options = calendar_options, custom_css = calendar_css, key = "my_calendar")
+=======
+    # FullCalendar is inside an iframe; supply its own high-contrast UCSD theme.
+    calendar_css = UCSD_CALENDAR_CSS
+    state = calendar(events = saved_dict, options = calendar_options, custom_css = calendar_css, key = "my_calendar")
+>>>>>>> 197405a (updated portals for different type of users):student_portal.py
 
 def toggle_club_size():
      is_enabled = st.toggle("Show club size", value = False, key = "my_key", persist_state = "session", help = "Toggle to show the size of the club hosting the event.")
@@ -827,6 +954,7 @@ pages = [
     st.Page(page_events, title='Explore Events'),
     st.Page(page_clubs, title='Explore Clubs'),
     st.Page(page_calendar, title='Calendar'),
+    st.Page(page_support, title='Support'),
 ]
 selected_page = st.navigation(pages, position='top')
 # Reset per-page dialog state only when the active page changes. Reruns caused by
