@@ -768,7 +768,6 @@ def page_clubs():
     st.caption('Club categories are inferred from their event listings, not an official university directory.')
     show_club_cards(candidates, 'clubs', user, get_saved_club_ids(user))
 
-<<<<<<< HEAD:website.py
 def dismiss_time_conflicts():
     """Mark the summary as dismissed for this visit to the Calendar page."""
     st.session_state['_calendar_conflict_dismissed'] = True
@@ -787,33 +786,6 @@ def show_time_conflicts(conflicts):
         st.write(f"- {first['event_date'].strftime('%B %d, %Y')} at "
                  f"{first['start_time']}: {names}")
     st.write('Please check your saved events and resolve the conflicts.')
-=======
-def page_support():
-    st.subheader('Help and support')
-    st.write('Report website bugs, account problems, or inaccurate event information.')
-    st.caption('Content reports linked to a registered club are routed to that club. Technical reports are tracked for developer follow-up.')
-    store=get_store()
-    user=current_user()
-    ticket_user='demo-student' if is_demo() else (user or {}).get('id')
-    if store is None:
-        st.error('Supabase MVP database not configured.')
-    elif ticket_user is None:
-        st.info('Sign in using My Hub to submit and track a ticket.')
-    else:
-        submit_ticket_form(store,ticket_user,prefix='student_general')
-        st.markdown('#### Your submitted tickets')
-        try:
-            rows=[t for t in store.tickets(user_id=ticket_user)
-                  if t['reporter_id']==ticket_user]
-            if not rows:
-                st.info('No tickets submitted yet.')
-            for ticket in rows:
-                with st.expander(f"{ticket['category'].replace('_',' ').title()} · {ticket['status']} · {str(ticket['id'])[:8]}"):
-                    st.write(ticket['description'])
-                    st.caption('Routed to '+ticket['route'])
-        except Exception as exc:
-            st.error(f'Could not load tickets: {exc}')
->>>>>>> 197405a (updated portals for different type of users):student_portal.py
 
 
 def page_calendar():
@@ -833,7 +805,6 @@ def page_calendar():
     saved_dict = []
     slots = {}
 
-<<<<<<< HEAD:website.py
     for _, row in saved.iterrows():
         day = row['event_date'].strftime('%Y-%m-%d')
         clock = str(row['start_time']).strip()
@@ -860,24 +831,10 @@ def page_calendar():
     # pages clears the flag, so revisiting Calendar shows it again if conflicts remain.
     if conflicts and not st.session_state.get('_calendar_conflict_dismissed'):
         show_time_conflicts(conflicts)
-=======
-    for i in range(len(saved)):
-        saved_dict.append({
-            'title': saved.iloc[i]['start_time'] + ': ' + saved.iloc[i]['title'],
-            'start': str(saved.iloc[i]['event_date']),
-            'end': str(saved.iloc[i]['event_date']),
-            'allDay': True,
-            'backgroundColor': '#EAF3FA',
-            'borderColor': '#00629B',
-            'textColor': '#182B49',
-            'classNames': ['hub-event--saved'],
-        })
->>>>>>> 197405a (updated portals for different type of users):student_portal.py
 
     calendar_options = {
         "editable": False,
         "initialView": "dayGridMonth",
-<<<<<<< HEAD:website.py
         # Force full AM/PM labels instead of FullCalendar's default "1p"/"1a".
         "eventTimeFormat": {
             "hour": "numeric",
@@ -889,10 +846,6 @@ def page_calendar():
             "minute": "2-digit",
             "meridiem": "short",
         },
-=======
-        "dayMaxEvents": 4,
-        "themeSystem": "standard",
->>>>>>> 197405a (updated portals for different type of users):student_portal.py
         "headerToolbar": {
             "left": "today prev,next",
             "center": "title",
@@ -900,7 +853,6 @@ def page_calendar():
         },
     }
 
-<<<<<<< HEAD:website.py
     # Match the calendar to the rest of the site: ink pill buttons, white day cells, yellow event chips.
     calendar_css = """
         .fc {font-family: 'Source Sans Pro', sans-serif; color: #1F1D1B;}
@@ -925,11 +877,6 @@ def page_calendar():
         .fc .fc-list-event:hover td {background: #FFFBE8;}
     """
     calendar(events = saved_dict, options = calendar_options, custom_css = calendar_css, key = "my_calendar")
-=======
-    # FullCalendar is inside an iframe; supply its own high-contrast UCSD theme.
-    calendar_css = UCSD_CALENDAR_CSS
-    state = calendar(events = saved_dict, options = calendar_options, custom_css = calendar_css, key = "my_calendar")
->>>>>>> 197405a (updated portals for different type of users):student_portal.py
 
 def toggle_club_size():
      is_enabled = st.toggle("Show club size", value = False, key = "my_key", persist_state = "session", help = "Toggle to show the size of the club hosting the event.")
