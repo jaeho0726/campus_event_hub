@@ -49,6 +49,14 @@ def style_portal():
     [data-testid="stMarkdownContainer"] small {
       color:var(--ucsd-muted) !important;
     }
+    .hub-managed-club {
+      background:#FFFFFF; border:1px solid #B7CDE0;
+      border-left:5px solid var(--ucsd-blue); border-radius:12px;
+      padding:1rem 1.25rem; margin:0.8rem 0 1.2rem;
+    }
+    .hub-managed-club__eyebrow {font-size:.72rem; letter-spacing:.08em; font-weight:700; color:var(--ucsd-blue);}
+    .hub-managed-club__name {font-size:1.5rem; font-weight:750; line-height:1.5; color:var(--ucsd-navy);}
+    .hub-managed-club__meta {font-size:.86rem; color:var(--ucsd-muted);}
     /* Form labels, text-entry fields and select menus must stay readable even
        when a browser has previously saved a dark Streamlit theme. */
     [data-testid="stTextInput"] [data-baseweb="input"],
@@ -128,15 +136,6 @@ def style_portal():
       color:var(--ucsd-navy) !important;
       -webkit-text-fill-color:var(--ucsd-navy) !important;
     }
-    /* A plain navy-on-pale-yellow demo notice replaces unreadable dark alerts. */
-    .hub-demo-banner {
-      background:#FFF6D3; border:1px solid #E4C450;
-      border-left:5px solid var(--ucsd-yellow);
-      border-radius:10px; padding:.8rem 1rem; margin:.45rem 0 1rem;
-      color:var(--ucsd-navy) !important;
-      font-size:.90rem; font-weight:650;
-    }
-    .hub-demo-banner * {color:var(--ucsd-navy) !important;}
     [data-testid="stForm"], [data-testid="stExpander"] {
       background-color:#FFFFFF !important; border-color:var(--ucsd-line) !important;
       border-radius:12px;
@@ -189,8 +188,45 @@ def style_portal():
 def identity(store, role):
     """Get a server-verified identity, or explicitly simulated identity in local demo."""
     if is_demo():
-        st.markdown('<div class="hub-demo-banner">LOCAL DEMO MODE — identities are simulated; do not deploy publicly.</div>', unsafe_allow_html=True)
-        demo_id={'student':'demo-student','club':'demo-officer','client':'demo-client'}[role]
+        st.caption('Local demo · simulated account; not for public deployment.')
+        if role == 'club':
+            # These are local, fake identities — never used for production auth.
+            # Officer A/B have no seeded clubs; switching lets testers walk
+            # through the exact first-time registration path independently.
+            account_ids = ['demo-officer', 'demo-new-officer-a', 'demo-new-officer-b']
+            club_names = {}
+            for club in store.clubs():
+                club_names.setdefault(club['owner_id'], []).append(club['org_name'])
+
+            def account_label(account_id):
+                title = {
+                    'demo-officer': 'Existing officer — Triton Demo Makers',
+                    'demo-new-officer-a': 'New officer A',
+                    'demo-new-officer-b': 'New officer B',
+                }[account_id]
+                owned = club_names.get(account_id, [])
+                if owned:
+                    return f"{title} · {', '.join(owned)}" if account_id != 'demo-officer' else title
+                return f'{title} · no club registered'
+
+            demo_id = st.selectbox('Test as (demo account)', account_ids,
+                                   format_func=account_label,
+                                   key='demo_club_test_identity')
+            if st.session_state.get('_last_demo_club_identity') != demo_id:
+                # Don't carry draft / active-club state across fake accounts.
+                for name in ('active_club_id', 'available_club_name',
+                             'pending_event', 'pending_conflicts'):
+                    st.session_state.pop(name, None)
+                for name in list(st.session_state.keys()):
+                    if name.startswith('pending_edit_'):
+                        st.session_state.pop(name, None)
+                st.session_state['_last_demo_club_identity'] = demo_id
+            if not club_names.get(demo_id):
+                st.caption('First-time officer test: enter an unused club name, check availability, and complete registration. No email setup needed.')
+            else:
+                st.caption('Returning officer test: use the dashboard to publish, edit, or cancel events for your club.')
+        else:
+            demo_id={'student':'demo-student','client':'demo-client'}[role]
         return {'id':demo_id,'email':f'{demo_id}@example.invalid'}
     if store is None:
         st.error('Supabase is not configured. See README.md or start with MVP_DEMO_MODE=1.')

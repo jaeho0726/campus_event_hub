@@ -132,3 +132,43 @@ Streamlit multipage reference: https://docs.streamlit.io/develop/concepts/multip
 - Calendar club submissions are **navy cards with white text and a yellow stripe**; synthetic workshop records are **light-blue cards with navy text and a blue border**. Cards have spacing and borders, and crowded week views use a `+more` link instead of squeezing unlimited entries onto tiny slivers.
 - This update does not change event authorization, database schema, tickets, or event publishing.
 - After replacing code, stop all three running servers (Ctrl+C), then run `bash start_demo.sh`, followed by a hard refresh (Cmd+Shift+R). If you previously deployed `website.py` as an entrypoint, change that deployment's entrypoint to `student_portal.py`.
+
+## Patch v1.2 — November 2026
+
+- **Fixed three-portal startup race:** SQLite demo seeding now uses an atomic `BEGIN IMMEDIATE` transaction and a conflict-safe insert, so multiple Streamlit processes starting together cannot create duplicate `Triton Demo Makers` entries. Existing demo clubs, events and tickets are preserved.
+- **Simplified Client Admin Portal:** Removed the entire Operations tab, including the weekly 120-minute maintenance banner, checklist and unimplemented-feature note. Calendar, tickets and conflict monitoring remain unchanged.
+- **Upgrade:** Replace `mvp_store.py` and `client_portal.py`, then restart all three servers. Do **not** delete `data/campus_event_hub_demo.sqlite3` to fix this problem.
+
+
+## v1.4 — Timed calendar separators and first-time club officer testing
+
+**Day separators:** In the Client Admin Calendar's week/day view, CSS now
+styles `.fc-timegrid-cols .fc-timegrid-col-frame` with a full-height vertical
+rule. FullCalendar draws the hourly grid separately from the day header; the
+previous header/table border selectors did not affect the 8 AM–11 PM grid.
+The full-height rule belongs in `calendar_theme.py` and is delivered through
+`calendar(..., custom_css=UCSD_CALENDAR_CSS)` inside the calendar iframe.
+
+**Try registering as a new officer (local demo only):**
+
+1. Run `bash start_demo.sh` and open `http://localhost:8502`.
+2. Use **Test as (demo account)** near the top of the Club Admin Portal.
+3. Choose **New officer A · no club registered**. Unlike the seeded
+   `demo-officer` account, this officer starts with zero clubs.
+4. Enter a new fictional club name, click **Check name availability**, fill
+   out the club details, and click **Create club**.
+5. The portal now shows that club's management dashboard automatically.
+   Try **Publish event**, **My events**, and **Support tickets**.
+6. Switch to **New officer B** if you want to test first-time registration
+   again with a separate identity. Existing demo club names and workshop names
+   are still protected from duplicate registration.
+
+The account selector appears only when `MVP_DEMO_MODE=1`; in live Supabase
+mode, the portal uses actual authentication and checks the signed-in user's
+owned clubs automatically. This change does not grant real-world club authority.
+**Existing SQLite data is preserved.** Do not delete your demo DB just to
+try a new officer account.
+
+**Apply only the patch:** Replace `calendar_theme.py` and `portal_ui.py` in
+v1.3, restart all three servers, then hard-refresh (`Cmd+Shift+R`) the Client
+Admin Calendar. Club and Client portal entrypoints are unchanged.

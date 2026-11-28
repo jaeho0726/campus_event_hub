@@ -36,6 +36,41 @@ html, body, #root { background:#FFFFFF !important; color:#182B49 !important; col
     border-color:#D7E4EF !important;
 }
 .fc .fc-scrollgrid { border:1px solid #D7E4EF !important; border-radius:10px; overflow:hidden; }
+/* Clear day divisions without using harsh black gridlines. */
+.fc .fc-timegrid-cols td.fc-timegrid-col:nth-child(even),
+.fc .fc-daygrid-body td.fc-daygrid-day:nth-child(even) {
+    background:#F7FAFD !important;
+}
+.fc .fc-timegrid-cols td.fc-timegrid-col:not(:first-child),
+.fc .fc-daygrid-body td.fc-daygrid-day:not(:first-child),
+.fc .fc-col-header th:not(:first-child) {
+    border-left:2px solid #B7CDE0 !important;
+}
+.fc .fc-col-header th { border-bottom:2px solid #B7CDE0 !important; }
+/* FullCalendar TimeGrid draws the hourly columns in a separate, positioned
+   layer from the day headers and all-day rows. Borders on the calendar's
+   header/table cells DO NOT extend into these timed day lanes.
+   Put the separator on each full-height day-lane frame instead. */
+.fc .fc-timegrid-cols .fc-timegrid-col-frame {
+    position:relative !important;
+    box-shadow:inset 2px 0 0 #91B1CA !important;
+}
+.fc .fc-timegrid-cols .fc-timegrid-col-frame::before {
+    content:"";
+    position:absolute;
+    left:0;
+    top:0;
+    bottom:0;
+    width:2px;
+    background-color:#91B1CA;
+    pointer-events:none;
+    z-index:5;  /* above the slot grid and event layers at the column edge */
+}
+/* The right-hand boundary of the last day should be visible too. */
+.fc .fc-timegrid-cols .fc-timegrid-col:last-child .fc-timegrid-col-frame {
+    border-right:2px solid #91B1CA !important;
+}
+
 .fc .fc-day-today, .fc .fc-timegrid-col.fc-day-today,
 .fc .fc-daygrid-day.fc-day-today, .fc .fc-daygrid-day.fc-day-today .fc-daygrid-day-frame {
     background-color:#FFF8D6 !important;

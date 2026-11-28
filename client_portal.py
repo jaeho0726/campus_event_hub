@@ -138,21 +138,10 @@ def support_page():
     show_tickets(store,user,admin=True)
 
 
-def operational_page():
-    st.subheader('Maintenance overview')
-    st.metric('Published club-submitted events',len(live_events))
-    st.metric('Workshop demo listings (not live)',len(legacy))
-    st.metric('Unresolved tickets',sum(t['status']!='resolved' for t in tickets))
-    st.info('Weekly target: operate with no more than 120 minutes of routine client-intern work. Measure actual handling time during pilot testing; this dashboard does not prove the target has been met.')
-    st.write('Suggested weekly checklist: review unresolved exceptions, check failed submissions, verify club access problems, and inspect usage-test results.')
-    st.caption('Email reminders, automatic developer notifications, and official UCSD reservation integration are not implemented in this MVP.')
-
-cal_tab,tickets_tab,conflicts_tab,ops_tab=st.tabs(['All-events calendar','Tickets','Conflict monitoring','Operations'])
+cal_tab,tickets_tab,conflicts_tab=st.tabs(['All-events calendar','Tickets','Conflict monitoring'])
 with cal_tab:
     calendar_page()
 with tickets_tab:
     support_page()
 with conflicts_tab:
     monitor_conflicts()
-with ops_tab:
-    operational_page()

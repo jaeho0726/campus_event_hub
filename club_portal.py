@@ -1,5 +1,6 @@
 """Campus Event Hub — club-admin self-service MVP."""
 from datetime import date, time
+from html import escape as html_escape
 import pandas as pd
 import streamlit as st
 
@@ -67,9 +68,9 @@ def event_fields(form_key, default=None):
     day=st.date_input('Event date',value=event_date,key=f'{form_key}_day')
     left,right=st.columns(2)
     with left:
-        start=st.time_input('Start time (Pacific)',start_time,key=f'{form_key}_start')
+        start=st.time_input('Start time (PT)',start_time,key=f'{form_key}_start')
     with right:
-        end=st.time_input('End time (Pacific)',end_time,key=f'{form_key}_end')
+        end=st.time_input('End time (PT)',end_time,key=f'{form_key}_end')
     a,b=st.columns(2)
     with a:
         building=st.text_input('Building or venue',value=e.get('building',''),key=f'{form_key}_building')
@@ -105,7 +106,9 @@ def publish_panel(clubs):
     if not owned:
         st.info('You have no club yet. Use the Register Club tab first.')
         return
-    selected=st.selectbox('Publish for club',owned,format_func=lambda c:c['org_name'])
+    active_id=st.session_state.get('active_club_id')
+    selected=next((club for club in owned if club['id']==active_id),owned[0])
+    st.caption('Publishing as ' + selected['org_name'] + ' · Times use San Diego local time (PT).')
     with st.form('create_event_form'):
         values=event_fields('create')
         check=st.form_submit_button('Check details and publish')
@@ -199,20 +202,49 @@ except Exception as exc:
     st.stop()
 
 my_clubs=[c for c in clubs if c['owner_id']==user['id']]
-col1,col2=st.columns(2)
-col1.metric('Clubs I manage',len(my_clubs))
-col2.metric('My published events',len([e for e in store.events() if e['created_by']==user['id']]))
-registration,publish,manage,tickets=st.tabs(['Register club','Publish event','My events','Support tickets'])
-with registration:
+
+if not my_clubs:
+    st.info('No club is linked to this account yet. Start by registering a new club name.')
     register_club()
-with publish:
-    publish_panel(clubs)
-with manage:
-    manage_events()
-with tickets:
-    st.subheader('My club tickets and support requests')
-    st.caption('Event-information tickets for your club arrive here automatically. Other tickets go to client/developer queues.')
-    show_tickets(store,user)
-    st.divider()
-    st.markdown('#### Submit a support ticket')
-    submit_ticket_form(store,user['id'],prefix='club_general')
+    with st.expander('Need help? Submit a support ticket'):
+        submit_ticket_form(store,user['id'],prefix='club_no_access')
+else:
+    if len(my_clubs)==1:
+        active_id=my_clubs[0]['id']
+        st.session_state.active_club_id=active_id
+    else:
+        club_ids=[c['id'] for c in my_clubs]
+        old_id=st.session_state.get('active_club_id')
+        active_id=st.selectbox('Choose club to manage',club_ids,
+                               index=club_ids.index(old_id) if old_id in club_ids else 0,
+                               format_func=lambda club_id:next(c['org_name'] for c in my_clubs if c['id']==club_id),
+                               key='club_portal_club_picker')
+        st.session_state.active_club_id=active_id
+    current_club=next(c for c in my_clubs if c['id']==active_id)
+    st.markdown(
+        '<div class="hub-managed-club">'
+        '<div class="hub-managed-club__eyebrow">YOUR CLUB</div>'
+        '<div class="hub-managed-club__name">' + html_escape(current_club['org_name']) + '</div>'
+        '<div class="hub-managed-club__meta">' + html_escape(str(current_club.get('category') or '')) +
+        ' · ' + html_escape(str(current_club.get('org_size') or '')) + ' club</div></div>',
+        unsafe_allow_html=True,
+    )
+    col1,col2=st.columns(2)
+    col1.metric('Clubs I manage',len(my_clubs))
+    col2.metric('My published events',len([e for e in store.events() if e['created_by']==user['id']]))
+
+    publish,manage,tickets=st.tabs(['Publish event','My events','Support tickets'])
+    with publish:
+        publish_panel(clubs)
+    with manage:
+        manage_events()
+    with tickets:
+        st.subheader('My club tickets and support requests')
+        st.caption('Event-information tickets for your club arrive here automatically. Other tickets go to client/developer queues.')
+        show_tickets(store,user)
+        st.divider()
+        st.markdown('#### Submit a support ticket')
+        submit_ticket_form(store,user['id'],prefix='club_general')
+    with st.expander('Register another club (optional)'):
+        st.caption('Only register a separate, new club. Your existing club is already connected above.')
+        register_club()

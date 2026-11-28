@@ -447,10 +447,7 @@ def event_card(event, namespace, user, saved_map):
         size = str(event.get('org_size', '')).title()
         top_left, top_right = st.columns([8, 1], vertical_alignment='center')
         with top_left:
-            if st.session_state.get('my_key', False):
-                kicker = esc(str(event['category'])) + (f' · {esc(size)} club' if size else '')
-            else:
-                kicker = esc(str(event['category']))
+            kicker = esc(str(event['category'])) + (f' · {esc(size)} club' if size else '')
             st.markdown(f'<div class="kicker">{kicker}</div>', unsafe_allow_html=True)
         with top_right:
             source_icon(event, namespace)
@@ -726,7 +723,6 @@ def page_my_hub():
 
 def page_events():
     st.subheader('Find your next event')
-    show_club_size = toggle_club_size()
     user = current_user()
     keyword_col, category_col = st.columns([2, 1])
     query = keyword_col.text_input('Search events, clubs, or locations',
@@ -768,24 +764,31 @@ def page_clubs():
     st.caption('Club categories are inferred from their event listings, not an official university directory.')
     show_club_cards(candidates, 'clubs', user, get_saved_club_ids(user))
 
-def dismiss_time_conflicts():
-    """Mark the summary as dismissed for this visit to the Calendar page."""
-    st.session_state['_calendar_conflict_dismissed'] = True
-
-
-@st.dialog(title='Time conflicts detected', width='small', icon='⚠️',
-           dismissible=True, on_dismiss=dismiss_time_conflicts)
-def show_time_conflicts(conflicts):
-    """One summary dialog for every time slot with more than one saved event."""
-    count = len(conflicts)
-    st.write(f"You have **{count} time conflict{'s' if count != 1 else ''}** "
-             'among your saved events.')
-    for rows in conflicts:
-        first = rows[0]
-        names = ', '.join(f"*{row['title']}*" for row in rows)
-        st.write(f"- {first['event_date'].strftime('%B %d, %Y')} at "
-                 f"{first['start_time']}: {names}")
-    st.write('Please check your saved events and resolve the conflicts.')
+def page_support():
+    st.subheader('Help and support')
+    st.write('Report website bugs, account problems, or inaccurate event information.')
+    st.caption('Content reports linked to a registered club are routed to that club. Technical reports are tracked for developer follow-up.')
+    store=get_store()
+    user=current_user()
+    ticket_user='demo-student' if is_demo() else (user or {}).get('id')
+    if store is None:
+        st.error('Supabase MVP database not configured.')
+    elif ticket_user is None:
+        st.info('Sign in using My Hub to submit and track a ticket.')
+    else:
+        submit_ticket_form(store,ticket_user,prefix='student_general')
+        st.markdown('#### Your submitted tickets')
+        try:
+            rows=[t for t in store.tickets(user_id=ticket_user)
+                  if t['reporter_id']==ticket_user]
+            if not rows:
+                st.info('No tickets submitted yet.')
+            for ticket in rows:
+                with st.expander(f"{ticket['category'].replace('_',' ').title()} · {ticket['status']} · {str(ticket['id'])[:8]}"):
+                    st.write(ticket['description'])
+                    st.caption('Routed to '+ticket['route'])
+        except Exception as exc:
+            st.error(f'Could not load tickets: {exc}')
 
 
 def page_calendar():
@@ -793,59 +796,28 @@ def page_calendar():
     st.write('See your saved events in a calendar format. This view is for planning and visualization.')
 
     events = get_events()
-    saved_map = get_saved_map(current_user())
-    if saved_map is None:
-        return          # get_saved_map() already showed st.error()
-    saved = events[events['event_id'].isin(saved_map)]
-
-    if saved.empty:
-        st.info('No saved events yet. Visit Explore Events and select ♡ Save event.')
-        return
+    saved = events[events['event_id'].isin(get_saved_map(current_user()))]
 
     saved_dict = []
-    slots = {}
 
-    for _, row in saved.iterrows():
-        day = row['event_date'].strftime('%Y-%m-%d')
-        clock = str(row['start_time']).strip()
-        slot = (day, clock)
-        slots.setdefault(slot, []).append(row)
-        # Timed events so Week/List views show real start times. Fall back to an
-        # all-day event if a listing has an unparseable time.
-        parsed = pd.to_datetime(clock, format='%I:%M %p', errors='coerce')
-        if pd.isna(parsed):
-            saved_dict.append({
-                'title': f"{clock}: {row['title']}" if clock else row['title'],
-                'start': day,
-                'allDay': True,
-            })
-        else:
-            saved_dict.append({
-                'title': row['title'],
-                'start': f"{day}T{parsed.strftime('%H:%M:%S')}",
-                'allDay': False,
-            })
-
-    conflicts = [rows for rows in slots.values() if len(rows) > 1]
-    # Keep the dialog open across reruns until the user dismisses it. Changing
-    # pages clears the flag, so revisiting Calendar shows it again if conflicts remain.
-    if conflicts and not st.session_state.get('_calendar_conflict_dismissed'):
-        show_time_conflicts(conflicts)
+    for i in range(len(saved)):
+        saved_dict.append({
+            'title': saved.iloc[i]['start_time'] + ': ' + saved.iloc[i]['title'],
+            'start': str(saved.iloc[i]['event_date']),
+            'end': str(saved.iloc[i]['event_date']),
+            'allDay': True,
+            'backgroundColor': '#EAF3FA',
+            'borderColor': '#00629B',
+            'textColor': '#182B49',
+            'classNames': ['hub-event--saved'],
+        })
 
     calendar_options = {
         "editable": False,
+        "selectable": True,
         "initialView": "dayGridMonth",
-        # Force full AM/PM labels instead of FullCalendar's default "1p"/"1a".
-        "eventTimeFormat": {
-            "hour": "numeric",
-            "minute": "2-digit",
-            "meridiem": "short",
-        },
-        "slotLabelFormat": {
-            "hour": "numeric",
-            "minute": "2-digit",
-            "meridiem": "short",
-        },
+        "dayMaxEvents": 4,
+        "themeSystem": "standard",
         "headerToolbar": {
             "left": "today prev,next",
             "center": "title",
@@ -853,35 +825,10 @@ def page_calendar():
         },
     }
 
-    # Match the calendar to the rest of the site: ink pill buttons, white day cells, yellow event chips.
-    calendar_css = """
-        .fc {font-family: 'Source Sans Pro', sans-serif; color: #1F1D1B;}
-        .fc .fc-toolbar-title {font-family: 'Newsreader', Georgia, serif; font-weight: 500; font-size: 1.8rem;}
-        .fc .fc-button {background: transparent; color: #1F1D1B; border: 1px solid #1F1D1B; border-radius: 999px;
-                        box-shadow: none; text-transform: capitalize; transition: background .2s, color .2s;}
-        .fc .fc-button:hover {background: #1F1D1B; color: #fff; border-color: #1F1D1B;}
-        .fc .fc-button-primary:not(:disabled).fc-button-active,
-        .fc .fc-button-primary:not(:disabled):active {background: #1F1D1B; color: #fff; border-color: #1F1D1B;}
-        .fc .fc-button:disabled {opacity: .4;}
-        .fc .fc-button-group > .fc-button {border-radius: 0;}
-        .fc .fc-button-group > .fc-button:first-child {border-radius: 999px 0 0 999px;}
-        .fc .fc-button-group > .fc-button:last-child {border-radius: 0 999px 999px 0;}
-        .fc-theme-standard td, .fc-theme-standard th, .fc-theme-standard .fc-scrollgrid {border-color: #E6E0D6;}
-        .fc .fc-scrollgrid {border-radius: 16px; overflow: hidden;}
-        .fc .fc-daygrid-day {background: #fff;}
-        .fc .fc-day-today {background: #FFFBE8 !important;}
-        .fc .fc-col-header-cell {background: #F7F4EF;}
-        .fc .fc-event {background: #FFCD00; border-color: #C69214; color: #182B49; border-radius: 8px; padding: 1px 4px;}
-        .fc .fc-event, .fc .fc-event .fc-event-main, .fc .fc-event-title, .fc .fc-event-time {color: #182B49 !important; font-weight: 600;}
-        .fc .fc-event:hover {background: #C69214;}
-        .fc .fc-list-event:hover td {background: #FFFBE8;}
-    """
-    calendar(events = saved_dict, options = calendar_options, custom_css = calendar_css, key = "my_calendar")
+    # FullCalendar is inside an iframe; supply its own high-contrast UCSD theme.
+    calendar_css = UCSD_CALENDAR_CSS
+    state = calendar(events = saved_dict, options = calendar_options, custom_css = calendar_css, key = "my_calendar")
 
-def toggle_club_size():
-     is_enabled = st.toggle("Show club size", value = False, key = "my_key", persist_state = "session", help = "Toggle to show the size of the club hosting the event.")
-     return is_enabled
-       
 
 events = get_events()
 club_summary = get_clubs(events)
@@ -904,10 +851,4 @@ pages = [
     st.Page(page_support, title='Support'),
 ]
 selected_page = st.navigation(pages, position='top')
-# Reset per-page dialog state only when the active page changes. Reruns caused by
-# buttons on the same page keep the flag, so a dismissed dialog stays dismissed;
-# leaving and returning to Calendar shows it again if the conflict still exists.
-if st.session_state.get('_active_page') != selected_page.title:
-    st.session_state['_active_page'] = selected_page.title
-    st.session_state.pop('_calendar_conflict_dismissed', None)
 selected_page.run()

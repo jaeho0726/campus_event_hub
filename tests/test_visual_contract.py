@@ -27,10 +27,10 @@ def test_all_events_marks_event_types_and_limits_stack():
     assert "'slotEventOverlap':False" in source
 
 
-def test_demo_banner_and_fields_use_light_contrast():
+def test_demo_marker_is_subtle_and_fields_use_light_contrast():
     source = (ROOT / 'portal_ui.py').read_text()
-    assert 'hub-demo-banner' in source
-    assert 'st.markdown(\'<div class="hub-demo-banner">' in source
+    assert 'Local demo · simulated account' in source
+    assert 'LOCAL DEMO MODE' not in source
     assert 'background-color:#FFFFFF !important;' in source
 
 
@@ -39,3 +39,17 @@ def test_theme_is_explicitly_light():
     assert 'base = "light"' in source
     assert 'primaryColor = "#00629B"' in source
     assert 'textColor = "#182B49"' in source
+
+
+def test_club_setup_is_conditional_and_time_zone_label_is_dst_safe():
+    source=(ROOT / 'club_portal.py').read_text()
+    assert "if not my_clubs:" in source
+    assert "st.tabs(['Publish event','My events','Support tickets'])" in source
+    assert "'Start time (PT)'" in source
+    assert "'End time (PT)'" in source
+    assert 'hub-managed-club__name' in source
+
+def test_calendar_has_vertical_day_separators():
+    from calendar_theme import UCSD_CALENDAR_CSS
+    assert 'border-left:2px solid #B7CDE0' in UCSD_CALENDAR_CSS
+    assert 'td.fc-timegrid-col:nth-child(even)' in UCSD_CALENDAR_CSS

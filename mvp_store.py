@@ -64,18 +64,26 @@ def init_demo():
               created_at text not null default (datetime('now')),
               updated_at text not null default (datetime('now')));
         ''')
-        # A dedicated fictional club to demonstrate admin ownership (not UCSD-verified).
+        # Each portal starts in a separate process. The check-and-seed operation
+        # must be atomic: otherwise two simultaneous starts can both observe an
+        # empty clubs table and both insert the same unique club_key.
+        # BEGIN IMMEDIATE serializes this section without deleting existing data.
+        db.execute('BEGIN IMMEDIATE')
         if not db.execute('select 1 from clubs limit 1').fetchone():
             club_id = str(uuid4())
-            db.execute('insert into clubs (id,org_name,club_key,category,org_size,description,owner_id) values (?,?,?,?,?,?,?)',
-                       (club_id, 'Triton Demo Makers', 'triton demo makers', 'Technology', 'Medium',
-                        'Fictional test organization used for this MVP demonstration.', 'demo-officer'))
-            db.execute('''insert into published_events
-               (id,club_id,created_by,title,event_date,start_time,end_time,building,room,category,description,free_food)
-               values (?,?,?,?,?,?,?,?,?,?,?,?)''',
-               (str(uuid4()), club_id, 'demo-officer', 'Campus App Demo Night',
-                (date.today()+timedelta(days=7)).isoformat(), '18:00', '20:00', 'Price Center', 'Demo Room A',
-                'Technology', 'Fictional event demonstrating the three-portal workflow.', 0))
+            inserted = db.execute('''insert or ignore into clubs
+                (id,org_name,club_key,category,org_size,description,owner_id)
+                values (?,?,?,?,?,?,?)''',
+                (club_id, 'Triton Demo Makers', 'triton demo makers', 'Technology', 'Medium',
+                 'Fictional test organization used for this MVP demonstration.', 'demo-officer'))
+            if inserted.rowcount:
+                db.execute('''insert into published_events
+                   (id,club_id,created_by,title,event_date,start_time,end_time,building,room,category,description,free_food)
+                   values (?,?,?,?,?,?,?,?,?,?,?,?)''',
+                   (str(uuid4()), club_id, 'demo-officer', 'Campus App Demo Night',
+                    (date.today()+timedelta(days=7)).isoformat(), '18:00', '20:00',
+                    'Price Center', 'Demo Room A', 'Technology',
+                    'Fictional event demonstrating the three-portal workflow.', 0))
 
 
 class LocalStore:
